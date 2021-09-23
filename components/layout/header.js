@@ -32,7 +32,7 @@ const Menu = (props) => {
         <ul className="sub-menu">
           <li>
             <Link href="/producto">
-              <a href="producto.html">GanaRendimiento</a>
+              <a>GanaRendimiento</a>
             </Link>
           </li>
           <li>
