@@ -1,0 +1,136 @@
+import Container from "../components/layout/container";
+import Calculator from "../components/calculator";
+
+export default function Producto({ data }) {
+  return (
+    <Container>
+      <div className="pricing-area area-padding-3">
+        <div className="container">
+          <div className="row">
+            <div className="pricing-content">
+              <div className="col-md-5 col-sm-6  col-xs-12">
+                <div className="section-headline text-left">
+                  <h3 className="text-light-green">
+                    Comienza a invertir tu dinero con GANASAFI
+                  </h3>
+
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Proin in posuere magna. Proin nulla velit, auctor vitae
+                    commodo sed, elementum a nibh. Vestibulum sit amet sapien
+                    quis nisl pretium ultrices. Aliquam non porta ex. Cras sed
+                    metus vestibulum, semper tortor sit amet, tincidunt purus.
+                    Suspendisse potenti.
+                  </p>
+                  <hr />
+                  <p>
+                    <strong>Reglamento interno</strong>
+                  </p>
+                  <a className="text-green">
+                    <u>Descargar reglamento</u>
+                  </a>
+
+                  <hr />
+                  <p>
+                    <strong>Prospecto</strong>
+                  </p>
+                  <a className="text-green">
+                    <u>Descargar prospecto</u>
+                  </a>
+                </div>
+              </div>
+
+              <div className="col-md-7 col-sm-6 col-xs-12">
+                <div className="table-list">
+                  <div className="top-price-inner">
+                    <h4 className="text-green">GanaRendimiento - FIA</h4>
+                    <div className="rates">
+                      Moneda: <span className="users">Bolivianos</span>
+                    </div>
+                  </div>
+                  <ol>
+                    <li className="">
+                      <strong>
+                        Inversiones a Corto Plazo concentradas en Bs y también
+                        en USD, perfil conservador
+                      </strong>
+                    </li>
+                    <li className="check">
+                      <strong className="text-light-green">
+                        Monto de apertura:
+                      </strong>{" "}
+                      Bs. 1000
+                    </li>
+                    <li className="check">
+                      <strong className="text-light-green">
+                        Rescates permitidos:
+                      </strong>{" "}
+                      Sin Restricciones. sin previa notificación Bs. 700.000
+                    </li>
+                    <li className="check">
+                      <strong className="text-light-green">
+                        Política de rescate:
+                      </strong>{" "}
+                      Con 3 dias hábiles de notificación de bs. 700.001 a Bs.
+                      3.500.000 <br />
+                      Con 4 días hábiles mayores a Bs.3.500.001
+                    </li>
+                    <li className="check">
+                      <strong className="text-light-green">
+                        Permanencia mínima de la Inversión en cuotas:
+                      </strong>{" "}
+                      1 día
+                    </li>
+                    <li className="check">
+                      <strong className="text-light-green">
+                        Perfil Inversor:
+                      </strong>{" "}
+                      Invesores conservadores que desean un rendimiento
+                      atractivo en Bs, y alta disponibilidad de sus recursos
+                    </li>
+                  </ol>
+                  <div className="price-btn">
+                    <a href="">Solicitar</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="banner-area area-padding">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
+              <div className="banner-all area-80 text-center">
+                <div className="banner-content">
+                  <h3>Simulador de inversión</h3>
+                  <br />
+                  <Calculator data={data} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Container>
+  );
+}
+
+export async function getServerSideProps() {
+  let res = await fetch("https://portalsafi.azurewebsites.net/api/producto");
+  
+  let body = await res.json();
+  console.log(body.payload);
+  let { rate, currencySymbol, times } = body.payload;
+
+  return {
+    props: {
+      data: {
+        rate,
+        currencySymbol,
+        times,
+      },
+    },
+  };
+}
