@@ -12,9 +12,9 @@ export default function QuienesSomos() {
                 <div className="text-left">
                   <h3 className="text-light-green">Sobre GANASAFI</h3>
 
-                  <Img
-                    s="https://via.placeholder.com/800x400"
-                    c="img-responsive"
+                  <img
+                    src="https://via.placeholder.com/800x400"
+                    className="img-responsive"
                   />
                   <br />
 

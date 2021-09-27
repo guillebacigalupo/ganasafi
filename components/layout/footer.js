@@ -14,7 +14,7 @@ export default function Footer({ data }) {
                 <div className="footer-head">
                   <div className="footer-logo">
                     <a className="footer-black-logo" href="#">
-                      <Img s="img/logo/logo.png" w="300px" a="" />
+                      <Img s="logo/logo.png" w="300px" a="" />
                     </a>
                     <p>
                       <strong className="text-green">

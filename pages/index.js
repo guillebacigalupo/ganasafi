@@ -19,7 +19,7 @@ export default function Home() {
             <div className="col-md-6 col-sm-6 col-xs-12">
               <div className="feature-content">
                 <div className="feature-images">
-                  <Img s="/img/feature/f1.png" a="Picture of the author" />
+                  <Img s="feature/f1.png" a="Picture of the author" />
                 </div>
               </div>
             </div>

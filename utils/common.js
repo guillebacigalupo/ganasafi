@@ -17,13 +17,13 @@ export function generateRandomString(length) {
 
 export function encrypt(s, parse=false) {
   s = parse ? JSON.stringify(s) : s;
-  const h = AES.encrypt(s, secret);
+  const h = AES.encrypt(s, secret, { iv });
   log({ s, h });
   return h.toString();
 }
 
 export function decrypt(s, parse = false) {
-  var h = AES.decrypt(s, secret);
+  var h = AES.decrypt(s, secret, { iv });
   return parse ? 
   JSON.stringify(h.toString(CryptoJS.enc.Utf8)) : 
   h.toString(CryptoJS.enc.Utf8);

@@ -26,7 +26,7 @@ const Menu = (props) => {
       <li>
         <Link
           href="/#comparador"
-          onClick={() => {
+          onClick={(e) => {
             window &&
               window.scrollTo({
                 top: document.querySelector("#comparador").offsetTop,

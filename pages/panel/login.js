@@ -1,9 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { getSession } from "next-auth/client";
 import Container from "../../components/layout/container";
-import { log, encrypt, decrypt } from "../../utils/common";
-
-log(encrypt('hola'));
+import { log, encrypt, decrypt, getCookie } from "../../utils/common";
 
 export default function Login(data) {
   const [email, setEmail] = useState("");
@@ -39,15 +37,19 @@ export default function Login(data) {
       },
       body: JSON.stringify({
         email,
-        password: encryptedPwd,
+        password: encrypted,
       }),
     });
 
     //Await for data for any desirable next steps
     const r = await res.json();
 
-    //workflow success or fail 
-    console.log({r});
+    //workflow success or fail
+    log(r);
+
+    //sharing data between backend and frontend
+    const accessToken = getCookie("accessToken");
+    log({ accessToken });
   };
 
   const handleEmail = (e) => {
@@ -67,9 +69,9 @@ export default function Login(data) {
         <div className="login-area area-padding-2 pt130">
           <div className="container">
             <div className="row">
-              <div className="col-md-12 col-sm-12 col-xs-12">
+              <div className="col-md-6 col-sm-12 col-xs-12">
                 <div className="section-headline text-center">
-                  <img src="../../img/logo/logo.png" alt="Login" />
+                  <h3>Iniciar Sesión</h3>
                   <input
                     type="text"
                     className="form-control"
@@ -78,6 +80,7 @@ export default function Login(data) {
                     onChange={handleEmail}
                     ref={inputEmail}
                   />
+                  <br />
                   <input
                     type="password"
                     className="form-control"
@@ -86,7 +89,13 @@ export default function Login(data) {
                     onChange={handlePassword}
                     ref={inputPassword}
                   />
-                  <button onClick={onSubmit}>Enviar</button>
+                  <br />
+                  <button
+                    className="ab-btn left-ab-btn btn-service"
+                    onClick={onSubmit}
+                  >
+                    Enviar
+                  </button>
                 </div>
               </div>
             </div>

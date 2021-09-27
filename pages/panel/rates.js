@@ -1,11 +1,12 @@
 import { signIn, useSession, getSession } from "next-auth/client";
+import { log, encrypt, decrypt, getCookie } from "../../utils/common";
 
 export default function Rates(data) {
-  //const { session } = data;
   const { loading, session } = useSession();
   console.log({ pagerates__: session });
+  
   // When rendering client side don't display anything until loading is complete
-  //if (typeof window !== "undefined" && loading) return null;
+  if (typeof window !== "undefined" && loading) return null;
 
   if (!session) {
     signIn();

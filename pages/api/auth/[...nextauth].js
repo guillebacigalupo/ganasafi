@@ -3,9 +3,9 @@ import NextAuth from "next-auth";
 import Providers from "next-auth/providers";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { PrismaClient } from "@prisma/client";
+import { log, encrypt, decrypt, getCookie } from "../../utils/common";
 
 const prisma = new PrismaClient();
-const log = console.log;
 
 // For more information on each option (and a full list of options) go to
 // https://next-auth.js.org/configuration/options
@@ -113,10 +113,12 @@ const options = {
     // async redirect(url, baseUrl) { return baseUrl },
     async session(session, user) {
       log(["fn:session", accessToken, session, user]);
-      return session;
+      const accessToken = getCookie("accessToken");
+      return {...session, accessToken };
     },
     async jwt(token, user, account, profile, isNewUser) {
       log(["fn:jwt", accessToken, token, user, account, profile, isNewUser]);
+      const accessToken = getCookie("accessToken");
       return token;
     },
   },
