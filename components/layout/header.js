@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import MediaQuery from "react-responsive";
 import HTMLHead from "./partials/head.js";
 import Link from "next/link";
+import Img from "../image";
 
 const Logo = () => {
-  return (<img src="img/logo/logo.png" alt="" />)
+  return <Img s="logo/logo.png" />;
 };
 
 const Menu = (props) => {
@@ -23,7 +24,18 @@ const Menu = (props) => {
         </Link>
       </li>
       <li>
-        <a href="#">Comparador</a>
+        <Link
+          href="/#comparador"
+          onClick={() => {
+            window &&
+              window.scrollTo({
+                top: document.querySelector("#comparador").offsetTop,
+                behavior: "smooth",
+              });
+          }}
+        >
+          <a>Comparador</a>
+        </Link>
       </li>
       <li>
         <Link href="/productos">
@@ -31,12 +43,12 @@ const Menu = (props) => {
         </Link>
         <ul className="sub-menu">
           <li>
-            <Link href="/producto">
+            <Link href="/productos/gana-rendimiento">
               <a>GanaRendimiento</a>
             </Link>
           </li>
           <li>
-            <Link href="/producto">
+            <Link href="/productos/gana-inversiones">
               <a>GanaInversiones</a>
             </Link>
           </li>

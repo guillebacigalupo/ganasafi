@@ -5,6 +5,7 @@ import HowTo from '../components/howto';
 import Counter from '../components/counter';
 import Comparator from '../components/comparator';
 import Contacts from '../components/contacts';
+import Img from '../components/image';
 import Script from 'next/script';
 
 export default function Home() {
@@ -18,7 +19,7 @@ export default function Home() {
             <div className="col-md-6 col-sm-6 col-xs-12">
               <div className="feature-content">
                 <div className="feature-images">
-                  <img src="/img/feature/f1.png" alt="Picture of the author" />
+                  <Img s="/img/feature/f1.png" a="Picture of the author" />
                 </div>
               </div>
             </div>

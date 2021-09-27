@@ -505,12 +505,10 @@ a.s-menu {
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
   background: none;
-  color: #fff;
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
   background-color: transparent;
-  color: #fff;
 }
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {

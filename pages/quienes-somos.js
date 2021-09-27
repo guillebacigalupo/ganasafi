@@ -1,4 +1,5 @@
 import Container from "../components/layout/container";
+import Img from "../components/image";
 
 export default function QuienesSomos() {
   return (
@@ -11,9 +12,9 @@ export default function QuienesSomos() {
                 <div className="text-left">
                   <h3 className="text-light-green">Sobre GANASAFI</h3>
 
-                  <img
-                    src="https://via.placeholder.com/800x400"
-                    className="img-responsive"
+                  <Img
+                    s="https://via.placeholder.com/800x400"
+                    c="img-responsive"
                   />
                   <br />
 

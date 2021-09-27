@@ -1,12 +1,44 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
+import ReCAPTCHA from "react-google-recaptcha";
 
 export default function Contacts({ data }) {
+  const router = useRouter();
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState(router.query?.m ?? "");
   const [responseMessage, setResponseMessage] = useState("");
   const [submitted, setSubmitted] = useState("false");
+  console.log(message);
 
+  const validateCaptcha = (response_key) => {
+    return new Promise((resolve, reject) => {
+      const secret_key = process.env.RECAPTCHA_SECRET;
+
+      const url = `https://www.google.com/recaptcha/api/siteverify?secret=${secret_key}&response=${response_key}`;
+
+      fetch(url, {
+        method: "post",
+      })
+        .then((response) => response.json())
+        .then((google_response) => {
+          if (google_response.success == true) {
+            resolve(true);
+          } else {
+            resolve(false);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+          resolve(false);
+        });
+    });
+  };
+
+  useEffect(() => {
+    router.query?.m && message == "" && setMessage(router.query.m);
+  }, [router.query]);
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -23,6 +55,10 @@ export default function Contacts({ data }) {
 
     if (!hasError) {
       console.log("Sending");
+      if (grecaptcha.getResponse() === "") {
+        e.preventDefault();
+        alert("Please click <I'm not a robot> before sending the job");
+      }
 
       let body = {
         name,
@@ -179,6 +215,7 @@ export default function Contacts({ data }) {
                           onChange={(e) => {
                             setMessage(e.target.value);
                           }}
+                          value={message}
                         ></textarea>
                         <div className="help-block with-errors"></div>
                       </div>
@@ -186,6 +223,9 @@ export default function Contacts({ data }) {
                         <div id="msgSubmit" className="h3 text-center">
                           {responseMessage}
                         </div>
+                        <div className="clearfix"></div>
+                        <ReCAPTCHA size="normal" sitekey="<YOUR SITE KEY>" />
+
                         <div className="clearfix"></div>
                         <button
                           onClick={(e) => {

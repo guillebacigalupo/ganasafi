@@ -1,5 +1,7 @@
+import Link from "next/link";
+
 export default function OurProducts({ data }) {
-    const { standalone } = data;
+  const { standalone } = data;
   return (
     <>
       <div
@@ -19,7 +21,7 @@ export default function OurProducts({ data }) {
               </div>
             </div>
           </div>
-          
+
           <div className="row">
             <div className="support-all">
               <div className="col-md-6 col-sm-6 col-xs-12">
@@ -37,12 +39,16 @@ export default function OurProducts({ data }) {
                       posuere risus. Curabitur.
                     </p>
 
-                    <a
-                      className="ab-btn left-ab-btn btn-service"
-                      href="producto.html"
-                    >
-                      Quiero saber más
-                    </a>
+                    <Link href="/productos/gana-rendimiento">
+                      <a className="ab-btn left-ab-btn btn-service">
+                        Quiero saber más
+                      </a>
+                    </Link>
+                    <Link href="/simulador">
+                      <a className="ab-btn left-ab-btn btn-service">
+                        Simulador
+                      </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -61,12 +67,17 @@ export default function OurProducts({ data }) {
                       posuere risus. Curabitur.
                     </p>
 
-                    <a
-                      className="ab-btn left-ab-btn btn-service"
-                      href="producto.html"
-                    >
-                      Quiero saber más
-                    </a>
+                    <Link href="/productos/gana-inversiones">
+                      <a className="ab-btn left-ab-btn btn-service">
+                        Quiero saber más
+                      </a>
+                    </Link>
+
+                    <Link href="/simulador">
+                      <a className="ab-btn left-ab-btn btn-service">
+                        Simulador
+                      </a>
+                    </Link>
                   </div>
                 </div>
               </div>
