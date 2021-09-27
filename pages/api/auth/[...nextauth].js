@@ -3,7 +3,7 @@ import NextAuth from "next-auth";
 import Providers from "next-auth/providers";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { PrismaClient } from "@prisma/client";
-import { log, encrypt, decrypt, getCookie } from "../../utils/common";
+import { log, encrypt, decrypt, getCookie } from "../../../utils/common";
 
 const prisma = new PrismaClient();
 
