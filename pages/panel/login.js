@@ -46,6 +46,9 @@ export default function Login(data) {
 
     //workflow success or fail
     log(r);
+    if (r.status == 200) {
+      
+    }
 
     //sharing data between backend and frontend
     const accessToken = getCookie("accessToken");

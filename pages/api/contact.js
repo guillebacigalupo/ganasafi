@@ -7,6 +7,7 @@ const pass = process.env.pass;
 
 export default function handler(req, res) {
   console.log(req.body);
+  
   const transporter = nodemailer.createTransport({
     port: 465,
     host: "smtp.gmail.com",

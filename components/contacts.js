@@ -39,6 +39,7 @@ export default function Contacts({ data }) {
   useEffect(() => {
     router.query?.m && message == "" && setMessage(router.query.m);
   }, [router.query]);
+  
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -55,6 +56,7 @@ export default function Contacts({ data }) {
 
     if (!hasError) {
       console.log("Sending");
+      
       if (grecaptcha.getResponse() === "") {
         e.preventDefault();
         alert("Please click <I'm not a robot> before sending the job");

@@ -8,9 +8,46 @@ generator client {
   previewFeatures = ["referentialActions"]
 }
 
+model Property {
+  id                 Int @id @default(autoincrement())
+  uuid               String  @default(cuid())
+  object_id          Int
+  object_type        String
+  prop_group         String
+  prop_key           String
+  prop_value         String?
+  prop_status        Int?
+
+  @@unique([object_id, object_type, prop_group, prop_key], name: "object_property")
+}
+
+model Content {
+  id                 Int @id @default(autoincrement())
+  uuid               String  @default(cuid())
+  language_id        Int @default(1)
+  object_id          Int
+  object_type        String
+  title              String?
+  description        String?
+  seo_title          String?
+  seo_description    String?
+
+  @@unique([language_id, object_id, object_type], name: "object_content")
+}
+
+model Product {
+  id                 Int @id  @default(autoincrement())
+  uuid               String  @default(cuid())
+  title              String?
+  description        String?
+  slug               String @unique
+  rate               Float?
+}
+
 model Account {
-  id                 String  @id @default(cuid())
-  userId             String
+  id                 Int @id @default(autoincrement())
+  uuid               String @default(cuid())
+  userId             Int
   type               String
   provider           String
   providerAccountId  String
@@ -30,15 +67,17 @@ model Account {
 }
 
 model Session {
-  id           String   @id @default(cuid())
+  id           Int @id @default(autoincrement())
+  uuid         String  @default(cuid())
   sessionToken String   @unique
-  userId       String
+  userId       Int
   expires      DateTime
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model User {
-  id            String    @id @default(cuid())
+  id            Int @id @default(autoincrement())
+  uuid          String  @default(cuid())
   name          String?
   email         String?   @unique
   password      String?
