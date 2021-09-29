@@ -31,6 +31,21 @@ export function decrypt(s, parse = false) {
     : h.toString(CryptoJS.enc.Utf8);
 }
 
+export function removeCookie(k, __customCookieString = null) {
+  let c;
+  if (!!__customCookieString) {
+    //lets use custm store as cookie
+    c = getCookie(null, __customCookieString);
+  } else {
+ c = getCookie();
+  }
+  c[k] = null;
+  delete c[k];
+  
+  let ch = encrypt(JSON.stringify(c));
+  Cookies.set(COOKIE_PATH, JSON.stringify(ch));
+}
+
 export function setCookie(k, v, __customCookieString = null) {
   let c;
   if (!!__customCookieString) {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, memo } from "react";
 import { useRouter } from "next/router";
-import { encrypt, decrypt, getCookie, log } from "../../../utils/common";
+import { encrypt, decrypt, getCookie, removeCookie, setCookie, log } from "../../../utils/common";
 import { Container, Row, Col } from "reactstrap";
 import Head from "next/head";
 
@@ -13,8 +13,17 @@ const storeLayout = {};
 function AdminContainer(mainProps) {
   const router = useRouter();
   const { children } = mainProps;
-
+log( )
   const [session, setSession] = useState();
+
+  const signOut = () => {
+    
+            setSession( {} );
+            removeCookie("uuid");
+            removeCookie("accessToken");
+            log( getCookie("accessToken"))
+            window.location.href = "/panel/login";
+  }
   useEffect(
     () => {
       fetch("/api/auth/session")
@@ -22,19 +31,24 @@ function AdminContainer(mainProps) {
           return resp.json();
         })
         .then((data) => {
-          setSession(data);
+          log( {data})
           if (!data.user.id) {
             //TODO:logout and clean user data and cookies 
             //redirect to homepage
-            setSession( {} );
-            router.push('/');
-
+            signOut();
+            return;
+          } else {
+            setSession(data);
           }
         });
     },
-    [setSession]
+    [setSession, signOut]
   );
 
+  if (!getCookie("accessToken") || !getCookie("uuid")) {
+    signOut();
+  }
+  
   return (
     <>
       <Head>
@@ -67,7 +81,7 @@ function AdminContainer(mainProps) {
         <link href="/assets/static/css/font-awesome.min.css" rel="stylesheet" />
         <link href="/assets/static/css/admin.css" rel="stylesheet" />
       </Head>
-      <NavBar session={session} />
+      <NavBar session={session} signOut={()=> { signOut() }} />
       <Container fluid className="wrapper">
         <Row>
           <Col className="wrapper-left">
