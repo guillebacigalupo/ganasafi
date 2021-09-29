@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 
 const iv = CryptoJS.enc.Utf8.parse("1514838699281281");
 const secret = "b7352d2424bb2072655a519547f5a9df";
-const COOKIE_PATH = "GanaSafiWeb_SPA_";
+export const COOKIE_PATH = "GanaSafiWeb_SPA_";
 
 Cookies.set(process.env.COOKIE_PATH, {});
 
@@ -31,15 +31,29 @@ export function decrypt(s, parse = false) {
     : h.toString(CryptoJS.enc.Utf8);
 }
 
-export function setCookie(k, v) {
-  let c = getCookie();
+export function setCookie(k, v, __customCookieString = null) {
+  let c;
+  if (!!__customCookieString) {
+    //lets use custm store as cookie
+    c = getCookie(null, __customCookieString);
+  } else {
+ c = getCookie();
+  }
+
   c[k] = v;
   let ch = encrypt(JSON.stringify(c));
   Cookies.set(COOKIE_PATH, JSON.stringify(ch));
 }
 
-export function getCookie(k = null) {
+export function getCookie(k = null, __customCookieString = null) {
   let __cookie = Cookies.get(COOKIE_PATH);
+
+  if (!!__customCookieString) {
+    //lets use custm store as cookie
+    let c = JSON.parse(decrypt(JSON.parse(__customCookieString)));
+    return !k ? c : !!c[k] ? c[k] : null;
+  }
+
   if (!__cookie) {
     Cookies.set(COOKIE_PATH, {});
     return {};

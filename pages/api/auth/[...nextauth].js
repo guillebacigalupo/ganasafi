@@ -106,21 +106,10 @@ const options = {
   // when an action is performed.
   // https://next-auth.js.org/configuration/callbacks
   callbacks: {
-    async signIn(user, account, profile, email, credentials) {
-      log(["fn:signIn", user, account, profile, email, credentials]);
-      return true;
-    },
+    // async signIn(user, account, profile, email, credentials) {},
     // async redirect(url, baseUrl) { return baseUrl },
-    async session(session, user) {
-      log(["fn:session", accessToken, session, user]);
-      const accessToken = getCookie("accessToken");
-      return {...session, accessToken };
-    },
-    async jwt(token, user, account, profile, isNewUser) {
-      log(["fn:jwt", accessToken, token, user, account, profile, isNewUser]);
-      const accessToken = getCookie("accessToken");
-      return token;
-    },
+    // async session(session, user) { },
+    // async jwt(token, user, account, profile, isNewUser) {},
   },
 
   // Events are useful for logging

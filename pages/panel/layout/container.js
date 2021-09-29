@@ -1,5 +1,6 @@
 import React, { useState, useEffect, memo } from "react";
 import { signIn, signOut, useSession, getSession } from "next-auth/client";
+import { useRouter } from "next/router";
 import { log, encrypt, decrypt, getCookie } from "../../../utils/common";
 import { Container, Row, Col } from "reactstrap";
 import Head from "next/head";
@@ -12,9 +13,35 @@ const storeLayout = {};
 
 function AdminContainer(mainProps) {
   const { loading, session } = useSession();
+  const router = useRouter();
   const { children } = mainProps;
 
   const props = { signIn, signOut, useSession, getSession };
+
+  useEffect(() => {
+    fecth("/api/auth/session", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        uuid: getCookie("uuid"),
+        accessToken: getCookie("accessToken"),
+      }),
+    })
+      .then((resp) => {
+        return resp.json();
+      })
+      .then((data) => {
+        log(data);
+        if (!!data.user) {
+        } else {
+          //session fail
+          //TODO: clean session cookies and user data
+          router.push("/");
+        }
+      });
+  });
 
   return (
     <>

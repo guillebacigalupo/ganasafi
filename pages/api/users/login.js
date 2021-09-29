@@ -24,7 +24,6 @@ const login = async (email, password) => {
   });
 
   //user not found
-  log({ user });
   if (!user || !user.password) {
     errorMessage = "Invalid User";
     return false;
@@ -38,32 +37,31 @@ const login = async (email, password) => {
 
   //customize specific data to encrypt y pass as access token
   const accessToken = encrypt(JSON.stringify(user));
-        const expires = new Date().toISOString();
-        let d = {
-            userId:user.id,
-            sessionToken: accessToken,
-            expires
-          };
-          log( {d} )
-  prisma.session.create({ data:d }).then( log ) 
-  return accessToken;
+  return {...user, accessToken};
 };
 
 export default async function handler(req, res) {
   try {
     //get params vars
     const { email, password } = req.body;
-    const accessToken = await login(email, password);
-
+    const payload = await login(email, password);
         
-      log({accessToken});
-      if (!accessToken) {
+      log({payload});
+      if (!payload?.accessToken) {
         res.status(500).json({ error: errorMessage });
       } else {
-        
+        //const expires = new Date().toISOString();
+        let d = {
+          userId: payload.id,
+          sessionToken: payload.accessToken
+          //expires
+        };
+
+        prisma.session.create({ data: d }).then( log );
+
         res.status(200).json({
           result: "OK",
-          payload: { accessToken },
+          payload,
         });
       }
   } catch (e) {

@@ -53,11 +53,12 @@ export default function Login(data) {
     if (res.status < 300 && r.result == "OK") {
       //TODO: rewrite the oauth token flow
       setCookie("accessToken", r.payload.accessToken);
+      setCookie("uuid", r.payload.uuid);
 
       const urlParams = new URLSearchParams(window.location.search);
       const callbackUrl = urlParams.get('callbackUrl');
 
-     // window.location.href = callbackUrl ?? "/panel";
+     window.location.href = callbackUrl ?? "/panel";
     }
   };
 
