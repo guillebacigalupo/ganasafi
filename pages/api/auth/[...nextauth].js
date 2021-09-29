@@ -30,26 +30,6 @@ const options = {
       },
       async authorize(credentials) {
         log({ credentials });
-        try {
-          //const user = await axios.get("http://localhost:3000/api/users");
-          const user = await prisma.user.findUnique({
-            where: {
-              email: "yosiet@prisma.io",
-            },
-          });
-
-            let accessToken = '';
-          if (user) {
-            accessToken = await jwt.sign({ user }, process.env.SECRET);
-            user = { ...user, accessToken };
-          }
-          log(user);
-          return user ?? null;
-        } catch (e) {
-          throw new Error(
-            "There was an error on user authentication\n" + JSON.stringify(e)
-          );
-        }
       },
     }),
   ],
@@ -96,7 +76,7 @@ const options = {
   // https://next-auth.js.org/configuration/pages
   pages: {
     signIn: "/panel/login", // Displays signin buttons
-    signOut: "/auth/signout", // Displays form with sign out button
+    //signOut: "/auth/signout", // Displays form with sign out button
     //error: "/auth/error", // Error code passed in query string as ?error=
     //verifyRequest: '/auth/verify-request', // Used for check email page
     //newUser: null // If set, new users will be directed here on first sign in

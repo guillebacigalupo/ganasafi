@@ -41,7 +41,8 @@ const MENUS = [
 ];
 
 function SideBar(props) {
-  const { activeLink } = props;
+  const { activeLink, session } = props;
+  
   return (
     <>
       <h4 className="headline">Menu</h4>

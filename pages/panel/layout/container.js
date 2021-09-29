@@ -1,7 +1,7 @@
 import React, { useState, useEffect, memo } from "react";
 import { signIn, signOut, useSession, getSession } from "next-auth/client";
 import { useRouter } from "next/router";
-import { log, encrypt, decrypt, getCookie } from "../../../utils/common";
+import { encrypt, decrypt, getCookie, log } from "../../../utils/common";
 import { Container, Row, Col } from "reactstrap";
 import Head from "next/head";
 
@@ -12,36 +12,22 @@ import NavBar from "./navbar";
 const storeLayout = {};
 
 function AdminContainer(mainProps) {
-  const { loading, session } = useSession();
+  const { loading } = useSession();
   const router = useRouter();
   const { children } = mainProps;
 
-  const props = { signIn, signOut, useSession, getSession };
+  const [session, setSession] = useState();
+  useEffect((setSession) => {
+    fetch(process.env.BASE_URL + "/api/auth/session")
+    .then(resp => { return resp.json() })
+    .then(data => {
 
-  useEffect(() => {
-    fecth("/api/auth/session", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        uuid: getCookie("uuid"),
-        accessToken: getCookie("accessToken"),
-      }),
-    })
-      .then((resp) => {
-        return resp.json();
-      })
-      .then((data) => {
-        log(data);
-        if (!!data.user) {
-        } else {
-          //session fail
-          //TODO: clean session cookies and user data
-          router.push("/");
-        }
-      });
-  });
+    log({ session:data });
+    setSession(data);
+    });
+  }, [setSession]);
+  
+  const props = { session };
 
   return (
     <>
@@ -82,42 +68,11 @@ function AdminContainer(mainProps) {
             <SideBar props={props} />
           </Col>
           <Col className="wrapper-content">{children}</Col>
+          {session?.name}
         </Row>
       </Container>
     </>
   );
-}
-
-export async function getServerSideProps({ req, res, params }) {
-  try {
-    const session = await getSession(req, res);
-    log({ session });
-    const email = session?.user?.email;
-
-    //if not valid session, redirect to login
-    if (!session) {
-      return {
-        redirect: {
-          destination: "/",
-          permanent: false,
-        },
-      };
-    }
-
-    //check user permissions
-    let permissions = null;
-    if (!!User) {
-      permissions = await User.getPermissions();
-    }
-
-    return {
-      props: {
-        session,
-      },
-    };
-  } catch (e) {
-    return new Error("Error: " + JSON.stringify(e));
-  }
 }
 
 export default AdminContainer;
