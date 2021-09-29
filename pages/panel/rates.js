@@ -24,8 +24,7 @@ export default function Rates(data) {
 
 export async function getServerSideProps({ req, res, params }) {
     const session = await getSession(req, res);
-    console.log({ session });
-    const email = session?.user?.email;
+    console.log({ rates__: session });
     //if not valid session, redirect to login
     
   if (!session) {

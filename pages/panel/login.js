@@ -57,7 +57,7 @@ export default function Login(data) {
       const urlParams = new URLSearchParams(window.location.search);
       const callbackUrl = urlParams.get('callbackUrl');
 
-      window.location.href = callbackUrl ?? "/panel";
+     // window.location.href = callbackUrl ?? "/panel";
     }
   };
 

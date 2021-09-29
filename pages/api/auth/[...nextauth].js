@@ -118,7 +118,8 @@ const options = {
     },
     async jwt(token, user, account, profile, isNewUser) {
       log(["fn:jwt", accessToken, token, user, account, profile, isNewUser]);
-      return getCookie("accessToken");
+      const accessToken = getCookie("accessToken");
+      return token;
     },
   },
 

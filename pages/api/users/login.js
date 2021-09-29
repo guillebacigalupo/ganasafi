@@ -38,6 +38,14 @@ const login = async (email, password) => {
 
   //customize specific data to encrypt y pass as access token
   const accessToken = encrypt(JSON.stringify(user));
+        const expires = new Date().toISOString();
+        let d = {
+            userId:user.id,
+            sessionToken: accessToken,
+            expires
+          };
+          log( {d} )
+  prisma.session.create({ data:d }).then( log ) 
   return accessToken;
 };
 
@@ -47,10 +55,12 @@ export default async function handler(req, res) {
     const { email, password } = req.body;
     const accessToken = await login(email, password);
 
+        
       log({accessToken});
       if (!accessToken) {
         res.status(500).json({ error: errorMessage });
       } else {
+        
         res.status(200).json({
           result: "OK",
           payload: { accessToken },
