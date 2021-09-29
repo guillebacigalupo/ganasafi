@@ -65,7 +65,7 @@ const options = {
     // Use JSON Web Tokens for session instead of database sessions.
     // This option can be used with or without a database for users/accounts.
     // Note: `jwt` is automatically set to `true` if no database is specified.
-    //jwt: true,
+    jwt: true,
     // Seconds - How long until an idle session expires and is no longer valid.
     maxAge: 30 * 24 * 60 * 60, // 30 days
     // Seconds - Throttle how frequently to write to database to extend a session.
@@ -114,7 +114,7 @@ const options = {
     async session(session, user) {
       log(["fn:session", accessToken, session, user]);
       const accessToken = getCookie("accessToken");
-      return Promise.resolve({...session, accessToken });
+      return {...session, accessToken };
     },
     async jwt(token, user, account, profile, isNewUser) {
       log(["fn:jwt", accessToken, token, user, account, profile, isNewUser]);
