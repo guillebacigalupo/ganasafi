@@ -1,5 +1,4 @@
 import React, { useState, useEffect, memo } from "react";
-import { signIn, signOut, useSession, getSession } from "next-auth/client";
 import { useRouter } from "next/router";
 import { encrypt, decrypt, getCookie, log } from "../../../utils/common";
 import { Container, Row, Col } from "reactstrap";
@@ -12,21 +11,27 @@ import NavBar from "./navbar";
 const storeLayout = {};
 
 function AdminContainer(mainProps) {
-  const { loading } = useSession();
   const router = useRouter();
   const { children } = mainProps;
 
   const [session, setSession] = useState();
-  useEffect((setSession) => {
-    fetch(process.env.BASE_URL + "/api/auth/session")
-    .then(resp => { return resp.json() })
-    .then(data => {
+  useEffect(
+    () => {
+      fetch("/api/auth/session")
+        .then((resp) => {
+          return resp.json();
+        })
+        .then((data) => {
+          setSession(data);
+          if (!data.user.id) {
+            //TODO:logout and clean user data and cookies 
+            //redirect to homepage 
+          }
+        });
+    },
+    [setSession]
+  );
 
-    log({ session:data });
-    setSession(data);
-    });
-  }, [setSession]);
-  
   const props = { session };
 
   return (
