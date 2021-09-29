@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import { useRouter } from 'next/router';
+import React, { useState } from "react";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import AdminContainer from "../layout/container";
 import CheckIcon from "../../../components/ui/icons/check";
-import LoadingIcon from "../../../components/ui/icons/check";
+import LoadingIcon from "../../../components/ui/icons/loading";
 import UIModal from "../../../components/ui/modal";
 import { Col, Row, Table, Button } from "reactstrap";
 
 export default function Users(props) {
   const { data, error } = props;
   const router = useRouter();
-  console.log({ data, error })
+
   let Users = [];
 
   //modal controls
@@ -22,64 +22,76 @@ export default function Users(props) {
 
   const refreshData = () => {
     router.replace(router.asPath);
-  }
-  const updateRecord = (id) => {}
-  const removeRecord = (e,id) => {
+  };
+  const updateRecord = (e, id) => {
+    e.preventDefault();
+    router.push(`/panel/users/update/${id}`);
+  };
+  const removeRecord = (e, id) => {
     e.preventDefault();
     setModalTitle("Eliminar");
     setModalContent("¿Está seguro?");
     setModal(true);
     setUUID(id);
-  }
+  };
   const handleDelete = async (d) => {
     console.log(d);
-    
-    setModalContent(<LoadingIcon />);
-      //POST form values
-      const res = await fetch("/api/users/"+uuid, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          uuid
-        }),
-      });
 
-      //workflow success or fail
-      if (res.status < 300) {
-        setModalContent(<CheckIcon />);
-        refreshData();
-        setTimeout(() => {
-          toggle()
-        }, 1000);
-      } else {
-        setModalContent("No se pudo eliminar, por favor intente de nuevo");
-      }
-      setModal(true);
-  }
+    setModalContent(<LoadingIcon />);
+    //POST form values
+    const res = await fetch("/api/users/" + uuid, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        uuid,
+      }),
+    });
+
+    //workflow success or fail
+    if (res.status < 300) {
+      setModalContent(<CheckIcon />);
+      refreshData();
+      setTimeout(() => {
+        toggle();
+      }, 1200);
+    } else {
+      setModalContent("No se pudo eliminar, por favor intente de nuevo");
+    }
+    setModal(true);
+  };
   if (typeof error == "undefined") {
     if (data.length > 0) {
       Users = data.map((item) => {
         return (
-        <tr key={item.uuid}>
-          <th scope="row">
-            <input type="checkbox" name="users[]" value={item.id} />
-          </th>
-          <td>{item.name}</td>
-          <td>{item.email}</td>
-          <td>
-            <button className="btn btn-default" onClick={(e)=>{updateRecord(e, item.id)}}>
-              <i className="fa fa-edit"></i>
-            </button>
-            <button className="btn btn-default" onClick={(e)=>{removeRecord(e, item.id)}}>
-              <i className="fa fa-trash"></i>
-            </button>
-          </td>
-        </tr>
+          <tr key={item.uuid}>
+            <th scope="row">
+              <input type="checkbox" name="users[]" value={item.id} />
+            </th>
+            <td>{item.name}</td>
+            <td>{item.email}</td>
+            <td>
+              <button
+                className="btn btn-default"
+                onClick={(e) => {
+                  updateRecord(e, item.id);
+                }}
+              >
+                <i className="fa fa-edit"></i>
+              </button>
+              <button
+                className="btn btn-default"
+                onClick={(e) => {
+                  removeRecord(e, item.id);
+                }}
+              >
+                <i className="fa fa-trash"></i>
+              </button>
+            </td>
+          </tr>
         );
       });
-      console.log( {Users} )
     } else {
       Users = (
         <tr>
@@ -95,16 +107,26 @@ export default function Users(props) {
     );
   }
 
-  
   return (
     <AdminContainer>
       <h1>Usuarios</h1>
-      
-      <UIModal props={{title:modalTitle, content:modalContent, btnAccept:handleDelete, btnCancel:toggle, toggle, modal}} />
+
+      <UIModal
+        props={{
+          title: modalTitle,
+          content: modalContent,
+          btnAccept: handleDelete,
+          btnCancel: toggle,
+          toggle,
+          modal,
+        }}
+      />
 
       <Row>
         <Link href="/panel/users/create" passHref={true}>
-          <Button className="btn btn-default" color="primary">Crear Usuario</Button>
+          <Button className="btn btn-default" color="primary">
+            Crear Usuario
+          </Button>
         </Link>
       </Row>
       <Table hover>

@@ -4,7 +4,7 @@ import AdminContainer from "../layout/container";
 import { log, encrypt, decrypt, getCookie } from "../../../utils/common";
 import Link from "next/link";
 import CheckIcon from "../../../components/ui/icons/check";
-import LoadingIcon from "../../../components/ui/icons/check";
+import LoadingIcon from "../../../components/ui/icons/loading";
 import UIModal from "../../../components/ui/modal";
 import {
   Row,
@@ -34,7 +34,13 @@ const actions = {
 
       return (
         <Form>
-          <h2>Crear Usuario</h2>
+          <h2>{props.title}</h2>
+          {props.data.uuid && (
+            <>
+              <br />
+              <small>UUID: {props.data.uuid}</small>
+            </>
+          )}
           <hr />
           <FormGroup>
             <Label for="name">Nombre</Label>
@@ -79,7 +85,7 @@ const actions = {
           <Button
             color="primary"
             onClick={(e) => {
-              actions["create"].onSubmit(e, props);
+              actions[props.action].onSubmit(e, props);
             }}
           >
             Aceptar
@@ -132,7 +138,7 @@ const actions = {
         setTimeout(() => {
           router.push("/panel/users");
           props.setModal(false);
-        }, 1000);
+        }, 1200);
       } else {
         setFlag("error");
         props.setModalContent("No se pudo crear, por favor intente de nuevo");
@@ -142,15 +148,66 @@ const actions = {
   update: {},
 };
 
+actions.update.onSubmit = async (e, props) => {
+  e.preventDefault();
+
+  const { name, email, password, setFlag, router } = props;
+
+  props.setModalContent(<LoadingIcon />);
+  props.setModal(true);
+
+  setFlag("none");
+  //Validation
+  if (!email || !email.includes("@")) {
+    log("Invalid email");
+    return;
+  }
+
+  let body = {};
+  body.name = name;
+  body.email = email;
+  if (password) {
+    body.password = encrypt(password);
+  }
+  //POST form values
+  const res = await fetch(`/api/users/${props.data.id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body),
+  });
+
+  //workflow success or fail
+  if (res.status < 300) {
+    //Await for data for any desirable next steps
+    const r = await res.json();
+
+    //some data process flow controls
+    props.setModalContent(<CheckIcon />);
+    setTimeout(() => {
+      router.push("/panel/users");
+      props.setModal(false);
+    }, 1200);
+  } else {
+    setFlag("error");
+    props.setModalContent("No se pudo actualizar, por favor intente de nuevo");
+  }
+};
+actions.update.children = actions.create.children;
+
 export default function Users(props) {
   const router = useRouter();
-  const { pid } = router.query;
-  const { children } = actions[pid];
+  const { children } = actions[props.action];
 
   const [flag, setFlag] = useState("success");
   const [error, setError] = useState("No hay conexión con el servidor");
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [name, setName] = useState(
+    props.action == "update" ? props.data.name : ""
+  );
+  const [email, setEmail] = useState(
+    props.action == "update" ? props.data.email : ""
+  );
   const [password, setPassword] = useState("");
   const [encryptedPwd, setEncryptedPwd] = useState("");
 
@@ -159,10 +216,33 @@ export default function Users(props) {
   const [modalContent, setModalContent] = useState("");
   const toggle = () => setModal(!modal);
 
-  switch (pid) {
+  switch (props.action) {
     case "create":
       props = {
         ...props,
+        title: "Crear Usuario",
+        email,
+        name,
+        password,
+        encryptedPwd,
+        setEmail,
+        setName,
+        setPassword,
+        setEncryptedPwd,
+        flag,
+        setFlag,
+        error,
+        setError,
+        router,
+        toggle,
+        setModalContent,
+        setModal,
+      };
+      break;
+    case "update":
+      props = {
+        ...props,
+        title: "Editar Usuario",
         email,
         name,
         password,
@@ -182,6 +262,7 @@ export default function Users(props) {
       };
       break;
   }
+
 
   return (
     <AdminContainer>
@@ -203,10 +284,35 @@ export default function Users(props) {
 export async function getServerSideProps({ params }) {
   const { pid } = params;
 
-  const data = { pid };
+  let action = typeof pid == "object" ? pid[0] : pid;
+  let id = typeof pid == "object" ? pid[1] : 0;
+  let data = {};
+
+  const allowed = ['create', 'update'];
+  if (!allowed.includes( action )) {
+    return {
+      redirect: {
+        destination: "/404",
+        permanent: false,
+      },
+    };
+  }
+  
+  if (action == "update") {
+    let r = await fetch(process.env.BASE_URL + "/api/users/" + id, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (r.status < 300) {
+      data = await r.json();
+    }
+  }
 
   return {
     props: {
+      action,
       data,
     },
   };

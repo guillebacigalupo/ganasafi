@@ -23,14 +23,14 @@ const MENUS = [
     href: "/panel/products",
     label: "Productos",
     icon: "fas fa-clone",
-  },
+  },/*
   {
     name: "buttons",
     as: "a",
     href: "/panel/slider",
     label: "Slider",
     icon: "fas fa-bullseye",
-  },
+  },*/
   {
     name: "users",
     as: "a",

@@ -28,9 +28,10 @@ function NavBar(props) {
             <NavItem>
               <NavLink href="/panel/products">Productos</NavLink>
             </NavItem>
+            {/**
             <NavItem>
               <NavLink href="/panel/users">Slider</NavLink>
-            </NavItem>
+            </NavItem> */}
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
                 Usuarios
@@ -69,7 +70,9 @@ function NavBar(props) {
                 <a
                   href="#"
                   className="text-dark"
-                  onClick={()=>{props.signOut()}}
+                  onClick={() => {
+                    props.signOut();
+                  }}
                 >
                   <i className="fas fa-home"></i>
                   Cerrar Sesión
