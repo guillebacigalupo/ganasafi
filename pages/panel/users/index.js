@@ -4,7 +4,7 @@ import Link from "next/link";
 import AdminContainer from "../layout/container";
 import CheckIcon from "../../../components/ui/icons/check";
 import LoadingIcon from "../../../components/ui/icons/check";
-import UIModal from "../ui/modal";
+import UIModal from "../../../components/ui/modal";
 import { Col, Row, Table, Button } from "reactstrap";
 
 export default function Users(props) {
@@ -16,6 +16,7 @@ export default function Users(props) {
   //modal controls
   const [uuid, setUUID] = useState("");
   const [modal, setModal] = useState(false);
+  const [modalTitle, setModalTitle] = useState("");
   const [modalContent, setModalContent] = useState("");
   const toggle = () => setModal(!modal);
 
@@ -25,6 +26,7 @@ export default function Users(props) {
   const updateRecord = (id) => {}
   const removeRecord = (e,id) => {
     e.preventDefault();
+    setModalTitle("Eliminar");
     setModalContent("¿Está seguro?");
     setModal(true);
     setUUID(id);
@@ -60,7 +62,7 @@ export default function Users(props) {
     if (data.length > 0) {
       Users = data.map((item) => {
         return (
-        <tr>
+        <tr key={item.uuid}>
           <th scope="row">
             <input type="checkbox" name="users[]" value={item.id} />
           </th>
@@ -98,7 +100,7 @@ export default function Users(props) {
     <AdminContainer>
       <h1>Usuarios</h1>
       
-      <UIModal props={{title:"Hola", content:modalContent, btnAccept:handleDelete, btnCancel:toggle, toggle, modal}} />
+      <UIModal props={{title:modalTitle, content:modalContent, btnAccept:handleDelete, btnCancel:toggle, toggle, modal}} />
 
       <Row>
         <Link href="/panel/users/create" passHref={true}>

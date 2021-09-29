@@ -5,7 +5,7 @@ import { log, encrypt, decrypt, getCookie } from "../../../utils/common";
 import Link from "next/link";
 import CheckIcon from "../../../components/ui/icons/check";
 import LoadingIcon from "../../../components/ui/icons/check";
-import UIModal from "../ui/modal";
+import UIModal from "../../../components/ui/modal";
 import {
   Row,
   Col,
@@ -95,8 +95,8 @@ const actions = {
 
       const { name, email, password, setEncryptedPwd, setFlag, router } = props;
 
-    props.setModalContent(<LoadingIcon />);
-    props.setModal(true);
+      props.setModalContent(<LoadingIcon />);
+      props.setModal(true);
 
       setFlag("none");
       //Validation
@@ -127,11 +127,11 @@ const actions = {
         //Await for data for any desirable next steps
         const r = await res.json();
 
-        //some data process flow controls 
+        //some data process flow controls
         props.setModalContent(<CheckIcon />);
         setTimeout(() => {
-            router.push("/panel/users");
-            props.setModal(false);
+          router.push("/panel/users");
+          props.setModal(false);
         }, 1000);
       } else {
         setFlag("error");
@@ -183,12 +183,21 @@ export default function Users(props) {
       break;
   }
 
-  return (<AdminContainer>
-      <UIModal props={{title:"Usuario", content:modalContent, btnAccept:toggle, toggle, modal}} />
+  return (
+    <AdminContainer>
+      <UIModal
+        props={{
+          title: "Usuario",
+          content: modalContent,
+          btnAccept: toggle,
+          toggle,
+          modal,
+        }}
+      />
 
-        {children(props)}
-  </AdminContainer>);
-
+      {children(props)}
+    </AdminContainer>
+  );
 }
 
 export async function getServerSideProps({ params }) {
