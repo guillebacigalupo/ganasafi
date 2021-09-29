@@ -47,6 +47,7 @@ typings/
 .npm
 
 # Optional eslint cache
+.eslintrc.json
 .eslintcache
 
 # Optional REPL history
