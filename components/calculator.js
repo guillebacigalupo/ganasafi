@@ -3,7 +3,7 @@ import { useState } from "react";
 const times = 12;
 
 export default function Calculator({ data }) {
-  const { currencySymbol, rate, times } = data;
+  const { currencySymbol, rate } = data;
   data.rate = data.rate ?? 0.095;
 
   const [capital, setCapital] = useState(0);

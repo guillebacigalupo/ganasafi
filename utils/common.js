@@ -1,8 +1,11 @@
 import CryptoJS, { AES } from "crypto-js";
-import Cookie from "js-cookie";
+import Cookies from "js-cookie";
 
 const iv = CryptoJS.enc.Utf8.parse("1514838699281281");
 const secret = "b7352d2424bb2072655a519547f5a9df";
+const COOKIE_PATH = "GanaSafiWeb_SPA_";
+
+Cookies.set(process.env.COOKIE_PATH, {});
 
 export function generateRandomString(length) {
   var result = "";
@@ -15,7 +18,7 @@ export function generateRandomString(length) {
   return result;
 }
 
-export function encrypt(s, parse=false) {
+export function encrypt(s, parse = false) {
   s = parse ? JSON.stringify(s) : s;
   const h = AES.encrypt(s, secret, { iv });
   return h.toString();
@@ -23,24 +26,25 @@ export function encrypt(s, parse=false) {
 
 export function decrypt(s, parse = false) {
   var h = AES.decrypt(s, secret, { iv });
-  return parse ? 
-  JSON.stringify(h.toString(CryptoJS.enc.Utf8)) : 
-  h.toString(CryptoJS.enc.Utf8);
+  return parse
+    ? JSON.stringify(h.toString(CryptoJS.enc.Utf8))
+    : h.toString(CryptoJS.enc.Utf8);
 }
 
 export function setCookie(k, v) {
   let c = getCookie();
   c[k] = v;
-  let ch = encrypt(c);
-  Cookie.set(process.env.COOKIE_PATH, ch);
+  let ch = encrypt(JSON.stringify(c));
+  Cookies.set(COOKIE_PATH, JSON.stringify(ch));
 }
 
 export function getCookie(k = null) {
-  let __cookie = Cookie.get(process.env.COOKIE_PATH);
+  let __cookie = Cookies.get(COOKIE_PATH);
   if (!__cookie) {
-    Cookie.set(process.env.COOKIE_PATH, {});
+    Cookies.set(COOKIE_PATH, {});
+    return {};
   }
-  let c = decrypt(Cookie.get(process.env.COOKIE_PATH));
+  let c = JSON.parse(decrypt(JSON.parse(Cookies.get(COOKIE_PATH))));
   return !k ? c : !!c[k] ? c[k] : null;
 }
 

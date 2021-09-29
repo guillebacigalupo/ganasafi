@@ -8,14 +8,6 @@ export default function Rates(data) {
   // When rendering client side don't display anything until loading is complete
   if (typeof window !== "undefined" && loading) return null;
 
-  if (!session) {
-    signIn();
-    return (
-      <>
-        <h1>Redirecting...</h1>
-      </>
-    );
-  } else {
     // If session exists, display content
     return (
       <>
@@ -25,43 +17,32 @@ export default function Rates(data) {
         </p>
         </>
     );
-  }
+  
 }
 
 // Export the `session` prop to use sessions with Server Side Rendering
-/*
+
 export async function getServerSideProps({ req, res, params }) {
-  try {
     const session = await getSession(req, res);
-    console.log({ rates__: session });
+    console.log({ session });
     const email = session?.user?.email;
     //if not valid session, redirect to login
-    /*
+    
   if (!session) {
+    /*
     return {
       redirect: {
         destination: "/api/auth/signin",
         permanent: false,
       },
     };
+    */
   }
-  * /
-
-    /*
-  //get user permissions
-  let permissions = null;
-  if (!!User) {
-    permissions = await User.getPermissions();
-  }
-  * /
+  
 
     return {
       props: {
         session,
       },
     };
-  } catch (e) {
-    return new Error("Error: " + JSON.stringify(e));
-  }
 }
-*/

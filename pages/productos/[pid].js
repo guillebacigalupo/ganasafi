@@ -15,7 +15,7 @@ export default function Producto({ data }) {
   const router = useRouter();
   const { pid } = router.query;
 
-  console.log(data);
+  console.log({data});
   return (
     <Container>
       <div className="pricing-area area-padding-3">
@@ -133,10 +133,13 @@ export default function Producto({ data }) {
 
 export async function getServerSideProps({ params }) {
   const { pid } = params;
+  let data = {};
+  let r = await fetch(process.env.BASE_URL + '/api/products/?where={"slug":"'+ pid +'"}');
 
-  let res = await fetch("https://portalsafi.azurewebsites.net/api/producto");
-
-  let body = await res.json();
+    if (r.status < 300) {
+      let d = await r.json();
+       data = d.length>0 ? d[0] : {};
+    }
 
   //simulating product not found after db request
   if (typeof products[pid] == "undefined") {
@@ -144,8 +147,8 @@ export async function getServerSideProps({ params }) {
       notFound: true,
     };
   }
-
-  const data = { ...body.payload, ...products[pid] };
+console.log( r )
+  data = { ...data, ...products[pid] };
 
   return {
     props: {

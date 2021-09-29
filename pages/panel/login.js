@@ -1,7 +1,14 @@
 import { useState, useEffect, useRef } from "react";
 import { getSession } from "next-auth/client";
 import Container from "../../components/layout/container";
-import { log, encrypt, decrypt, getCookie } from "../../utils/common";
+import {
+  log,
+  encrypt,
+  decrypt,
+  getCookie,
+  setCookie,
+} from "../../utils/common";
+import Cookies from "js-cookie";
 
 export default function Login(data) {
   const [email, setEmail] = useState("");
@@ -26,8 +33,6 @@ export default function Login(data) {
     let encrypted = encrypt(pass);
     setPassword(pass);
     setEncryptedPwd(encrypted);
-    log({ password: encrypted });
-    log({ password: decrypt(encrypted) });
 
     //POST form values
     const res = await fetch("/api/users/login", {
@@ -45,10 +50,14 @@ export default function Login(data) {
     const r = await res.json();
 
     //workflow success or fail
-    log(r);
-    if (r.status == 200) {
-      //TODO: rewrite the oauth token flow 
-      window.location.href = process.env.BASE_URL +"/panel";
+    if (res.status < 300 && r.result == "OK") {
+      //TODO: rewrite the oauth token flow
+      setCookie("accessToken", r.payload.accessToken);
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const callbackUrl = urlParams.get('callbackUrl');
+
+      window.location.href = callbackUrl ?? "/panel";
     }
   };
 
@@ -61,7 +70,7 @@ export default function Login(data) {
     e.preventDefault();
     setPassword(e.currentTarget.value);
   };
-  
+
   if (!session) {
     // If no session exists, display login form
     return (
