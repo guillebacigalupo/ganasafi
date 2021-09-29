@@ -34,14 +34,15 @@ export default function handler(req, res) {
         if (!user || !user.password) {
           let e = "Invalid User";
           log(e);
-          //res.status(500).json({ error: e });
+          res.status(500).json({ error: e });
         }
 
         // password incorrect
+        log({password, userPwd:user.password});
         if (password != user.password) {
           let e = "User or Password invalid";
           log(e);
-          //res.status(500).json({ error: e });
+          res.status(500).json({ error: e });
         }
 
         //customize specific data to encrypt y pass as access token

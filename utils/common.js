@@ -18,7 +18,6 @@ export function generateRandomString(length) {
 export function encrypt(s, parse=false) {
   s = parse ? JSON.stringify(s) : s;
   const h = AES.encrypt(s, secret, { iv });
-  log({ s, h });
   return h.toString();
 }
 
@@ -37,6 +36,10 @@ export function setCookie(k, v) {
 }
 
 export function getCookie(k = null) {
+  let __cookie = Cookie.get(process.env.COOKIE_PATH);
+  if (!__cookie) {
+    Cookie.set(process.env.COOKIE_PATH, {});
+  }
   let c = decrypt(Cookie.get(process.env.COOKIE_PATH));
   return !k ? c : !!c[k] ? c[k] : null;
 }

@@ -24,7 +24,6 @@ const MENUS = [
     label: "Productos",
     icon: "fas fa-clone",
   },
-  /*
   {
     name: "buttons",
     as: "a",
@@ -32,7 +31,6 @@ const MENUS = [
     label: "Slider",
     icon: "fas fa-bullseye",
   },
-  */
   {
     name: "users",
     as: "a",

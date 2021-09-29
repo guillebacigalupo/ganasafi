@@ -3,6 +3,9 @@ import { useRouter } from "next/router";
 import AdminContainer from "../layout/container";
 import { log, encrypt, decrypt, getCookie } from "../../../utils/common";
 import Link from "next/link";
+import CheckIcon from "../../../components/ui/icons/check";
+import LoadingIcon from "../../../components/ui/icons/check";
+import UIModal from "../ui/modal";
 import {
   Row,
   Col,
@@ -90,7 +93,10 @@ const actions = {
     onSubmit: async (e, props) => {
       e.preventDefault();
 
-      const { name, email, password, setEncryptedPwd, setFlag } = props;
+      const { name, email, password, setEncryptedPwd, setFlag, router } = props;
+
+    props.setModalContent(<LoadingIcon />);
+    props.setModal(true);
 
       setFlag("none");
       //Validation
@@ -117,20 +123,19 @@ const actions = {
       });
 
       //workflow success or fail
-      if (res.status == 200) {
+      if (res.status < 300) {
         //Await for data for any desirable next steps
         const r = await res.json();
 
         //some data process flow controls 
-        
-        return {
-          redirect: {
-            destination: "/panel/users",
-            permanent: false,
-          },
-        };
+        props.setModalContent(<CheckIcon />);
+        setTimeout(() => {
+            router.push("/panel/users");
+            props.setModal(false);
+        }, 1000);
       } else {
         setFlag("error");
+        props.setModalContent("No se pudo crear, por favor intente de nuevo");
       }
     },
   },
@@ -149,6 +154,11 @@ export default function Users(props) {
   const [password, setPassword] = useState("");
   const [encryptedPwd, setEncryptedPwd] = useState("");
 
+  //modal controls
+  const [modal, setModal] = useState(false);
+  const [modalContent, setModalContent] = useState("");
+  const toggle = () => setModal(!modal);
+
   switch (pid) {
     case "create":
       props = {
@@ -165,11 +175,20 @@ export default function Users(props) {
         setFlag,
         error,
         setError,
+        router,
+        toggle,
+        setModalContent,
+        setModal,
       };
       break;
   }
 
-  return <AdminContainer>{children(props)}</AdminContainer>;
+  return (<AdminContainer>
+      <UIModal props={{title:"Usuario", content:modalContent, btnAccept:toggle, toggle, modal}} />
+
+        {children(props)}
+  </AdminContainer>);
+
 }
 
 export async function getServerSideProps({ params }) {

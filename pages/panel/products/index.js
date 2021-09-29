@@ -4,7 +4,12 @@ import Link from "next/link";
 
 export default function Products(props) {
   const { data, error } = props;
+  
   let Products = [];
+  
+  const updateRecord = (id) => {}
+  const removeRecord = (id) => {}
+
   if (typeof error == "undefined") {
     if (data.length > 0) {
       Products = data.map((item) => {

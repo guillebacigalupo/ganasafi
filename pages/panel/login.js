@@ -47,12 +47,9 @@ export default function Login(data) {
     //workflow success or fail
     log(r);
     if (r.status == 200) {
-      
+      //TODO: rewrite the oauth token flow 
+      window.location.href = process.env.BASE_URL +"/panel";
     }
-
-    //sharing data between backend and frontend
-    const accessToken = getCookie("accessToken");
-    log({ accessToken });
   };
 
   const handleEmail = (e) => {

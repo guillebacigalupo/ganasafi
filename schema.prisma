@@ -31,6 +31,7 @@ model Content {
   description        String?
   seo_title          String?
   seo_description    String?
+  createdAt DateTime @default(now())
 
   @@unique([language_id, object_id, object_type], name: "object_content")
 }
@@ -42,6 +43,7 @@ model Product {
   description        String?
   slug               String @unique
   rate               Float?
+  createdAt DateTime @default(now())
 }
 
 model Account {
@@ -60,6 +62,7 @@ model Account {
   session_state      String?
   oauth_token_secret String?
   oauth_token        String?
+  createdAt DateTime @default(now())
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -73,6 +76,7 @@ model Session {
   userId       Int
   expires      DateTime
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
 }
 
 model User {
@@ -85,6 +89,7 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
+  createdAt DateTime @default(now())
 }
 
 model VerificationToken {
