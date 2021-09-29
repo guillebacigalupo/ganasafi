@@ -25,14 +25,15 @@ function AdminContainer(mainProps) {
           setSession(data);
           if (!data.user.id) {
             //TODO:logout and clean user data and cookies 
-            //redirect to homepage 
+            //redirect to homepage
+            setSession( {} );
+            router.push('/');
+
           }
         });
     },
     [setSession]
   );
-
-  const props = { session };
 
   return (
     <>
@@ -66,14 +67,13 @@ function AdminContainer(mainProps) {
         <link href="/assets/static/css/font-awesome.min.css" rel="stylesheet" />
         <link href="/assets/static/css/admin.css" rel="stylesheet" />
       </Head>
-      <NavBar props={props} />
+      <NavBar session={session} />
       <Container fluid className="wrapper">
         <Row>
           <Col className="wrapper-left">
-            <SideBar props={props} />
+            <SideBar session={session} />
           </Col>
           <Col className="wrapper-content">{children}</Col>
-          {session?.name}
         </Row>
       </Container>
     </>

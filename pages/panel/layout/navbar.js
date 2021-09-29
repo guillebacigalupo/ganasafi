@@ -16,6 +16,7 @@ import {
 import Img from "../../../components/image";
 
 function NavBar(props) {
+  const { session } = props;
   return (
     <div>
       <Navbar color="dark" dark expand="sm" fixed="top">
@@ -62,7 +63,7 @@ function NavBar(props) {
           <UncontrolledDropdown inNavbar>
             <DropdownToggle caret nav className="text-secondary">
               <NavbarText className="align-self-center text-left font-weight-bold">
-                Mi Cuenta
+                {session?.user?.name ??  `Mi Cuenta`}
               </NavbarText>
             </DropdownToggle>
             <DropdownMenu>
