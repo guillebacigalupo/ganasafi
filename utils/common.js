@@ -93,3 +93,6 @@ export function getToken() {
 export function log(o) {
   console.log(o);
 }
+
+//init cookie var just when is in browser
+if (typeof window != 'undefined') setCookie("init", 1);
