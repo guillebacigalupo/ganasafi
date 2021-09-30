@@ -21,6 +21,11 @@ export default async function handler(req, res) {
   let accessToken = getCookie("accessToken", ch);
   let uuid = getCookie("uuid", ch);
 
+  if (!accessToken || !uuid) {
+    //user not found by uuid
+    res.status(500).json({ error: "User session vars not found" });
+  }
+
   let user = await prisma.user.findUnique({
     where: {
       uuid,
