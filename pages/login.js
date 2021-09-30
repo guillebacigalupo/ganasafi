@@ -50,7 +50,7 @@ export default function Login(data) {
     const r = await res.json();
 
     //workflow success or fail
-    if (res.status < 300 && r.result == "OK") {
+    if (res.status < 300 && r.result == "OK" && !!r?.payload?.uuid) {
       //TODO: rewrite the oauth token flow
       setCookie("accessToken", r.payload.accessToken);
       setCookie("uuid", r.payload.uuid);
@@ -59,6 +59,9 @@ export default function Login(data) {
       const callbackUrl = urlParams.get('callbackUrl');
 
      window.location.href = callbackUrl ?? "/panel";
+    } else {
+      //fail 
+      console.log("Login fail "+ JSON.stringify( r ));
     }
   };
 

@@ -11,7 +11,13 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 export default async function handler(req, res) {
-  const ch = req.cookies[COOKIE_PATH];
+  const ch = req.cookies[COOKIE_PATH] ?? null;
+  
+  if (!ch) {
+    //user not found by uuid
+    res.status(500).json({ error: "Session var not found" });
+  }
+
   let accessToken = getCookie("accessToken", ch);
   let uuid = getCookie("uuid", ch);
 
