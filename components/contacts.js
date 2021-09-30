@@ -38,7 +38,7 @@ export default function Contacts({ data }) {
 
   useEffect(() => {
     router.query?.m && message == "" && setMessage(router.query.m);
-  }, [router.query]);
+  }, [router, message]);
   
   const handleSubmit = (e) => {
     e.preventDefault();

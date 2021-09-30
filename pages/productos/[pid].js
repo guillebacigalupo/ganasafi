@@ -147,7 +147,7 @@ export async function getServerSideProps({ params }) {
       notFound: true,
     };
   }
-console.log( r )
+
   data = { ...data, ...products[pid] };
 
   return {

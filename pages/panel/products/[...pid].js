@@ -20,7 +20,7 @@ import {
 
 const actions = {
   create: {
-    children: (props) => {
+    children: function Form (props) {
       const handleTitle = (e) => {
         props.setTitle(e.currentTarget.value);
       };

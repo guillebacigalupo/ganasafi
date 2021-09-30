@@ -19,7 +19,7 @@ import {
 
 const actions = {
   create: {
-    children: (props) => {
+    children: function Form(props) {
       const handleName = (e) => {
         props.setName(e.currentTarget.value);
       };
