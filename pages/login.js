@@ -1,16 +1,13 @@
 import { useState, useEffect, useRef } from "react";
-import { getSession } from "next-auth/client";
+import { useRouter } from "next/router";
 import Container from "../components/layout/container";
-import {
-  log,
-  encrypt,
-  decrypt,
-  getCookie,
-  setCookie,
-} from "../utils/common";
-import Cookies from "js-cookie";
+import { log, encrypt, decrypt, getCookie, setCookie } from "../utils/common";
+import CheckIcon from "../components/ui/icons/check";
+import LoadingIcon from "../components/ui/icons/loading";
+import UIModal from "../components/ui/modal";
 
 export default function Login(data) {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [encryptedPwd, setEncryptedPwd] = useState("");
@@ -18,15 +15,45 @@ export default function Login(data) {
   const inputEmail = useRef(null);
   const inputPassword = useRef(null);
 
-  console.log(data);
-  const { session } = data;
+  //modal controls
+  const [modal, setModal] = useState(true);
+  const [modalContent, setModalContent] = useState("");
+  const toggle = () => setModal(!modal);
+  const [session, setSession] = useState(false);
+
+  const goToDashboard = () => {
+    
+    if (typeof window != 'undefined') window.location.href = "/panel";
+    else router.push("/panel");
+  };
+
+  useEffect(() => {
+    fetch("/api/auth/session")
+      .then((resp) => {
+        return resp.json();
+      })
+      .then((data) => {
+        log({ data });
+        if (typeof data.user != 'undefined' && data.user?.id) {
+          setModal(true);
+          setModalContent(<LoadingIcon />);
+          setSession(data.user);
+        } else {
+          setSession(null);
+        }
+      });
+  }, [setSession]);
 
   const onSubmit = async (e) => {
     e.preventDefault();
 
+    setModal(true);
+    setModalContent(<LoadingIcon />);
+
     //Validation
     if (!email || !email.includes("@") || !password) {
       log("Invalid details");
+      setModalContent("Debe ingresar ambos datos de manera correcta");
       return;
     }
     let pass = inputPassword.current.value;
@@ -51,17 +78,19 @@ export default function Login(data) {
 
     //workflow success or fail
     if (res.status < 300 && r.result == "OK" && !!r?.payload?.uuid) {
+      setModalContent(<CheckIcon />);
       //TODO: rewrite the oauth token flow
       setCookie("accessToken", r.payload.accessToken);
       setCookie("uuid", r.payload.uuid);
 
       const urlParams = new URLSearchParams(window.location.search);
-      const callbackUrl = urlParams.get('callbackUrl');
+      const callbackUrl = urlParams.get("callbackUrl");
 
-     window.location.href = callbackUrl ?? "/panel";
+      window.location.href = callbackUrl ?? "/panel";
     } else {
-      //fail 
-      console.log("Login fail "+ JSON.stringify( r ));
+      //fail
+      setModalContent("No se ha podido iniciar sesión, por favor intente de nuevo");
+      console.log("Login fail " + JSON.stringify(r));
     }
   };
 
@@ -79,6 +108,15 @@ export default function Login(data) {
     // If no session exists, display login form
     return (
       <Container pageProps={{ session: 0 }}>
+        <UIModal
+          props={{
+            title: "Inicio de Sesión",
+            content: modalContent,
+            btnAccept: toggle,
+            toggle,
+            modal,
+          }}
+        />
         <div className="login-area area-padding-2 pt130">
           <div className="container">
             <div className="row">
@@ -118,6 +156,7 @@ export default function Login(data) {
     );
   } else {
     //redirect to panel dashboard
+    goToDashboard();
     return (
       <>
         <div>Redirecting to Dashboard...</div>

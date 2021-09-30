@@ -16,6 +16,7 @@ export default async function handler(req, res) {
   if (!ch) {
     //user not found by uuid
     res.status(500).json({ error: "Session var not found" });
+    return;
   }
 
   let accessToken = getCookie("accessToken", ch);
@@ -24,6 +25,7 @@ export default async function handler(req, res) {
   if (!accessToken || !uuid) {
     //user not found by uuid
     res.status(500).json({ error: "User session vars not found" });
+    return;
   }
 
   let user = await prisma.user.findUnique({
@@ -35,6 +37,7 @@ export default async function handler(req, res) {
   if (!user || !user.email) {
     //user not found by uuid
     res.status(500).json({ error: e });
+    return;
   }
 
   let session = await prisma.session.findUnique({
@@ -46,6 +49,7 @@ export default async function handler(req, res) {
   if (!session || session.userId != user.id) {
     //session not found by accesstoken and userId
     res.status(500).json({ error: e });
+    return;
   }
 
   //TODO: time expires session controls
