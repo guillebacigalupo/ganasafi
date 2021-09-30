@@ -1,6 +1,13 @@
 import React, { useState, useEffect, memo } from "react";
 import { useRouter } from "next/router";
-import { encrypt, decrypt, getCookie, removeCookie, setCookie, log } from "../../../utils/common";
+import {
+  encrypt,
+  decrypt,
+  getCookie,
+  removeCookie,
+  setCookie,
+  log,
+} from "../../../utils/common";
 import { Container, Row, Col } from "reactstrap";
 import Head from "next/head";
 
@@ -13,42 +20,39 @@ const storeLayout = {};
 function AdminContainer(mainProps) {
   const router = useRouter();
   const { children } = mainProps;
-log( )
+  log();
   const [session, setSession] = useState();
 
   const signOut = () => {
-    
-            setSession( {} );
-            removeCookie("uuid");
-            removeCookie("accessToken");
-            log( getCookie("accessToken"))
-            window.location.href = "/panel/login";
-  }
-  useEffect(
-    () => {
-      fetch("/api/auth/session")
-        .then((resp) => {
-          return resp.json();
-        })
-        .then((data) => {
-          log( {data})
-          if (!data.user.id) {
-            //TODO:logout and clean user data and cookies 
-            //redirect to homepage
-            signOut();
-            return;
-          } else {
-            setSession(data);
-          }
-        });
-    },
-    [setSession, signOut]
-  );
+    setSession({});
+    removeCookie("uuid");
+    removeCookie("accessToken");
+    log(getCookie("accessToken"));
+    window.location.href = "/panel/login";
+  };
+  
+  useEffect(() => {
+    fetch("/api/auth/session")
+      .then((resp) => {
+        return resp.json();
+      })
+      .then((data) => {
+        log({ data });
+        if (!data.user.id) {
+          //TODO:logout and clean user data and cookies
+          //redirect to homepage
+          signOut();
+          return;
+        } else {
+          setSession(data);
+        }
+      });
+  }, [setSession]);
 
   if (!getCookie("accessToken") || !getCookie("uuid")) {
     signOut();
   }
-  
+
   return (
     <>
       <Head>
@@ -81,7 +85,12 @@ log( )
         <link href="/assets/static/css/font-awesome.min.css" rel="stylesheet" />
         <link href="/assets/static/css/admin.css" rel="stylesheet" />
       </Head>
-      <NavBar session={session} signOut={()=> { signOut() }} />
+      <NavBar
+        session={session}
+        signOut={() => {
+          signOut();
+        }}
+      />
       <Container fluid className="wrapper">
         <Row>
           <Col className="wrapper-left">
