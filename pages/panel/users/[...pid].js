@@ -19,7 +19,7 @@ import {
 
 const actions = {
   create: {
-    children: function Form(props) {
+    children: function UIForm(props) {
       const handleName = (e) => {
         props.setName(e.currentTarget.value);
       };
@@ -35,7 +35,7 @@ const actions = {
       return (
         <Form>
           <h2>{props.title}</h2>
-          {props.data.uuid && (
+          {props.action == "update" && !!props?.data?.uuid && (
             <>
               <br />
               <small>UUID: {props.data.uuid}</small>
@@ -203,10 +203,10 @@ export default function Users(props) {
   const [flag, setFlag] = useState("success");
   const [error, setError] = useState("No hay conexión con el servidor");
   const [name, setName] = useState(
-    props.action == "update" ? props.data.name : ""
+    props.action == "update" && !!props?.data?.name ? props.data.name : ""
   );
   const [email, setEmail] = useState(
-    props.action == "update" ? props.data.email : ""
+    props.action == "update" && !!props?.data?.email ? props.data.email : ""
   );
   const [password, setPassword] = useState("");
   const [encryptedPwd, setEncryptedPwd] = useState("");

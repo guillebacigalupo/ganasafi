@@ -1,13 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 import { getSession } from "next-auth/client";
-import Container from "../../components/layout/container";
+import Container from "../components/layout/container";
 import {
   log,
   encrypt,
   decrypt,
   getCookie,
   setCookie,
-} from "../../utils/common";
+} from "../utils/common";
 import Cookies from "js-cookie";
 
 export default function Login(data) {

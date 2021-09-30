@@ -20,7 +20,7 @@ import {
 
 const actions = {
   create: {
-    children: function Form (props) {
+    children: function UIForm(props) {
       const handleTitle = (e) => {
         props.setTitle(e.currentTarget.value);
       };
@@ -48,7 +48,7 @@ const actions = {
       return (
         <Form>
           <h2>{props.contentTitle}</h2>
-          {props.data.uuid && (
+          {props.action == "update" && !!props?.data?.uuid && (
             <>
               <br />
               <small>UUID: {props.data.uuid}</small>
@@ -133,8 +133,16 @@ const actions = {
     onSubmit: async (e, props) => {
       e.preventDefault();
 
-      const { title, desc, slug, rate, currencySymbol, currencyRate, setFlag, router } =
-        props;
+      const {
+        title,
+        desc,
+        slug,
+        rate,
+        currencySymbol,
+        currencyRate,
+        setFlag,
+        router,
+      } = props;
 
       setFlag("none");
 

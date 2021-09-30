@@ -24,13 +24,14 @@ function AdminContainer(mainProps) {
   const [session, setSession] = useState();
 
   const signOut = () => {
+    //return;
     setSession({});
     removeCookie("uuid");
     removeCookie("accessToken");
     log(getCookie("accessToken"));
-    window.location.href = "/panel/login";
+    window.location.href = "/login";
   };
-  
+
   useEffect(() => {
     fetch("/api/auth/session")
       .then((resp) => {
