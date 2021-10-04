@@ -29,12 +29,8 @@ export default function Producto({ data }) {
                   </h3>
 
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Proin in posuere magna. Proin nulla velit, auctor vitae
-                    commodo sed, elementum a nibh. Vestibulum sit amet sapien
-                    quis nisl pretium ultrices. Aliquam non porta ex. Cras sed
-                    metus vestibulum, semper tortor sit amet, tincidunt purus.
-                    Suspendisse potenti.
+                   Ganadero Sociedad Administradora de Fondos de Inversión S.A. GanaSafi S.A. 
+Es miembro del grupo Financiero Ganadero, nace el año 2020, con la misión de Administrar Fondos de Inversión que coadyuven activamente en el desarrollo económico, financiero y social del país, fomentando el ahorro interno nacional, facilitando económicamente la creación, expansión y desarrollo de empresas nacionales
                   </p>
                   <hr />
                   <p>
@@ -57,7 +53,10 @@ export default function Producto({ data }) {
               <div className="col-md-7 col-sm-6 col-xs-12">
                 <div className="table-list">
                   <div className="top-price-inner">
-                    <h4 className="text-green">{data.title}</h4>
+                    <div class="price-title dark">
+
+                      <h4 className="">{data.title}</h4>
+                    </div>
                     <div className="rates">
                       Moneda: <span className="users">Bolivianos</span>
                     </div>

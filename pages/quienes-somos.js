@@ -20,23 +20,12 @@ export default function QuienesSomos() {
 
                   <h3>Ganasafi</h3>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Proin in posuere magna. Proin nulla velit, auctor vitae
-                    commodo sed, elementum a nibh. Vestibulum sit amet sapien
-                    quis nisl pretium ultrices. Aliquam non porta ex. Cras sed
-                    metus vestibulum, semper tortor sit amet, tincidunt purus.
-                    Suspendisse potenti.
+                   Ganadero Sociedad Administradora de Fondos de Inversión S.A. GanaSafi S.A.<br/><br/>
+Es miembro del grupo Financiero Ganadero, nace el año 2020, con la misión de Administrar Fondos de Inversión que coadyuven activamente en el desarrollo económico, financiero y social del país, fomentando el ahorro interno nacional, facilitando económicamente la creación, expansión y desarrollo de empresas nacionales, incentivando las inversiones nacionales y/o extranjeras en el país y cubriendo los requerimientos financieros de los diferentes rubros económicos del país, preservando el patrimonio de los clientes inversionistas, participantes de los Fondos de Inversión administrados. 
                   </p>
                   <hr />
 
-                  <h3>Organigrama</h3>
-                  <ul>
-                    <li>Presidente: Juan Gonzales</li>
-                    <li>Presidente: Juan Gonzales</li>
-                    <li>Presidente: Juan Gonzales</li>
-                    <li>Presidente: Juan Gonzales</li>
-                  </ul>
-                  <hr />
+                  
                 </div>
               </div>
             </div>

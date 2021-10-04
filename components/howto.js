@@ -3,6 +3,10 @@ export default function HowTo({ data }) {
         <>
 
             <div className="how-to-area area-padding">
+                <h3 className="text-light-green text-center">
+                    Empieza a invertir en solo tres pasos.
+                </h3>
+                <br/>
                 <div className="container">
                     <div className="row">
                         <div className="all-services">
@@ -14,7 +18,7 @@ export default function HowTo({ data }) {
                                     <div className="main-wel">
                                         <div className="wel-content">
                                             <h4><span>01.</span>Contacta tu asesor comercial</h4>
-                                            <p>Aspernatur sit adipisci quaerat unde at neque Redug Lagre dolor sit amet consectetu. Agencies to define their new business objectives and then create</p>
+                                            <p>Te ayudamos a encontrar el fondo que se adapte más a tus necesidades.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -27,7 +31,7 @@ export default function HowTo({ data }) {
                                     <div className="main-wel">
                                         <div className="wel-content">
                                             <h4><span>02.</span>Elige el producto GANASAFI</h4>
-                                            <p>Aspernatur sit adipisci quaerat unde at neque Redug Lagre dolor sit amet consectetu. Agencies to define their new business objectives and then create</p>
+                                            <p>Desde nuestras oficinas o la comodidad de tu casa.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -40,7 +44,7 @@ export default function HowTo({ data }) {
                                     <div className="main-wel">
                                         <div className="wel-content">
                                             <h4><span>03.</span>Listo, tu dinero está invertido</h4>
-                                            <p>Aspernatur sit adipisci quaerat unde at neque Redug Lagre dolor sit amet consectetu. Agencies to define their new business objectives and then create</p>
+                                            <p>Ahora puedes descansar y dejar que tu dinero trabaje para ti.</p>
                                         </div>
                                     </div>
                                 </div>

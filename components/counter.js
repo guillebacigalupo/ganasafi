@@ -7,7 +7,8 @@ export default function Counter({ data }) {
                     <div className="row">
                         <div className="col-md-6 col-sm-6 col-xs-12">
                             <div className="fun-title">
-                                <h3>Empieza a invertir hoy mismo con los productos Ganasafi desde tu hogar!</h3>
+                                <h3>Empieza a invertir hoy mismo en los fondos de inversión administrados por GanaSafi desde la comodidad de tu hogar
+</h3>
                             </div>
                         </div>
                         <div className="col-md-6 col-sm-6 col-xs-12">

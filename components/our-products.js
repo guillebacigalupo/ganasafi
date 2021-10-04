@@ -13,10 +13,9 @@ export default function OurProducts({ data }) {
           <div className="row">
             <div className="col-md-12 col-sm-12 col-xs-12">
               <div className="section-headline text-center">
-                <h3 className="text-green">Nuestros productos</h3>
+                <h3 className="text-green">Fondos de inversión</h3>
                 <p>
-                  Seguro tenemos un producto para ti. Elige el que mas se adapte
-                  a tu perfil y necesidades.
+                  Tu confianza, nuestro compromiso.<br/>Invierte en el fondo que más se adapte a tu perfil, objetivos y necesidades.
                 </p>
               </div>
             </div>
@@ -31,12 +30,10 @@ export default function OurProducts({ data }) {
                   </a>
                   <div className="support-content">
                     <h4 className="text-light-green">
-                      <strong>GanaRendimiento</strong>
+                      <strong>GanaRendimiento - FIA</strong>
                     </h4>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Aliquam sit amet tortor imperdiet, pulvinar elit vel,
-                      posuere risus. Curabitur.
+                     La alternativa perfecta para invertir en BS y tener disponibilidad de tus recursos.
                     </p>
 
                     <Link href="/productos/gana-rendimiento">
@@ -44,11 +41,7 @@ export default function OurProducts({ data }) {
                         Quiero saber más
                       </a>
                     </Link>
-                    <Link href="/simulador">
-                      <a className="ab-btn left-ab-btn btn-service">
-                        Simulador
-                      </a>
-                    </Link>
+                    
                   </div>
                 </div>
               </div>
@@ -59,12 +52,10 @@ export default function OurProducts({ data }) {
                   </a>
                   <div className="support-content">
                     <h4 className="text-light-green">
-                      <strong>GanaInversiones</strong>
+                      <strong>GanaInversiones - FIA</strong>
                     </h4>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Aliquam sit amet tortor imperdiet, pulvinar elit vel,
-                      posuere risus. Curabitur.
+                     La alternativa perfecta para invertir en USD y tener disponibilidad de tus recursos.
                     </p>
 
                     <Link href="/productos/gana-inversiones">
@@ -73,11 +64,7 @@ export default function OurProducts({ data }) {
                       </a>
                     </Link>
 
-                    <Link href="/simulador">
-                      <a className="ab-btn left-ab-btn btn-service">
-                        Simulador
-                      </a>
-                    </Link>
+                   
                   </div>
                 </div>
               </div>

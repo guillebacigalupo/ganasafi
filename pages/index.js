@@ -27,28 +27,10 @@ export default function Home({ sliders }) {
               <div className="feature-text">
                 <h3 className="text-green">¿Qué es GANASAFI?</h3>
                 <p>
-                  Ganadero Sociedad Administradora de Fondos de Inversión S.A.
-                  GanaSafi S.A., miembros del grupo Financiero Ganadero, nace el
-                  año 2020 con la misión de brindar alternativas de inversión en
-                  el Mercado de Valores y constituirse en el corto plazo en una
-                  empresa líder en la administración y distribución de Fondos de
-                  Inversión.
+                  <strong>Ganadero Sociedad Administradora de Fondos de Inversión S.A. GanaSafi S.A.</strong>
                 </p>
                 <p>
-                  Ganadero Sociedad Administradora de Fondos de Inversión S.A
-                  (GanaSafi S.A) fue constituida el 8 de junio de 2020, con
-                  Matricula de Comercio N° 00430634 de fecha 7 de Julio de 2020,
-                  NIT No. 392615023 , e inscrita en el Registro de Mercado de
-                  Valores en fecha 4 de noviembre de 2020 bajo el No.
-                  SPVS-IV-SAF-SNA-002/2000, mediante resolución administrativa
-                  No. ASFI/ 623/2020
-                </p>
-                <p>
-                  El objeto social de GanaSafi S.A. es la prestación de
-                  servicios de administración de Fondos de Inversión y realizar
-                  actividades conexas, así como todas las operaciones,
-                  actividades y servicios permitidos por la normativa para
-                  Sociedades Administradoras de Fondos de Inversión.
+                  Es miembro del grupo <strong>Financiero Ganadero</strong>, nace el año 2020, con la <strong>misión</strong> de Administrar Fondos de Inversión que coadyuven activamente en el desarrollo económico, financiero y social del país, fomentando el ahorro interno nacional, facilitando económicamente la creación, expansión y desarrollo de empresas nacionales, incentivando las inversiones nacionales y/o extranjeras en el país y cubriendo los requerimientos financieros de los diferentes rubros económicos del país, preservando el patrimonio de los clientes inversionistas, participantes de los Fondos de Inversión administrados.
                 </p>
               </div>
             </div>

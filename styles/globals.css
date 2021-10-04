@@ -360,7 +360,7 @@ div#preloader {
 }
 .section-headline p {
   font-size: 16px;
-  max-width: 510px;
+  max-width: 600px;
   margin: 0px auto;
 }
 .white-headline h2 {
@@ -960,22 +960,14 @@ a.s-menu {
 .support-content p {
   margin-bottom: 0px;
 }
-.support-services:hover::before {
-  transition: 0.4s;
-  opacity: 1;
+.support-services{
+  transition: all .4s;
 }
-.support-services:hover::after {
-  transition: 0.4s;
-  opacity: 1;
+.support-services:hover{
+  transform: scale(1.04);
+
 }
-.support-services:hover .support-images {
-  transition: 0.4s;
-  color: #fff;
-}
-.support-services:hover .support-content h4,
-.support-services:hover .support-content p {
-  color: #fff !important  ;
-}
+
 .btn-service {
   padding: 5px 25px !important;
   margin-left: 0px !important;
@@ -983,9 +975,7 @@ a.s-menu {
   border-radius: 25px !important;
 }
 
-.support-services:hover .btn-service {
-  border-color: white;
-}
+
 
 .ab-btn {
   display: inline-block;
@@ -2193,6 +2183,28 @@ span.q-text {
   position: relative;
   background: #f6f6f6;
 }
+
+.pricing-area .price-title{
+      background: #a1bc1b;
+    padding: 18px 50px;
+    margin-bottom: 20px;
+        margin-left: -50px;
+    margin-right: -50px;
+    margin-top: -40px;
+}
+
+.pricing-area .price-title h4{
+  margin-bottom: 0;
+}
+
+.pricing-area .price-title.dark{
+      background: #045017 !important;
+}
+
+.pricing-area .price-title.dark h4{
+  color: white;
+}
+
 .title-icon {
   background: #fff;
   width: 50px;
@@ -2968,6 +2980,7 @@ span.email-notes {
   margin-bottom: 0px;
 }
 .contact-icon {
+  border: solid 4px #e7e7e7;
   margin-bottom: 50px;
   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
   padding: 20px;
@@ -2975,17 +2988,7 @@ span.email-notes {
   min-height: 340px;
   z-index: 1;
 }
-.contact-icon::after {
-  position: absolute;
-  content: "";
-  left: 0;
-  top: 0;
-  width: 50%;
-  height: 2px;
-  background: #a1bc1b;
-  right: 0;
-  margin: auto;
-}
+
 /*----------------------------------------*/
 /*  23.	Animation  CSS
 /*----------------------------------------*/
@@ -3336,6 +3339,9 @@ span.email-notes {
 
 /* small mobile :320px. */
 @media (max-width: 767px) {
+  .top-price-inner h4{
+    font-size: 26px;
+  }
   .mean-container .mean-nav ul li a {
     font-size: 20px;
     color: #045017;

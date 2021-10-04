@@ -21,7 +21,9 @@ export default function Comparator({ data }) {
               <div className="col-md-6 col-sm-6  col-xs-12">
                 <div className="table-list">
                   <div className="top-price-inner">
-                    <h4 className="text-green">GanaInversiones - FIA</h4>
+                    <div class="price-title">
+                      <h4 className="text-green">GanaInversiones - FIA</h4>
+                    </div>
                     <div className="rates">
                       Moneda: <span className="users">Dolares</span>
                     </div>
@@ -80,15 +82,15 @@ export default function Comparator({ data }) {
                       <a>Solicitar</a>
                     </Link>
                   </div>
-                  <Link href="/simulador">
-                    <a className="ab-btn left-ab-btn btn-service">Simulador</a>
-                  </Link>
+                  
                 </div>
               </div>
               <div className="col-md-6 col-sm-6 col-xs-12">
                 <div className="table-list">
                   <div className="top-price-inner">
-                    <h4 className="text-green">GanaRendimiento - FIA</h4>
+                    <div class="price-title dark">
+                      <h4 className="">GanaRendimiento - FIA</h4>
+                    </div>
                     <div className="rates">
                       Moneda: <span className="users">Bolivianos</span>
                     </div>
@@ -137,9 +139,7 @@ export default function Comparator({ data }) {
                   <div className="price-btn">
                     <a href="">Solicitar</a>
                   </div>
-                  <Link href="/simulador">
-                    <a className="ab-btn left-ab-btn btn-service">Simulador</a>
-                  </Link>
+                  
                 </div>
               </div>
             </div>

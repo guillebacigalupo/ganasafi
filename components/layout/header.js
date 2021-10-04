@@ -13,15 +13,29 @@ const Menu = (props) => {
 
   return (
     <ul className={c ?? ""}>
-      <li>
-        <Link href="/">
-          <a className="pages">Inicio</a>
-        </Link>
-      </li>
+      
       <li>
         <Link href="/quienes-somos">
           <a className="pages">Quienes Somos</a>
         </Link>
+      </li>
+      
+      <li>
+        <Link href="/productos">
+          <a className="pages">Fondos de inversión</a>
+        </Link>
+        <ul className="sub-menu">
+          <li>
+            <Link href="/productos/gana-rendimiento">
+              <a>GanaRendimiento</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/productos/gana-inversiones">
+              <a>GanaInversiones</a>
+            </Link>
+          </li>
+        </ul>
       </li>
       <li>
         <Link
@@ -38,26 +52,8 @@ const Menu = (props) => {
         </Link>
       </li>
       <li>
-        <Link href="/productos">
-          <a className="pages">Productos</a>
-        </Link>
-        <ul className="sub-menu">
-          <li>
-            <Link href="/productos/gana-rendimiento">
-              <a>GanaRendimiento</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/productos/gana-inversiones">
-              <a>GanaInversiones</a>
-            </Link>
-          </li>
-        </ul>
-      </li>
-
-      <li>
         <Link href="/contacto">
-          <a className="pages">Contacto</a>
+          <a className="pages">Contáctanos</a>
         </Link>
       </li>
       <li>
@@ -101,7 +97,7 @@ export default function Header({ data }) {
                     </div>
                     <div className="col-md-9 col-sm-9">
                       <div className="header-right-link">
-                        <Link href="/simulador">
+                        <Link href="">
                           <a className="s-menu">Ingresar</a>
                         </Link>
                       </div>

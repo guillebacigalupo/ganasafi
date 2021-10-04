@@ -104,8 +104,9 @@ export default function Contacts({ data }) {
           <div className="row">
             <div className="col-md-12 col-sm-12 col-xs-12">
               <div className="section-headline text-center">
-                <h3 className="text-light-green">Contactanos</h3>
-                <p>Si tienes dudas, ponte en contacto con nosotros</p>
+                <h3 className="text-light-green">Contáctanos</h3>
+                <p>¿No sabes como invertir?, contáctate con un asesor a través de las sucursales del banco ganadero como canal de distribución de los fondos.
+</p>
               </div>
             </div>
           </div>
