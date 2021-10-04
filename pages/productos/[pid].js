@@ -165,7 +165,6 @@ export default function Producto({ data }) {
                   </a>
                 </div>
               </div>
-<<<<<<< Updated upstream
 
               <div className="col-md-7 col-sm-6 col-xs-12">
                 <div className="table-list">
