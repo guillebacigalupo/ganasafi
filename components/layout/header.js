@@ -101,7 +101,7 @@ export default function Header({ data }) {
                     </div>
                     <div className="col-md-9 col-sm-9">
                       <div className="header-right-link">
-                        <Link href="">
+                        <Link href="/simulador">
                           <a className="s-menu">Ingresar</a>
                         </Link>
                       </div>
