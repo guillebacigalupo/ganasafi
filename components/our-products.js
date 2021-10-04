@@ -14,7 +14,7 @@ export default function OurProducts({ data }) {
             <div className="col-md-12 col-sm-12 col-xs-12">
               <div className="section-headline text-center">
                 <h3 className="text-white">Fondos de inversión</h3>
-                <p class="text-white">
+                <p className="text-white">
                   Tu confianza, nuestro compromiso.<br/>Invierte en el fondo que más se adapte a tu perfil, objetivos y necesidades.
                 </p>
               </div>

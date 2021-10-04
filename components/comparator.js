@@ -21,7 +21,7 @@ export default function Comparator({ data }) {
               <div className="col-md-6 col-sm-6  col-xs-12">
                 <div className="table-list">
                   <div className="top-price-inner">
-                    <div class="price-title">
+                    <div className="price-title">
                       <h4 className="text-green">GanaInversiones - FIA</h4>
                     </div>
                     <div className="rates">
@@ -88,7 +88,7 @@ export default function Comparator({ data }) {
               <div className="col-md-6 col-sm-6 col-xs-12">
                 <div className="table-list">
                   <div className="top-price-inner">
-                    <div class="price-title dark">
+                    <div className="price-title dark">
                       <h4 className="">GanaRendimiento - FIA</h4>
                     </div>
                     <div className="rates">
