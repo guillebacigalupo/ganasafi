@@ -224,10 +224,8 @@ export default function Producto({ data }) {
                   </div>
                 </div>
               </div>
-=======
               {pid == "gana-rendimiento" && ContentGanaRendimiento}
               {pid == "gana-inversiones" && ContentGanaInversiones}
->>>>>>> Stashed changes
             </div>
           </div>
         </div>
