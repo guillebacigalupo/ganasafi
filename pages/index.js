@@ -1,17 +1,17 @@
-import Container from '../components/layout/container';
-import Slider from '../components/slider';
-import OurProducts from '../components/our-products';
-import HowTo from '../components/howto';
-import Counter from '../components/counter';
-import Comparator from '../components/comparator';
-import Contacts from '../components/contacts';
-import Img from '../components/image';
-import Script from 'next/script';
+import Container from "../components/layout/container";
+import Slider from "../components/slider";
+import OurProducts from "../components/our-products";
+import HowTo from "../components/howto";
+import Counter from "../components/counter";
+import Comparator from "../components/comparator";
+import Contacts from "../components/contacts";
+import Img from "../components/image";
 
-export default function Home() {
+export default function Home({ sliders }) {
+  let count = sliders.length;
   return (
     <Container>
-      <Slider />
+      {count > 0 && <Slider sliders={sliders} />}
 
       <div className="feature-area bg-white fix area-padding">
         <div className="container">
@@ -56,36 +56,26 @@ export default function Home() {
         </div>
       </div>
 
-      <OurProducts data={{standalone:false}} />
+      <OurProducts data={{ standalone: false }} />
       <HowTo />
       <Counter />
       <Comparator />
       <Contacts />
-
-      <Script
-        dangerouslySetInnerHTML={{
-          __html: `if ($('.slider-main').length) $('.slider-main').owlCarousel( {
-            loop: true,
-            nav: true,
-            margin: 0,
-            dots: false,
-            autoplay: true,
-            navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
-            responsive: {
-              0: {
-                items: 1
-              },
-              768: {
-                items: 1
-              },
-              1000: {
-                items: 1
-              }
-            }
-          } );`,
-        }}
-        strategy="lazyOnload"
-      />
     </Container>
   );
+}
+
+export async function getServerSideProps(ctx) {
+  const { req, res, params } = ctx;
+
+  let r = await fetch(
+    'http://localhost:3000/api/posts?where={"post_type":"slider"}'
+  );
+
+  let sliders = r.status === 200 ? await r.json() : [];
+  return {
+    props: {
+      sliders,
+    },
+  };
 }

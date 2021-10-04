@@ -1,46 +1,110 @@
-export default function Slider({ data }) {
-    return (
-        <>
-        {/* Start Slider content */ }
-        <div className="slider-main">
-            <Slide />
-            <Slide />
-            <Slide />
-            <Slide />
-        </div>
-        {/* End Slider content */ }
-        </>
-    )
+import Script from "next/script";
+
+export default function Slider({ sliders }) {
+  return (
+    <>
+      {/* Start Slider content */}
+      <div className="slider-main">
+        {sliders.map((item, key) => {
+          return <Slide key={key} data={item} />;
+        })}
+      </div>
+      
+        <Script
+          dangerouslySetInnerHTML={{
+            __html: `if ($('.slider-main').length) $('.slider-main').owlCarousel( {
+            loop: true,
+            nav: true,
+            margin: 0,
+            dots: false,
+            autoplay: true,
+            navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
+            responsive: {
+              0: {
+                items: 1
+              },
+              768: {
+                items: 1
+              },
+              1000: {
+                items: 1
+              }
+            }
+          } );`,
+          }}
+          strategy="lazyOnload"
+        />
+      {/* End Slider content */}
+    </>
+  );
 }
 
-export function Slide({ darta }) {
-    return (
-
-        <div className="slide-area fix" data-stellar-background-ratio=".4">
-            <div className="display-table">
-                <div className="display-table-cell">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-md-12 col-sm-12 col-xs-12">
-                                <div className="slide-content">
-                                    <h2 className="title2">Invierte en fondos de inversión</h2>
-                                    <p>Los Fondos de Inversión Abiertos se convierten en una alternativa a través la diversificación de la conformación de los portafolios de inversión.</p>
-                                    <div className="layer-1-3">
-                                        <a href="#" className="ready-btn left-btn" >Simula tu inversión</a>
-                                        <div className="video-content">
-                                            <a href="#" className="video-play vid-zone">
-                                                <i className="fa fa-envelope"></i>
-                                                <span>Haz tu consulta</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+export function Slide(props) {
+  const baseurl = process.env.BASE_URL;
+  const bg =
+    props?.data?.image.length > 0
+      ? { backgroundImage: `url(/uploads/${props.data.image}) !important` }
+      : false;
+  return (
+    <div
+      className="slide-area fix"
+      data-stellar-background-ratio=".4"
+      style={bg ?? ""}
+    >
+      <div className="display-table">
+        <div className="display-table-cell">
+          <div className="container">
+            <div className="row">
+              <div className="col-md-12 col-sm-12 col-xs-12">
+                <div className="slide-content">
+                  <h2 className="title2">
+                    {props?.data?.title.length > 0
+                      ? props?.data?.title
+                      : `Invierte en fondos de inversión`}
+                  </h2>
+                  <p>
+                    {props?.data?.description ??
+                      `Los Fondos de Inversión Abiertos se convierten en una
+                      alternativa a través la diversificación de la conformación
+                      de los portafolios de inversión.`}
+                  </p>
+                  <div className="layer-1-3">
+                    <a
+                      href={
+                        props?.data?.link_button1.length > 0
+                          ? props?.data?.link_button1
+                          : `#`
+                      }
+                      className="ready-btn left-btn"
+                    >
+                      {props?.data?.text_button1.length > 0
+                        ? props?.data?.text_button1
+                        : `Simula tu inversión`}
+                    </a>
+                    <div className="video-content">
+                      <a
+                        href={
+                          props?.data?.link_button2.length > 0
+                            ? props?.data?.link_button2
+                            : `#`
+                        }
+                        className="video-play vid-zone"
+                      >
+                        <i className="fa fa-envelope"></i>
+                        <span>
+                          {props?.data?.text_button2.length > 0
+                            ? props?.data?.text_button2
+                            : `Haz tu consulta`}
+                        </span>
+                      </a>
                     </div>
+                  </div>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
-
-    );
+      </div>
+    </div>
+  );
 }

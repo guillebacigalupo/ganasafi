@@ -36,6 +36,21 @@ model Content {
   @@unique([language_id, object_id, object_type], name: "object_content")
 }
 
+model Post {
+  id                 Int @id  @default(autoincrement())
+  uuid               String  @default(cuid()) @unique
+  post_type          String
+  title              String?
+  description        String?
+  image              String?
+  link_button1       String?
+  text_button1       String?
+  link_button2       String?
+  text_button2       String?
+  slug               String @default(cuid()) @unique
+  createdAt DateTime @default(now())
+}
+
 model Product {
   id                 Int @id  @default(autoincrement())
   uuid               String  @default(cuid()) @unique

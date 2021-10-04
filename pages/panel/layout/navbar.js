@@ -29,10 +29,9 @@ function NavBar(props) {
             <NavItem>
               <NavLink href="/panel/products">Productos</NavLink>
             </NavItem>
-            {/**
             <NavItem>
-              <NavLink href="/panel/users">Slider</NavLink>
-            </NavItem> */}
+              <NavLink href="/panel/sliders">Slider</NavLink>
+            </NavItem>
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
                 Usuarios
