@@ -61,7 +61,7 @@ export default function Footer({ data }) {
                       <a href="#">Tel: 555555</a>
                     </li>
                     <li>
-                      <a href="mailto:info@ganasafi.bom.bo">Email: info@ganasafi.bom.bo</a>
+                      <a href="#">Email: info@ganasafi.bom.bo</a>
                     </li>
                   </ul>
                 </div>
