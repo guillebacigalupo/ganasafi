@@ -6,15 +6,15 @@ export default function OurProducts({ data }) {
     <>
       <div
         className={
-          `about-area bg-color fix area-padding` + (standalone ? " pt130" : "")
+          `about-area bg-color fix area-padding slide-area slide-area-2 fix` + (standalone ? " pt130" : "")
         }
       >
         <div className="container">
           <div className="row">
             <div className="col-md-12 col-sm-12 col-xs-12">
               <div className="section-headline text-center">
-                <h3 className="text-green">Fondos de inversión</h3>
-                <p>
+                <h3 className="text-white">Fondos de inversión</h3>
+                <p class="text-white">
                   Tu confianza, nuestro compromiso.<br/>Invierte en el fondo que más se adapte a tu perfil, objetivos y necesidades.
                 </p>
               </div>
