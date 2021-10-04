@@ -166,63 +166,7 @@ export default function Producto({ data }) {
                 </div>
               </div>
 
-              <div className="col-md-7 col-sm-6 col-xs-12">
-                <div className="table-list">
-                  <div className="top-price-inner">
-                    <div class="price-title dark">
-
-                      <h4 className="">{data.title}</h4>
-                    </div>
-                    <div className="rates">
-                      Moneda: <span className="users">Bolivianos</span>
-                    </div>
-                  </div>
-                  <ol>
-                    <li className="">
-                      <strong>
-                        Inversiones a Corto Plazo concentradas en Bs y también
-                        en USD, perfil conservador
-                      </strong>
-                    </li>
-                    <li className="check">
-                      <strong className="text-light-green">
-                        Monto de apertura:
-                      </strong>{" "}
-                      Bs. 1000
-                    </li>
-                    <li className="check">
-                      <strong className="text-light-green">
-                        Rescates permitidos:
-                      </strong>{" "}
-                      Sin Restricciones. sin previa notificación Bs. 700.000
-                    </li>
-                    <li className="check">
-                      <strong className="text-light-green">
-                        Política de rescate:
-                      </strong>{" "}
-                      Con 3 dias hábiles de notificación de bs. 700.001 a Bs.
-                      3.500.000 <br />
-                      Con 4 días hábiles mayores a Bs.3.500.001
-                    </li>
-                    <li className="check">
-                      <strong className="text-light-green">
-                        Permanencia mínima de la Inversión en cuotas:
-                      </strong>{" "}
-                      1 día
-                    </li>
-                    <li className="check">
-                      <strong className="text-light-green">
-                        Perfil Inversor:
-                      </strong>{" "}
-                      Invesores conservadores que desean un rendimiento
-                      atractivo en Bs, y alta disponibilidad de sus recursos
-                    </li>
-                  </ol>
-                  <div className="price-btn">
-                    <a href="/contacto">Solicitar</a>
-                  </div>
-                </div>
-              </div>
+              
               {pid == "gana-rendimiento" && ContentGanaRendimiento}
               {pid == "gana-inversiones" && ContentGanaInversiones}
             </div>
