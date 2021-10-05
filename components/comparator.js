@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export default function Comparator({ data }) {
-    const message = "Deseo solicitar infomación sobre GanaRendimiento";
+    const message = "Deseo solicitar infomación sobre";
   return (
     <>
       <div className="pricing-area area-padding-2" id="comparador">
@@ -77,7 +77,7 @@ export default function Comparator({ data }) {
                           message,
                         },
                       }}
-                      as={`contacto?m=${encodeURIComponent(message)}`}
+                      as={`contacto?m=${encodeURIComponent(message+ ' GanaInversiones')}`}
                     >
                       <a>Solicitar</a>
                     </Link>
@@ -144,7 +144,17 @@ export default function Comparator({ data }) {
                     </li>
                   </ol>
                   <div className="price-btn">
-                    <a href="">Solicitar</a>
+                    <Link
+                      href={{
+                        pathname: "contacto/[message]",
+                        query: {
+                          message,
+                        },
+                      }}
+                      as={`contacto?m=${encodeURIComponent(message + ' GanaRendimiento')}`}
+                    >
+                      <a>Solicitar</a>
+                    </Link>
                   </div>
 
                   <Link href="/productos/gana-inversiones">

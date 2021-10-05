@@ -2021,7 +2021,7 @@ button.cale-btn:hover {
   background: rgb(4 80 23) none repeat scroll 0 0;
   padding: 127px 0px 127px 100px;
   z-index: 1;
-  margin-right: 85px;
+  padding-right: 85px;
   min-height: 385px;
 }
 .fun-title:after {
@@ -2034,6 +2034,7 @@ button.cale-btn:hover {
   right: -160px;
   z-index: -1;
   transform: rotate(64deg);
+  display: none;
 }
 .fun-content {
   display: block;
