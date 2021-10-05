@@ -1,3 +1,4 @@
+import crypto from "crypto";
 import fs from "fs";
 import path from "path";
 import Busboy from "busboy";
@@ -12,17 +13,30 @@ export const config = {
 export default async function handler(req, res) {
   try {
     let image = "";
+    const buffers = [];
+    const hash = crypto.createHash("md5");
+    let fileName = "";
+    let fileSize = 0;
+    let completed = false;
+    const getBuffer = () => Buffer.concat(buffers, fileSize);
+    const dataHandler = (data) => {
+      if (completed === true) {
+        log(
+          `Error: data chunk for completed upload!`
+        );
+        return;
+      }
+      buffers.push(data);
+      hash.update(data);
+      fileSize += data.length;
+      log(`Uploading bytes:${fileSize}...`);
+    };
 
     //upload dir
     const d = new Date();
-    const subdir = d.getMonth() +
-        "-" +
-        d.getFullYear() +
-        "/";
+    const subdir = d.getMonth() + "-" + d.getFullYear() + "/";
     const uploadDir = path.join(
-      __dirname +
-        "../../../../../../public/uploads/" +
-        subdir
+      __dirname + "../../../../../../public/uploads/" + subdir
     );
 
     //create upload dir if not exists
@@ -31,13 +45,15 @@ export default async function handler(req, res) {
         recursive: true,
       });
     }
-
+    log(req.body);
     //parse form data
     const busboy = new Busboy(req);
     busboy.on("file", function (fieldname, file, filename, encoding, mimetype) {
+      log({ fieldname, file, filename, encoding, mimetype });
+      fileName = filename;
       file.on("data", function (data) {
-        //write and save image file
-        fs.writeFile(uploadDir + filename, data, "binary", log);
+        log({ data });
+        dataHandler(data);
       });
       file.on("end", function () {
         image = subdir + filename;
@@ -45,6 +61,11 @@ export default async function handler(req, res) {
     });
 
     busboy.on("finish", function () {
+      //write and save image file
+      fs.writeFile(uploadDir + fileName, getBuffer(), (err) => {
+        if (err) return log(err);
+      });
+
       res.status(200).json({
         result: "OK",
         image,
