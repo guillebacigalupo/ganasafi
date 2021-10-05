@@ -9,7 +9,7 @@ export default function Slider({ sliders }) {
           return <Slide key={key} data={item} />;
         })}
       </div>
-      
+      {sliders.length > 1 && (
         <Script
           dangerouslySetInnerHTML={{
             __html: `if ($('.slider-main').length) $('.slider-main').owlCarousel( {
@@ -34,6 +34,7 @@ export default function Slider({ sliders }) {
           }}
           strategy="lazyOnload"
         />
+      )}
       {/* End Slider content */}
     </>
   );
