@@ -1554,7 +1554,7 @@ a.s-menu {
   height: 52px;
   border-radius: 0px;
   padding: 5px 15px;
-  width: 70%;
+  width: 60%;
   margin-bottom: 20px;
   border-radius: 20px;
   font-size: 25px;
@@ -2021,7 +2021,7 @@ button.cale-btn:hover {
   background: rgb(4 80 23) none repeat scroll 0 0;
   padding: 127px 0px 127px 100px;
   z-index: 1;
-  margin-right: 85px;
+  padding-right: 85px;
   min-height: 385px;
 }
 .fun-title:after {
@@ -2034,6 +2034,7 @@ button.cale-btn:hover {
   right: -160px;
   z-index: -1;
   transform: rotate(64deg);
+  display: none;
 }
 .fun-content {
   display: block;
@@ -2989,6 +2990,20 @@ span.email-notes {
   position: relative;
   min-height: 340px;
   z-index: 1;
+}
+
+
+.calculator-inner select{
+    font-size: 18px;
+
+    display: inline-block;
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid #a1bc1b;
+    border-radius: 20px;
+    top: -4px;
+    position: relative;
+    margin-left: 5px;;
 }
 
 /*----------------------------------------*/
