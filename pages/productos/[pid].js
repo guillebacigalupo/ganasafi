@@ -166,6 +166,7 @@ export default function Producto({ data }) {
                 </div>
               </div>
 
+              
               {pid == "gana-rendimiento" && ContentGanaRendimiento}
               {pid == "gana-inversiones" && ContentGanaInversiones}
             </div>
