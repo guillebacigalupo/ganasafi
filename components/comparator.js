@@ -81,7 +81,14 @@ export default function Comparator({ data }) {
                     >
                       <a>Solicitar</a>
                     </Link>
+
+
                   </div>
+                  <Link href="/productos/gana-rendimiento">
+                      <a className="ab-btn left-ab-btn btn-service">
+                        Quiero saber más
+                      </a>
+                    </Link>
                   
                 </div>
               </div>
@@ -139,6 +146,12 @@ export default function Comparator({ data }) {
                   <div className="price-btn">
                     <a href="">Solicitar</a>
                   </div>
+
+                  <Link href="/productos/gana-inversiones">
+                    <a className="ab-btn left-ab-btn btn-service">
+                      Quiero saber más
+                    </a>
+                  </Link>
                   
                 </div>
               </div>
