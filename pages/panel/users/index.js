@@ -67,7 +67,7 @@ export default function Users(props) {
         return (
           <tr key={item.uuid}>
             <th scope="row">
-              <input type="checkbox" name="users[]" value={item.id} />
+              <input type="checkbox" class="hidden" name="users[]" value={item.id} />
             </th>
             <td>{item.name}</td>
             <td>{item.email}</td>
