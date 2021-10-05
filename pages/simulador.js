@@ -13,20 +13,24 @@ const products = {
   },
 };
 
-export default function Simulador({ data }) {
-  const router = useRouter();
-  console.log({ router });
-  console.log({ data });
-
-  const { currencySymbol, rate, times } = data;
-  data.rate = data.rate ?? 0.095;
-
+export default function Simulador({ products }) {
+  const [slug, setSlug] = useState("gana-inversiones");
+  const [data, setData] = useState(products[slug] ?? {});
   const [capital, setCapital] = useState(0);
   const [result, setResult] = useState(0);
-  const [currency, setCurrency] = useState(currencySymbol);
+
+  const times = 12;
+  const toggle = (e) => {
+    e.preventDefault();
+    //setSlug(e.target.value); //for future requirements
+    setData(products[e.target.value]);
+    setResult(0);
+  };
 
   const _calc = () => {
-    let r = parseFloat(capital * Math.pow(1 + rate / 100, times)).toFixed(2);
+    let r = parseFloat(capital * Math.pow(1 + data.rate / 100, times)).toFixed(
+      2
+    );
     setResult(r);
     return r;
   };
@@ -54,17 +58,18 @@ export default function Simulador({ data }) {
                         <div className="single-cal">
                           <div className="inner-form">
                             <form action="#">
-
                               <label>Fondo de inversion</label>
-                              <select
-                                
-                              >
-                                <option value="gana-inversiones">GanaInversiones (USD)</option>
-                                <option value="gana-rendimiento">GanaRendimiento (Bs.)</option>
-                                
+                              <select onChange={toggle}>
+                                <option value="gana-inversiones">
+                                  GanaInversiones (USD)
+                                </option>
+                                <option value="gana-rendimiento">
+                                  GanaRendimiento (Bs.)
+                                </option>
                               </select>
 
-                              <br/><br/>
+                              <br />
+                              <br />
                               <label>Valor inicial</label>
                               <input
                                 type="number"
@@ -79,7 +84,6 @@ export default function Simulador({ data }) {
                                   _calc();
                                 }}
                               />
-                              
                             </form>
                           </div>
                           <button className="cale-btn" onClick={_calc}>
@@ -91,7 +95,7 @@ export default function Simulador({ data }) {
                                 Valor final
                               </label>
                               <h3 className="text-green">
-                                {currency} {result} *
+                                {data?.currencySymbol} {result} *
                               </h3>
                             </form>
                           </div>
@@ -99,8 +103,10 @@ export default function Simulador({ data }) {
                             <div className="rate-text">
                               <span>
                                 {" "}
-                                <strong>{(rate / 100).toFixed(4)}</strong> Tasa
-                                mensual
+                                <strong>
+                                  {(data?.rate / 100).toFixed(4)}
+                                </strong>{" "}
+                                Tasa mensual
                               </span>
                               <span>
                                 {" "}
@@ -167,17 +173,23 @@ export default function Simulador({ data }) {
 }
 
 export async function getServerSideProps({ params }) {
-  console.log({ params });
+  let data = {};
+  let r = await fetch(process.env.BASE_URL + "/api/products/");
 
-  let res = await fetch("https://portalsafi.azurewebsites.net/api/producto");
+  if (r.status < 300) {
+    data = await r.json();
+    console.log(data);
+    data.map((item) => {
+      if (!!products[item.slug]) {
+        products[item.slug] = item;
+      }
+    });
+  }
 
-  let body = await res.json();
-
-  const data = body.payload;
-
+  console.log(products);
   return {
     props: {
-      data,
+      products,
     },
   };
 }
