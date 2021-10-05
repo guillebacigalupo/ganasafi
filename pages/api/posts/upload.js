@@ -18,7 +18,9 @@ export default async function handler(req, res) {
     let fileName = "";
     let fileSize = 0;
     let completed = false;
+
     const getBuffer = () => Buffer.concat(buffers, fileSize);
+
     const dataHandler = (data) => {
       if (completed === true) {
         log(
@@ -45,16 +47,16 @@ export default async function handler(req, res) {
         recursive: true,
       });
     }
-    log(req.body);
+    
     //parse form data
     const busboy = new Busboy(req);
     busboy.on("file", function (fieldname, file, filename, encoding, mimetype) {
       log({ fieldname, file, filename, encoding, mimetype });
       fileName = filename;
       file.on("data", function (data) {
-        log({ data });
         dataHandler(data);
       });
+      
       file.on("end", function () {
         image = subdir + filename;
       });
