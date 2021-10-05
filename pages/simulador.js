@@ -54,6 +54,17 @@ export default function Simulador({ data }) {
                         <div className="single-cal">
                           <div className="inner-form">
                             <form action="#">
+
+                              <label>Fondo de inversion</label>
+                              <select
+                                
+                              >
+                                <option value="gana-inversiones">GanaInversiones (USD)</option>
+                                <option value="gana-rendimiento">GanaRendimiento (Bs.)</option>
+                                
+                              </select>
+
+                              <br/><br/>
                               <label>Valor inicial</label>
                               <input
                                 type="number"
@@ -68,15 +79,7 @@ export default function Simulador({ data }) {
                                   _calc();
                                 }}
                               />
-                              <select
-                                onChange={(e) => {
-                                  setCurrency(e.target.value);
-                                }}
-                                value={currency}
-                              >
-                                <option value="USD">USD</option>
-                                <option value="Bs.">BS.</option>
-                              </select>
+                              
                             </form>
                           </div>
                           <button className="cale-btn" onClick={_calc}>
