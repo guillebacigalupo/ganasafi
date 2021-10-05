@@ -19,7 +19,7 @@ function NavBar(props) {
   const { session } = props;
   return (
     <div>
-      <Navbar color="dark" dark expand="sm" fixed="top">
+      <Navbar color="green" dark expand="sm" fixed="top">
         <NavbarBrand href="/panel">
           <Img s="logo/logo.png" a="Logo" c="admin-logo" />
         </NavbarBrand>

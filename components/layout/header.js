@@ -5,7 +5,7 @@ import Link from "next/link";
 import Img from "../image";
 
 const Logo = () => {
-  return <Img s="logo/logo.png" />;
+  return <Img s="logo/logo.png"/>;
 };
 
 const Menu = (props) => {
@@ -77,11 +77,11 @@ export default function Header({ data }) {
       <header className="header-one">
         <MediaQuery query={`(min-width: ${breakpoint}px)`}>
           <div id="sticker" className="header-area hidden-xs">
-            <div className="container">
+            <div className="container-fluid">
               <div className="row">
                 <div className="col-md-12 col-sm-12">
                   <div className="row">
-                    <div className="col-md-3 col-sm-3">
+                    <div className="col-md-2 col-sm-3">
                       <div className="logo">
                         <Link href="/">
                           <a className="navbar-brand page-scroll white-logo">
@@ -95,7 +95,7 @@ export default function Header({ data }) {
                         </Link>
                       </div>
                     </div>
-                    <div className="col-md-9 col-sm-9">
+                    <div className="col-md-10 col-sm-9">
                       <div className="header-right-link">
                         <Link href="">
                           <a className="s-menu">Ingresar</a>

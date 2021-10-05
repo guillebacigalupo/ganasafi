@@ -91,7 +91,7 @@ export function Slide(props) {
                         }
                         className="video-play vid-zone"
                       >
-                        <i className="fa fa-envelope"></i>
+                        <i className="fa fa-play"></i>
                         <span>
                           {props?.data?.text_button2.length > 0
                             ? props?.data?.text_button2
