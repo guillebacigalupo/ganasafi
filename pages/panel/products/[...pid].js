@@ -60,6 +60,7 @@ const actions = {
             <Input
               type="title"
               name="title"
+
               id="title"
               value={props.title}
               onChange={handleTitle}
@@ -71,13 +72,14 @@ const actions = {
             <Input
               type="slug"
               name="slug"
+              readonly="readonly"
               id="slug"
               value={props.slug}
               onChange={handleSlug}
             />
           </FormGroup>
           <FormGroup>
-            <Label for="rate">Tasa de Interés</Label>
+            <Label for="rate">Tasa de Interés (en %)</Label>
             <Input
               type="number"
               name="rate"
@@ -92,6 +94,7 @@ const actions = {
               type="select"
               id="currencySymbol"
               name="currencySymbol"
+              readonly="readonly"
               onChange={handleCurrencySymbol}
               value={props.currencySymbol}
             >
@@ -104,6 +107,7 @@ const actions = {
             <Input
               type="number"
               name="currencyRate"
+              readonly="readonly"
               id="currencyRate"
               value={props.currencyRate}
               onChange={handleCurrencyRate}

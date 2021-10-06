@@ -3662,6 +3662,7 @@ span.email-notes {
     border-radius: 25px !important;
     outline: none !important;
 }
+.btn-default {border-radius: 25px !important;}
 
 /*--------------------------------*/
 /* .End CSS
