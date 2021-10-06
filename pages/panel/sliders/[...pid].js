@@ -231,7 +231,7 @@ actions.update.onSubmit = async (e, props) => {
 actions.update.children = actions.create.children;
 
 export function FileUploadComponent({ setImage }) {
-  const baseurl = process.env.BASE_URL;
+  const baseurl = process.env.BASE_URL ;
   const fileParams = ({ meta, file }) => {
     const body = new FormData();
     body.append("file", file);

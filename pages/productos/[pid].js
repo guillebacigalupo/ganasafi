@@ -196,7 +196,7 @@ export async function getServerSideProps({ params }) {
   const { pid } = params;
   let data = {};
   let r = await fetch(
-    process.env.BASE_URL + '/api/products/?where={"slug":"' + pid + '"}'
+    process.env.BASE_URL +  '/api/products/?where={"slug":"' + pid + '"}'
   );
 
   if (r.status < 300) {

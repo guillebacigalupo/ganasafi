@@ -151,7 +151,7 @@ export default function Products(props) {
 export async function getServerSideProps(ctx) {
   const { req, res, params } = ctx;
 
-  let r = await fetch( process.env.BASE_URL +"/api/products");
+  let r = await fetch( process.env.BASE_URL + "/api/products");
 
   if (r.status === 500) {
     return {

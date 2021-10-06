@@ -175,7 +175,7 @@ export default function Simulador({ products }) {
 
 export async function getServerSideProps({ params }) {
   let data = {};
-  let r = await fetch(process.env.BASE_URL + "/api/products/");
+  let r = await fetch( process.env.BASE_URL +  "/api/products/");
 
   if (r.status < 300) {
     data = await r.json();
