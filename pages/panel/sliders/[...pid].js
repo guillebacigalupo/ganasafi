@@ -74,8 +74,9 @@ const actions = {
             />
           </FormGroup>
           <FormGroup>
-            <Label for="desc">Description</Label>
+            <Label for="desc">Descripción</Label>
             <textarea
+              className="form-control"
               name="desc"
               id="desc"
               value={props.desc}
@@ -281,10 +282,10 @@ export function FileUploadComponent({ setImage }) {
   };
 
   const selectFileInput = ({ accept, onFiles, files, getFilesFromEvent }) => {
-    const textMsg = files.length > 0 ? "Upload Again" : "Select Files";
+    const textMsg = files.length > 0 ? "Subir de nuevo" : "Seleccionar archivos";
 
     return (
-      <label className="btn btn-danger mt-4">
+      <label className="btn btn-primary mt-4">
         {textMsg}
         <input
           style={{ display: "none" }}

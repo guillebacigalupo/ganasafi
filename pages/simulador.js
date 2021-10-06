@@ -50,6 +50,10 @@ export default function Simulador({ products }) {
                     <div className="slide-content">
                       <h2 className="title2">Realiza la simulación </h2>
                       <p>Selecccioná tu fondo de inversión de preferencia e ingresa el valor a invertir para simular tu rendimiento.</p>
+
+                      <a className="ready-btn left-btn">
+                        Quiero empezar a invertir
+                      </a>
                     </div>
                   </div>
                   <div className="col-md-6 col-sm-12 col-xs-12"><br />
@@ -75,7 +79,7 @@ export default function Simulador({ products }) {
                               <input
                                 type="number"
                                 className="form-input"
-                                placeholder="1000"
+                                placeholder="Monto"
                                 onChange={(e) => {
                                   setCapital(e.target.value);
                                 }}
@@ -128,22 +132,6 @@ export default function Simulador({ products }) {
 
       <Comparator />
 
-      <div className="banner-area area-padding">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-12 col-sm-12 col-xs-12">
-              <div className="banner-all area-80 text-center">
-                <div className="banner-content">
-                  <h3>¿Qué saber para invertir?</h3>
-                  <a className="banner-btn" href="#">
-                    Conocer más
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
       <Script
         dangerouslySetInnerHTML={{
