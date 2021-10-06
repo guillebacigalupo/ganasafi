@@ -39,6 +39,8 @@ const actions = {
         props.setTextButton2(e.currentTarget.value);
       };
 
+      const baseurl = process.env.BASE_URL;
+
       return (
         <Form>
           <h2>{props.contentTitle}</h2>
@@ -51,7 +53,7 @@ const actions = {
           {props.action == "update" && !!props?.data?.image && (
             <>
               <br />
-              <img src={`http://localhost:3000/uploads/${props.data.image}`} alt="Image" width="120" />
+              <img src={`${baseurl}/uploads/${props.data.image}`} alt="Image" width="120" />
             </>
           )}
           <hr />
@@ -229,10 +231,11 @@ actions.update.onSubmit = async (e, props) => {
 actions.update.children = actions.create.children;
 
 export function FileUploadComponent({ setImage }) {
+  const baseurl = process.env.BASE_URL;
   const fileParams = ({ meta, file }) => {
     const body = new FormData();
     body.append("file", file);
-    return { url: "http://localhost:3000/api/posts/upload", body };
+    return { url: baseurl + "/api/posts/upload", body };
   };
 
   const onFileChange = ({ meta, file }, status) => {
