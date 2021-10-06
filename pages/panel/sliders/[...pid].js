@@ -39,7 +39,7 @@ const actions = {
         props.setTextButton2(e.currentTarget.value);
       };
 
-      const PORT = process.env.PORT || 3000;
+      const PORT = process.env.PORT ?? 3000;
       const baseurl = process.env.BASE_URL + ":" + PORT;
 
       return (
@@ -236,7 +236,7 @@ actions.update.onSubmit = async (e, props) => {
 actions.update.children = actions.create.children;
 
 export function FileUploadComponent({ setImage }) {
-  const PORT = process.env.PORT || 3000;
+  const PORT = process.env.PORT ?? 3000;
   const baseurl = process.env.BASE_URL + ":" + PORT;
   const fileParams = ({ meta, file }) => {
     const body = new FormData();
@@ -438,7 +438,7 @@ export async function getServerSideProps({ params }) {
   }
 
   if (action == "update") {
-    const PORT = process.env.PORT || 3000;
+    const PORT = process.env.PORT ?? 3000;
     const baseurl = process.env.BASE_URL + ":" + PORT;
     let r = await fetch(baseurl + "/api/posts/" + id, {
       method: "GET",
