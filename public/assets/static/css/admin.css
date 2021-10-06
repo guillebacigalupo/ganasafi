@@ -19435,3 +19435,6 @@ footer[class=footer-main] ul>li>a {
   }
 }
 
+.hidden{
+    display: none !important;
+}

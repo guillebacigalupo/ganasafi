@@ -68,7 +68,7 @@ export default function Products(props) {
         return (
           <tr key={item.uuid}>
             <th scope="row">
-              <input type="checkbox" name="products[]" value={item.id} />
+              <input type="checkbox" name="products[]" className="hidden" value={item.id} />
             </th>
             <td>{item.title}</td>
             <td>{item.rate}</td>
@@ -127,7 +127,7 @@ export default function Products(props) {
 
       <Row>
         <Link href="/panel/products/create" passHref={true}>
-          <Button className="btn btn-default" color="primary">
+          <Button className="btn btn-default hidden" color="primary">
             Crear Producto
           </Button>
         </Link>
