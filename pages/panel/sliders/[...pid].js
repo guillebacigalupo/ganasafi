@@ -39,7 +39,8 @@ const actions = {
         props.setTextButton2(e.currentTarget.value);
       };
 
-      const baseurl = process.env.BASE_URL;
+      const PORT = process.env.PORT || 3000;
+      const baseurl = process.env.BASE_URL + ":" + PORT;
 
       return (
         <Form>
@@ -53,7 +54,11 @@ const actions = {
           {props.action == "update" && !!props?.data?.image && (
             <>
               <br />
-              <img src={`${baseurl}/uploads/${props.data.image}`} alt="Image" width="120" />
+              <img
+                src={`${baseurl}/uploads/${props.data.image}`}
+                alt="Image"
+                width="120"
+              />
             </>
           )}
           <hr />
@@ -231,7 +236,8 @@ actions.update.onSubmit = async (e, props) => {
 actions.update.children = actions.create.children;
 
 export function FileUploadComponent({ setImage }) {
-  const baseurl = process.env.BASE_URL ;
+  const PORT = process.env.PORT || 3000;
+  const baseurl = process.env.BASE_URL + ":" + PORT;
   const fileParams = ({ meta, file }) => {
     const body = new FormData();
     body.append("file", file);
@@ -432,7 +438,9 @@ export async function getServerSideProps({ params }) {
   }
 
   if (action == "update") {
-    let r = await fetch(process.env.BASE_URL + "/api/posts/" + id, {
+    const PORT = process.env.PORT || 3000;
+    const baseurl = process.env.BASE_URL + ":" + PORT;
+    let r = await fetch(baseurl + "/api/posts/" + id, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

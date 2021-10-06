@@ -147,8 +147,9 @@ export default function Users(props) {
 export async function getServerSideProps(ctx) {
   const { req, res, params } = ctx;
 
-  let r = await fetch(process.env.BASE_URL + "/api/users");
-
+  const PORT = process.env.PORT || 3000;
+  const baseurl = process.env.BASE_URL + ":" + PORT;
+  let r = await fetch(baseurl +"/api/users");
   if (r.status === 500) {
     return {
       props: {
