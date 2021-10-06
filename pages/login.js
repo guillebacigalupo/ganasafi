@@ -120,7 +120,7 @@ export default function Login(data) {
         <div className="login-area area-padding-2 pt130">
           <div className="container">
             <div className="row">
-              <div className="col-md-6 col-sm-12 col-xs-12">
+              <div className="col-md-offset-3 col-md-6 col-sm-12 col-xs-12">
                 <div className="section-headline text-center">
                   <h3>Iniciar Sesión</h3>
                   <input
