@@ -107,8 +107,9 @@ export default function Login(data) {
   if (!session) {
     // If no session exists, display login form
     return (
-      <Container pageProps={{ session: 0 }}>
+      <Container className="modal-login" pageProps={{ session: 0 }}>
         <UIModal
+
           props={{
             title: "Inicio de Sesión",
             content: modalContent,

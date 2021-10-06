@@ -59,7 +59,7 @@ export default function Contacts({ data }) {
       
       if (grecaptcha.getResponse() === "") {
         e.preventDefault();
-        alert("Please click <I'm not a robot> before sending the job");
+        alert("Por favor valide el captcha");
       }
 
       let body = {
@@ -83,6 +83,9 @@ export default function Contacts({ data }) {
           setName("");
           setEmail("");
           setBody("");
+          setResponseMessage(
+            "Su mensaje se ha enviado statisfactoriamente."
+          );
         } else {
           setSubmitted("false");
           setResponseMessage(

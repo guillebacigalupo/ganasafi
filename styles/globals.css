@@ -3648,6 +3648,23 @@ span.email-notes {
   }
 }
 
+
+.modal .modal-dialog{
+  margin-top: 70px;
+}
+
+.modal.show{opacity: 1;}
+
+.btn-primary {
+    color: #fff;
+    background-color: #054f17 !important;
+    border-color: #054f17 !important;
+    border-radius: 25px !important;
+    outline: none !important;
+}
+
 /*--------------------------------*/
 /* .End CSS
 /*--------------------------------*/
+
+

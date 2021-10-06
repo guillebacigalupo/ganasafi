@@ -7,13 +7,13 @@ export default function UIModal({ props }) {
   return (
     <>
       {props.modal && (
-        <Modal isOpen={props.modal} toggle={props.toggle}>
+        <Modal isOpen={props.modal} toggle={props.toggle} >
           {props.title && <ModalHeader>{props.title ?? ""}</ModalHeader>}
           <ModalBody>{props.content}</ModalBody>
           <ModalFooter>
             {props.btnAccept && (
               <Button color="primary" onClick={props.btnAccept}>
-                OK
+                ACEPTAR
               </Button>
             )}
             {props.btnCancel && (
