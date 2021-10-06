@@ -299,7 +299,7 @@ export async function getServerSideProps({ params }) {
   }
   
   if (action == "update") {
-  const PORT = process.env.PORT || 3000;
+  const PORT = process.env.PORT ?? 3000;
   const baseurl = process.env.BASE_URL + ":" + PORT;
     let r = await fetch(baseurl + "/api/users/" + id, {
       method: "GET",

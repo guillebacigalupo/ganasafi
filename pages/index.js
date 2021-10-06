@@ -62,7 +62,7 @@ export default function Home({ sliders }) {
 
 export async function getServerSideProps(ctx) {
   const { req, res, params } = ctx;
-  const PORT = process.env.PORT || 3000;
+  const PORT = process.env.PORT ?? 3000;
   const baseurl = process.env.BASE_URL + ":" + PORT;
 
   let r = await fetch(baseurl + '/api/posts?where={"post_type":"slider"}');
