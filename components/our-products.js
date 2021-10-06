@@ -26,7 +26,7 @@ export default function OurProducts({ data }) {
               <div className="col-md-6 col-sm-6 col-xs-12">
                 <div className="support-services wow ">
                   <a className="support-images" href="#">
-                    <i className="flaticon-like-2"></i>
+                    <i className="flaticon-dollar-symbol"></i>
                   </a>
                   <div className="support-content">
                     <h4 className="text-light-green">
@@ -48,7 +48,7 @@ export default function OurProducts({ data }) {
               <div className="col-md-6 col-sm-6 col-xs-12">
                 <div className="support-services wow ">
                   <a className="support-images" href="#">
-                    <i className="flaticon-like-3"></i>
+                    <i className="flaticon-dollar-symbol"></i>
                   </a>
                   <div className="support-content">
                     <h4 className="text-light-green">

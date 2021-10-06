@@ -12,10 +12,7 @@ export default function QuienesSomos() {
                 <div className="text-left">
                   <h3 className="text-light-green">Sobre GANASAFI</h3>
 
-                  <img
-                    src="https://via.placeholder.com/800x400"
-                    className="img-responsive"
-                  />
+                  <Img s="feature/f1.png" a="Ganasafi" />
                   <br />
 
                   <h3>Ganasafi</h3>

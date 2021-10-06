@@ -1,3 +1,5 @@
+import Img from "../components/image";
+
 export default function HowTo({ data }) {
     return (
         <>
@@ -13,7 +15,7 @@ export default function HowTo({ data }) {
                             <div className="col-md-4 col-sm-4 col-xs-12">
                                 <div className="well-services first-item">
                                     <div className="well-img">
-                                        <a className="big-icon" href="#"><i className="flaticon-user-12"></i></a>
+                                        <Img s="paso1.png" a="Ganasafi" w="80px" />
                                     </div>
                                     <div className="main-wel">
                                         <div className="wel-content">
@@ -26,7 +28,7 @@ export default function HowTo({ data }) {
                             <div className="col-md-4 col-sm-4 col-xs-12">
                                 <div className="well-services ">
                                     <div className="well-img">
-                                        <a className="big-icon" href="#"><i className="flaticon-dollar-symbol"></i></a>
+                                        <Img s="paso2.png" a="Ganasafi" w="80px" />
                                     </div>
                                     <div className="main-wel">
                                         <div className="wel-content">
@@ -39,7 +41,7 @@ export default function HowTo({ data }) {
                             <div className="col-md-4 col-sm-4 col-xs-12">
                                 <div className="well-services thired-item">
                                     <div className="well-img">
-                                        <a className="big-icon" href="#"><i className="flaticon-worldwide"></i></a>
+                                        <Img s="paso3.png" a="Ganasafi" w="80px" />
                                     </div>
                                     <div className="main-wel">
                                         <div className="wel-content">

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import ReCAPTCHA from "react-google-recaptcha";
+import Img from "../components/image";
 
 export default function Contacts({ data }) {
   const router = useRouter();
@@ -119,7 +120,8 @@ export default function Contacts({ data }) {
                 <div className="col-md-4 col-sm-4 col-xs-12">
                   <div className="contact-icon text-center">
                     <div className="single-icon">
-                      <i className="fa fa-mobile"></i>
+                      <Img s="celular.png" a="Ganasafi" w="80px" />
+                      <br/><br/>
                       <p>
                         <strong>La Paz:</strong> 5912 2173000
                         <br />
@@ -139,7 +141,8 @@ export default function Contacts({ data }) {
                 <div className="col-md-4 col-sm-4 col-xs-12">
                   <div className="contact-icon text-center">
                     <div className="single-icon">
-                      <i className="fa fa-envelope-o"></i>
+                      <Img s="mail.png" a="Ganasafi" w="80px" />
+                      <br/><br/>
                       <p>
                         <strong>Email:</strong> informaciones@ganasafi.com.bo
                         <br />
@@ -152,7 +155,8 @@ export default function Contacts({ data }) {
                 <div className="col-md-4 col-sm-4 col-xs-12">
                   <div className="contact-icon text-center">
                     <div className="single-icon">
-                      <i className="fa fa-map-marker"></i>
+                      <Img s="ubicacion.png" a="Ganasafi" w="80px" />
+                      <br/><br/>
                       <p>
                         <strong>Oficina Central de GanaSafi S.A.:</strong>
                         <br />
