@@ -2,6 +2,7 @@
   "use strict";
 
   var windows = $(window);
+  $("nav#dropdown").meanmenu();
   windows.on("load", function () {
     /*--------------------------
 preloader
