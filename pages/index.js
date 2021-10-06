@@ -51,7 +51,7 @@ export async function getServerSideProps(ctx) {
   const { req, res, params } = ctx;
 
   let r = await fetch(
-    'http://localhost:3000/api/posts?where={"post_type":"slider"}'
+    process.env.BASE_URL + '/api/posts?where={"post_type":"slider"}'
   );
 
   let sliders = r.status === 200 ? await r.json() : [];
