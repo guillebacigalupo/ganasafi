@@ -58,10 +58,10 @@ export default function Footer({ data }) {
                   <h4 className="text-light-green">Contacto</h4>
                   <ul className="footer-list">
                     <li>
-                      <a href="#">Tel: 555555</a>
+                      <a href="tel:59133170400">Tel: 59133170400</a>
                     </li>
                     <li>
-                      <a href="#">Email: info@ganasafi.bom.bo</a>
+                      <a href="mailto:informaciones@ganasafi.bom.bo">informaciones@ganasafi.bom.bo</a>
                     </li>
                   </ul>
                 </div>
@@ -76,8 +76,7 @@ export default function Footer({ data }) {
             <div className="col-md-6 col-sm-6 col-xs-12">
               <div className="copyright">
                 <p>
-                  Copyright © 2021
-                  <a href="#">GANASAFI</a> All Rights Reserved
+                  Copyright © 2021 <a href="#">GANASAFI</a> Todos los derechos reservados.
                 </p>
               </div>
             </div>
