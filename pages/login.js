@@ -16,7 +16,7 @@ export default function Login(data) {
   const inputPassword = useRef(null);
 
   //modal controls
-  const [modal, setModal] = useState(true);
+  const [modal, setModal] = useState(false);
   const [modalContent, setModalContent] = useState("");
   const toggle = () => setModal(!modal);
   const [session, setSession] = useState(false);
@@ -26,7 +26,7 @@ export default function Login(data) {
     if (typeof window != 'undefined') window.location.href = "/panel";
     else router.push("/panel");
   };
-
+ 
   useEffect(() => {
     fetch("/api/auth/session")
       .then((resp) => {
@@ -36,7 +36,7 @@ export default function Login(data) {
         log({ data });
         if (typeof data.user != 'undefined' && data.user?.id) {
           setModal(true);
-          setModalContent(<LoadingIcon />);
+          setModalContent('Cargando...');
           setSession(data.user);
         } else {
           setSession(null);
@@ -48,7 +48,7 @@ export default function Login(data) {
     e.preventDefault();
 
     setModal(true);
-    setModalContent(<LoadingIcon />);
+    setModalContent('Cargando...');
 
     //Validation
     if (!email || !email.includes("@") || !password) {
@@ -78,7 +78,7 @@ export default function Login(data) {
 
     //workflow success or fail
     if (res.status < 300 && r.result == "OK" && !!r?.payload?.uuid) {
-      setModalContent(<CheckIcon />);
+      //setModalContent(<CheckIcon />);
       //TODO: rewrite the oauth token flow
       setCookie("accessToken", r.payload.accessToken);
       setCookie("uuid", r.payload.uuid);
