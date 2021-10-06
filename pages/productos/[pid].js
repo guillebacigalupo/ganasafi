@@ -194,7 +194,7 @@ export default function Producto({ data }) {
 export async function getServerSideProps({ params }) {
   const { pid } = params;
   let data = {};
-  const PORT = process.env.PORT || 3000;
+  const PORT = process.env.PORT ?? 3000;
   const baseurl = process.env.BASE_URL + ":" + PORT;
   let r = await fetch(baseurl + '/api/products/?where={"slug":"' + pid + '"}');
 

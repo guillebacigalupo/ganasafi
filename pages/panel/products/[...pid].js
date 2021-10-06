@@ -360,7 +360,9 @@ export async function getServerSideProps({ params }) {
   }
   
   if (action == "update") {
-    let r = await fetch(process.env.BASE_URL +  "/api/products/" + id, {
+  const PORT = process.env.PORT ?? 3000;
+  const baseurl = process.env.BASE_URL + ":" + PORT;
+    let r = await fetch(baseurl + "/api/products/" + id, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

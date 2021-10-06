@@ -20,7 +20,6 @@ const storeLayout = {};
 function AdminContainer(mainProps) {
   const router = useRouter();
   const { children } = mainProps;
-  log();
   const [session, setSession] = useState();
 
   const signOut = () => {
