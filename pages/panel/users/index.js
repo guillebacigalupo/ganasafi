@@ -147,7 +147,7 @@ export default function Users(props) {
 export async function getServerSideProps(ctx) {
   const { req, res, params } = ctx;
 
-  let r = await fetch("http://localhost:3000/api/users");
+  let r = await fetch(process.env.BASE_URL +"/api/users");
 
   if (r.status === 500) {
     return {
