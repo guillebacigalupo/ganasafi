@@ -54,6 +54,7 @@ export default function Simulador({ products }) {
                       <a className="ready-btn left-btn">
                         Quiero empezar a invertir
                       </a>
+                      
                     </div>
                   </div>
                   <div className="col-md-6 col-sm-12 col-xs-12"><br />
