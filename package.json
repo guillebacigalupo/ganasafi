@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yosietserga/ganasafi.git"
+    "url": "git+https://github.com/guillebacigalupo/ganasafi.git"
   },
   "dependencies": {
     "@next-auth/prisma-adapter": "^0.5.4",

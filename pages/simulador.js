@@ -49,10 +49,11 @@ export default function Simulador({ products }) {
                   <div className="col-md-6 col-sm-12 col-xs-12">
                     <div className="slide-content">
                       <h2 className="title2">Realiza la simulación </h2>
-                      <p>Accede a los fondos de inversión</p>
+                      <p>Selecccioná tu fondo de inversión de preferencia e ingresa el valor a invertir para simular tu rendimiento.</p>
                     </div>
                   </div>
-                  <div className="col-md-5 col-sm-12 col-xs-12">
+                  <div className="col-md-6 col-sm-12 col-xs-12"><br />
+                              <br />
                     <div className="money-send">
                       <div className="calculator-inner  text-left">
                         <div className="single-cal">
