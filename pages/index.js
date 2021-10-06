@@ -27,10 +27,23 @@ export default function Home({ sliders }) {
               <div className="feature-text">
                 <h3 className="text-green">¿Qué es GANASAFI?</h3>
                 <p>
-                  <strong>Ganadero Sociedad Administradora de Fondos de Inversión S.A. GanaSafi S.A.</strong>
+                  <strong>
+                    Ganadero Sociedad Administradora de Fondos de Inversión S.A.
+                    GanaSafi S.A.
+                  </strong>
                 </p>
                 <p>
-                  Es miembro del grupo <strong>Financiero Ganadero</strong>, nace el año 2020, con la <strong>misión</strong> de Administrar Fondos de Inversión que coadyuven activamente en el desarrollo económico, financiero y social del país, fomentando el ahorro interno nacional, facilitando económicamente la creación, expansión y desarrollo de empresas nacionales, incentivando las inversiones nacionales y/o extranjeras en el país y cubriendo los requerimientos financieros de los diferentes rubros económicos del país, preservando el patrimonio de los clientes inversionistas, participantes de los Fondos de Inversión administrados.
+                  Es miembro del grupo <strong>Financiero Ganadero</strong>,
+                  nace el año 2020, con la <strong>misión</strong> de
+                  Administrar Fondos de Inversión que coadyuven activamente en
+                  el desarrollo económico, financiero y social del país,
+                  fomentando el ahorro interno nacional, facilitando
+                  económicamente la creación, expansión y desarrollo de empresas
+                  nacionales, incentivando las inversiones nacionales y/o
+                  extranjeras en el país y cubriendo los requerimientos
+                  financieros de los diferentes rubros económicos del país,
+                  preservando el patrimonio de los clientes inversionistas,
+                  participantes de los Fondos de Inversión administrados.
                 </p>
               </div>
             </div>
@@ -49,10 +62,10 @@ export default function Home({ sliders }) {
 
 export async function getServerSideProps(ctx) {
   const { req, res, params } = ctx;
+  const PORT = process.env.PORT || 3000;
+  const baseurl = process.env.BASE_URL + ":" + PORT;
 
-  let r = await fetch(
-    process.env.BASE_URL + '/api/posts?where={"post_type":"slider"}'
-  );
+  let r = await fetch(baseurl + '/api/posts?where={"post_type":"slider"}');
 
   let sliders = r.status === 200 ? await r.json() : [];
   return {

@@ -42,7 +42,6 @@ export default function Slider({ sliders }) {
 }
 
 export function Slide(props) {
-  const baseurl = process.env.BASE_URL;
   const bg =
     props?.data?.image.length > 0
       ? { backgroundImage: `url(/uploads/${props.data.image}) !important` }

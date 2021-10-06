@@ -166,7 +166,6 @@ export default function Producto({ data }) {
                 </div>
               </div>
 
-              
               {pid == "gana-rendimiento" && ContentGanaRendimiento}
               {pid == "gana-inversiones" && ContentGanaInversiones}
             </div>
@@ -195,9 +194,9 @@ export default function Producto({ data }) {
 export async function getServerSideProps({ params }) {
   const { pid } = params;
   let data = {};
-  let r = await fetch(
-    process.env.BASE_URL + '/api/products/?where={"slug":"' + pid + '"}'
-  );
+  const PORT = process.env.PORT || 3000;
+  const baseurl = process.env.BASE_URL + ":" + PORT;
+  let r = await fetch(baseurl + '/api/products/?where={"slug":"' + pid + '"}');
 
   if (r.status < 300) {
     let d = await r.json();
