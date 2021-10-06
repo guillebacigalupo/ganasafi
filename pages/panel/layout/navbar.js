@@ -47,15 +47,7 @@ function NavBar(props) {
                     Lista de Usuarios
                   </NavLink>
                 </DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem tag="div">
-                  <NavLink
-                    href="/panel/users/permissions"
-                    className="text-primary"
-                  >
-                    Permisos
-                  </NavLink>
-                </DropdownItem>
+                
               </DropdownMenu>
             </UncontrolledDropdown>
           </Nav>
@@ -75,7 +67,7 @@ function NavBar(props) {
                   }}
                 >
                   <i className="fas fa-home"></i>
-                  Cerrar Sesión
+                   &nbsp;Cerrar Sesión
                 </a>
               </DropdownItem>
             </DropdownMenu>
