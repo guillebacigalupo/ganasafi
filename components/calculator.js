@@ -26,7 +26,7 @@ export default function Calculator({ data }) {
                 <input
                   type="number"
                   className="form-input"
-                  placeholder="1000"
+                  placeholder="Monto"
                   onChange={(e) => {
                     setCapital(e.target.value);
                   }}
