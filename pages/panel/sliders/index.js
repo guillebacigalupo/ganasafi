@@ -69,7 +69,7 @@ export default function Products(props) {
         return (
           <tr key={item.uuid}>
             <th scope="row">
-              <input type="checkbox" class="hidden"  name="slider[]" value={item.id} />
+              <input type="checkbox" className="hidden"  name="slider[]" value={item.id} />
             </th>
             <td><Image src={`/uploads/${item.image}`} alt={item.image} width="100" height="70" /></td>
             <td>{item.title}</td>

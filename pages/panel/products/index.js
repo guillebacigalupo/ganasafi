@@ -68,7 +68,7 @@ export default function Products(props) {
         return (
           <tr key={item.uuid}>
             <th scope="row">
-              <input type="checkbox" name="products[]" class="hidden" value={item.id} />
+              <input type="checkbox" name="products[]" className="hidden" value={item.id} />
             </th>
             <td>{item.title}</td>
             <td>{item.rate}</td>
