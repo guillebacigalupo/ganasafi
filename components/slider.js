@@ -1,4 +1,5 @@
 import Script from "next/script";
+import Link from "next/link";
 
 export default function Slider({ sliders }) {
   return (
@@ -70,34 +71,36 @@ export function Slide(props) {
                       de los portafolios de inversión.`}
                   </p>
                   <div className="layer-1-3">
-                    <a
+                    <Link
                       href={
                         props?.data?.link_button1.length > 0
                           ? props?.data?.link_button1
                           : `#`
                       }
-                      className="ready-btn left-btn"
                     >
-                      {props?.data?.text_button1.length > 0
-                        ? props?.data?.text_button1
-                        : `Simula tu inversión`}
-                    </a>
+                      <a className="ready-btn left-btn">
+                        {props?.data?.text_button1.length > 0
+                          ? props?.data?.text_button1
+                          : `Simula tu inversión`}
+                      </a>
+                    </Link>
                     <div className="video-content">
-                      <a
+                      <Link
                         href={
                           props?.data?.link_button2.length > 0
                             ? props?.data?.link_button2
                             : `#`
                         }
-                        className="video-play vid-zone"
                       >
-                        <i className="fa fa-play"></i>
-                        <span>
-                          {props?.data?.text_button2.length > 0
-                            ? props?.data?.text_button2
-                            : `Haz tu consulta`}
-                        </span>
-                      </a>
+                        <a className="video-play vid-zone">
+                          <i className="fa fa-play"></i>
+                          <span>
+                            {props?.data?.text_button2.length > 0
+                              ? props?.data?.text_button2
+                              : `Haz tu consulta`}
+                          </span>
+                        </a>
+                      </Link>
                     </div>
                   </div>
                 </div>

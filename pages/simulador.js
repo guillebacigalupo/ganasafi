@@ -38,7 +38,7 @@ export default function Simulador({ products }) {
   return (
     <Container>
       <div
-        className="slide-area slide-area-2 fix"
+        className="slide-area slide-area-2 fix pt130"
         data-stellar-background-ratio="0.6"
       >
         <div className="display-table">

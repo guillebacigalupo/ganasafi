@@ -5,7 +5,7 @@ import Link from "next/link";
 import Img from "../image";
 
 const Logo = () => {
-  return <Img s="logo/logo.png"/>;
+  return <Img s="logo/logo.png" />;
 };
 
 const Menu = (props) => {
@@ -13,13 +13,12 @@ const Menu = (props) => {
 
   return (
     <ul className={c ?? ""}>
-      
       <li>
         <Link href="/quienes-somos">
           <a className="pages">Quienes Somos</a>
         </Link>
       </li>
-      
+
       <li>
         <Link href="/productos">
           <a className="pages">Fondos de inversión</a>
@@ -67,6 +66,23 @@ const Menu = (props) => {
 
 export default function Header({ data }) {
   const breakpoint = 767;
+
+  const applyMMenu = () => {
+    if (typeof window != "undefined" && !!window) {
+      if (
+        typeof jQuery != "undefined" &&
+        !!jQuery &&
+        typeof jQuery.fn.meanmenu != "undefined" &&
+        !!jQuery.fn.meanmenu
+      ) {
+        window.jQuery("nav#dropdown").meanmenu();
+      }
+    }
+  };
+
+  useEffect(() => {
+    applyMMenu();
+  }, []);
 
   return (
     <>
