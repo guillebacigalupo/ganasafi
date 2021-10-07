@@ -336,16 +336,16 @@ export default function Products(props) {
     props.action == "update" ? props.data.image : ""
   );
   const [linkButton1, setLinkButton1] = useState(
-    props.action == "update" ? props.data.rate : ""
+    props.action == "update" ? props.data.link_button1 : ""
   );
   const [linkButton2, setLinkButton2] = useState(
-    props.action == "update" ? props.data.rate : ""
+    props.action == "update" ? props.data.link_button2 : ""
   );
   const [textButton1, setTextButton1] = useState(
-    props.action == "update" ? props.data.rate : ""
+    props.action == "update" ? props.data.text_button1 : ""
   );
   const [textButton2, setTextButton2] = useState(
-    props.action == "update" ? props.data.rate : ""
+    props.action == "update" ? props.data.text_button2 : ""
   );
 
   //modal controls
