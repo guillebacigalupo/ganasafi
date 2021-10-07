@@ -39,9 +39,6 @@ const actions = {
         props.setTextButton2(e.currentTarget.value);
       };
 
-      const PORT = process.env.PORT ?? 3000;
-      const baseurl = process.env.BASE_URL + ":" + PORT;
-
       return (
         <Form>
           <h2>{props.contentTitle}</h2>
@@ -55,7 +52,7 @@ const actions = {
             <>
               <br />
               <img
-                src={`${baseurl}/uploads/${props.data.image}`}
+                src={`${props.baseurl}/uploads/${props.data.image}`}
                 alt="Image"
                 width="120"
               />
@@ -282,7 +279,8 @@ export function FileUploadComponent({ setImage }) {
   };
 
   const selectFileInput = ({ accept, onFiles, files, getFilesFromEvent }) => {
-    const textMsg = files.length > 0 ? "Subir de nuevo" : "Seleccionar archivos";
+    const textMsg =
+      files.length > 0 ? "Subir de nuevo" : "Seleccionar archivos";
 
     return (
       <label className="btn btn-primary mt-4">
@@ -353,6 +351,9 @@ export default function Products(props) {
   const [modalContent, setModalContent] = useState("");
   const toggle = () => setModal(!modal);
 
+  const PORT = process.env.PORT ?? 3000;
+  const baseurl = process.env.BASE_URL + ":" + PORT;
+
   const __props = {
     ...props,
 
@@ -387,6 +388,8 @@ export default function Products(props) {
     toggle,
     setModalContent,
     setModal,
+
+    baseurl,
   };
 
   switch (props.action) {
