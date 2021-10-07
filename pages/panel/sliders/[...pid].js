@@ -352,6 +352,9 @@ export default function Products(props) {
   const [modalContent, setModalContent] = useState("");
   const toggle = () => setModal(!modal);
 
+  const PORT = process.env.PORT ?? 3000;
+  const baseurl = process.env.BASE_URL + ":" + PORT;
+
   const __props = {
     ...props,
 
@@ -440,7 +443,7 @@ export async function getServerSideProps({ params }) {
   }
 
   if (action == "update") {
-    let r = await fetch(baseurl +"/api/posts/" + id, {
+    let r = await fetch(baseurl + "/api/posts/" + id, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
