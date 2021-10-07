@@ -12,6 +12,9 @@ import "react-dropzone-uploader/dist/styles.css";
 import Dropzone from "react-dropzone-uploader";
 import { getDroppedOrSelectedFiles } from "html5-file-selector";
 
+const PORT = process.env.PORT ?? 3000;
+const baseurl = process.env.BASE_URL + ":" + PORT;
+
 const actions = {
   create: {
     children: function UIForm(props) {
@@ -234,12 +237,10 @@ actions.update.onSubmit = async (e, props) => {
 actions.update.children = actions.create.children;
 
 export function FileUploadComponent({ setImage }) {
-  const PORT = process.env.PORT ?? 3000;
-  const baseurl = process.env.BASE_URL + ":" + PORT;
   const fileParams = ({ meta, file }) => {
     const body = new FormData();
     body.append("file", file);
-    return { url: baseurl + "/api/posts/upload", body };
+    return { url: "/api/posts/upload", body };
   };
 
   const onFileChange = ({ meta, file }, status) => {
@@ -328,7 +329,7 @@ export default function Products(props) {
     props.action == "update" ? props.data.title : ""
   );
   const [desc, setDesc] = useState(
-    props.action == "update" ? props.data.desc : ""
+    props.action == "update" ? props.data.description : ""
   );
   const [image, setImage] = useState(
     props.action == "update" ? props.data.image : ""
@@ -350,9 +351,6 @@ export default function Products(props) {
   const [modal, setModal] = useState(false);
   const [modalContent, setModalContent] = useState("");
   const toggle = () => setModal(!modal);
-
-  const PORT = process.env.PORT ?? 3000;
-  const baseurl = process.env.BASE_URL + ":" + PORT;
 
   const __props = {
     ...props,
@@ -442,9 +440,7 @@ export async function getServerSideProps({ params }) {
   }
 
   if (action == "update") {
-    const PORT = process.env.PORT ?? 3000;
-    const baseurl = process.env.BASE_URL + ":" + PORT;
-    let r = await fetch(baseurl + "/api/posts/" + id, {
+    let r = await fetch(baseurl +"/api/posts/" + id, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
