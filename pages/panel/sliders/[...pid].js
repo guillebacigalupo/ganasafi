@@ -12,9 +12,6 @@ import "react-dropzone-uploader/dist/styles.css";
 import Dropzone from "react-dropzone-uploader";
 import { getDroppedOrSelectedFiles } from "html5-file-selector";
 
-const PORT = process.env.PORT ?? 3000;
-const baseurl = process.env.BASE_URL + ":" + PORT;
-
 const actions = {
   create: {
     children: function UIForm(props) {
@@ -55,7 +52,7 @@ const actions = {
             <>
               <br />
               <img
-                src={`${props.baseurl}/uploads/${props.data.image}`}
+                src={`/uploads/${props.data.image}`}
                 alt="Image"
                 width="120"
               />
@@ -441,6 +438,9 @@ export async function getServerSideProps({ params }) {
       },
     };
   }
+
+  const PORT = process.env.PORT ?? 3000;
+  const baseurl = process.env.BASE_URL + ":" + PORT;
 
   if (action == "update") {
     let r = await fetch(baseurl + "/api/posts/" + id, {
