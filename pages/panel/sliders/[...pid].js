@@ -52,7 +52,7 @@ const actions = {
             <>
               <br />
               <img
-                src={`${props.baseurl}/uploads/${props.data.image}`}
+                src={`/uploads/${props.data.image}`}
                 alt="Image"
                 width="120"
               />
@@ -234,12 +234,10 @@ actions.update.onSubmit = async (e, props) => {
 actions.update.children = actions.create.children;
 
 export function FileUploadComponent({ setImage }) {
-  const PORT = process.env.PORT ?? 3000;
-  const baseurl = process.env.BASE_URL + ":" + PORT;
   const fileParams = ({ meta, file }) => {
     const body = new FormData();
     body.append("file", file);
-    return { url: baseurl + "/api/posts/upload", body };
+    return { url: "/api/posts/upload", body };
   };
 
   const onFileChange = ({ meta, file }, status) => {
@@ -328,7 +326,7 @@ export default function Products(props) {
     props.action == "update" ? props.data.title : ""
   );
   const [desc, setDesc] = useState(
-    props.action == "update" ? props.data.desc : ""
+    props.action == "update" ? props.data.description : ""
   );
   const [image, setImage] = useState(
     props.action == "update" ? props.data.image : ""
@@ -441,9 +439,10 @@ export async function getServerSideProps({ params }) {
     };
   }
 
+  const PORT = process.env.PORT ?? 3000;
+  const baseurl = process.env.BASE_URL + ":" + PORT;
+
   if (action == "update") {
-    const PORT = process.env.PORT ?? 3000;
-    const baseurl = process.env.BASE_URL + ":" + PORT;
     let r = await fetch(baseurl + "/api/posts/" + id, {
       method: "GET",
       headers: {
