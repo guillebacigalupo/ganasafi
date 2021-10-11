@@ -48,7 +48,7 @@ export default function Simulador({ products }) {
                 <div className="slide-text-inner">
                   <div className="col-md-6 col-sm-12 col-xs-12">
                     <div className="slide-content">
-                      <h2 className="title2">Realiza la simulación </h2>
+                      <h2 className="title2">Simula tu inversión </h2>
                       <p>Selecccioná tu fondo de inversión de preferencia e ingresa el valor a invertir para simular tu rendimiento.</p>
 
                       <a className="ready-btn left-btn">

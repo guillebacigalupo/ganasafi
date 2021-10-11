@@ -90,6 +90,9 @@
     U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
     U+FEFF, U+FFFD;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&display=swap');
+
 /*-----------------------------------------------------------------------------------
 
     Template Name: Ganasafi
@@ -186,6 +189,7 @@ img {
 p {
   margin: 0 0 15px;
   color: #888;
+  font-family: "Open sans", sans-serif;
 }
 h1,
 h2,
@@ -1389,8 +1393,16 @@ a.s-menu {
   font-size: 40px;
   max-width: 840px;
   line-height: 46px;
-  font-weight: 600;
   margin: 0 auto 30px;
+}
+
+.calculator-inner .banner-content h3 {
+   font-family: "Open sans", sans-serif;
+  font-weight: 600;
+ 
+}
+.rate-text{
+  font-family: "Open sans", sans-serif;
 }
 .banner-content {
   overflow: hidden;
@@ -2230,6 +2242,7 @@ span.q-text {
   border: 1px solid #f5f5f5;
   padding: 40px 50px;
   margin-bottom: 30px;
+  font-family: 'Open Sans', sans-serif;
 }
 .top-price-inner {
   margin-bottom: 30px;
@@ -3293,6 +3306,8 @@ span.email-notes {
   }
   .banner-content h3 {
     font-size: 30px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: bold;
     max-width: 570px;
     line-height: 42px;
   }
@@ -3648,6 +3663,10 @@ span.email-notes {
   }
 }
 
+.title-about{
+  font-size: 30px !important;
+  line-height: 39px !important;
+}
 
 .modal .modal-dialog{
   margin-top: 70px;

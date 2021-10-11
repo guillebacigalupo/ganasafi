@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Img from "../components/image";
 
 export default function OurProducts({ data }) {
   const { standalone } = data;
@@ -26,7 +27,7 @@ export default function OurProducts({ data }) {
               <div className="col-md-6 col-sm-6 col-xs-12">
                 <div className="support-services wow ">
                   <a className="support-images" href="#">
-                    <i className="flaticon-dollar-symbol"></i>
+                    <Img s="rendimiento.png" a="Gana Rendimiento" w="60px" />
                   </a>
                   <div className="support-content">
                     <h4 className="text-light-green">
@@ -48,7 +49,7 @@ export default function OurProducts({ data }) {
               <div className="col-md-6 col-sm-6 col-xs-12">
                 <div className="support-services wow ">
                   <a className="support-images" href="#">
-                    <i className="flaticon-dollar-symbol"></i>
+                    <Img s="inversiones.png" a="Gana Inversiones" w="60px" />
                   </a>
                   <div className="support-content">
                     <h4 className="text-light-green">

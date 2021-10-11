@@ -25,7 +25,7 @@ export default function Comparator({ data }) {
                       <h4 className="text-green">GanaInversiones - FIA</h4>
                     </div>
                     <div className="rates">
-                      Moneda: <span className="users">Dolares</span>
+                      Moneda: <span className="users">Dólares</span>
                     </div>
                   </div>
                   <ol>
@@ -45,15 +45,14 @@ export default function Comparator({ data }) {
                       <strong className="text-light-green">
                         Rescates permitidos:
                       </strong>{" "}
-                      Sin Restricciones. Sin previa notificación $us. 100.000
+                      Sin Restricciones. Sin previa notificación USD 100.000
                     </li>
                     <li className="check">
                       <strong className="text-light-green">
                         Política de rescate:
                       </strong>{" "}
-                      Con 3 dias hábiles de notificación de $us. 100.001 a
-                      $us.500.000 <br />
-                      Con 4 días hábiles mayores a $us. 500.000
+                      Con 3 dias hábiles de notificación de USD 100.001 a
+                      USD.500.000 
                     </li>
                     <li className="check">
                       <strong className="text-light-green">
@@ -84,7 +83,7 @@ export default function Comparator({ data }) {
 
 
                   </div>
-                  <Link href="/productos/gana-rendimiento">
+                  <Link href="/productos/gana-inversiones">
                       <a className="ab-btn left-ab-btn btn-service">
                         Quiero saber más
                       </a>
@@ -157,7 +156,7 @@ export default function Comparator({ data }) {
                     </Link>
                   </div>
 
-                  <Link href="/productos/gana-inversiones">
+                  <Link href="/productos/gana-rendimiento">
                     <a className="ab-btn left-ab-btn btn-service">
                       Quiero saber más
                     </a>

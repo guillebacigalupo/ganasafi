@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import Container from "../../components/layout/container";
 import Calculator from "../../components/calculator";
 import Link from "next/link";
+import Img from "../../components/image";
 
 const message = "Deseo solicitar infomación sobre GanaRendimiento";
 
@@ -18,11 +19,11 @@ const ContentGanaInversiones = (
   <div className="col-md-6 col-sm-6  col-xs-12">
     <div className="table-list">
       <div className="top-price-inner">
-        <div className="price-title">
-          <h4 className="text-green">GanaInversiones - FIA</h4>
-        </div>
+        
+        <Img s="logoinversiones.png" a="Ganasafi" w="500px" />
+        <br/><br/>
         <div className="rates">
-          Moneda: <span className="users">Dolares</span>
+          Moneda: <span className="users">Dólares</span>
         </div>
       </div>
       <ol>
@@ -37,12 +38,11 @@ const ContentGanaInversiones = (
         </li>
         <li className="check">
           <strong className="text-light-green">Rescates permitidos:</strong> Sin
-          Restricciones. Sin previa notificación $us. 100.000
+          Restricciones. Sin previa notificación USD 100.000
         </li>
         <li className="check">
           <strong className="text-light-green">Política de rescate:</strong> Con
-          3 dias hábiles de notificación de $us. 100.001 a $us.500.000 <br />
-          Con 4 días hábiles mayores a $us. 500.000
+          3 dias hábiles de notificación de USD 100.001 a USD500.000
         </li>
         <li className="check">
           <strong className="text-light-green">
@@ -77,9 +77,8 @@ const ContentGanaRendimiento = (
   <div className="col-md-7 col-sm-6 col-xs-12">
     <div className="table-list">
       <div className="top-price-inner">
-        <div className="price-title dark">
-          <h4 className="">GanaRendimiento - FIA</h4>
-        </div>
+        <Img s="logorendimiento.png" a="Ganasafi" w="500px" />
+        <br/><br/>
         <div className="rates">
           Moneda: <span className="users">Bolivianos</span>
         </div>
@@ -140,13 +139,8 @@ export default function Producto({ data }) {
                   </h3>
 
                   <p>
-                    Ganadero Sociedad Administradora de Fondos de Inversión S.A.
-                    GanaSafi S.A. Es miembro del grupo Financiero Ganadero, nace
-                    el año 2020, con la misión de Administrar Fondos de
-                    Inversión que coadyuven activamente en el desarrollo
-                    económico, financiero y social del país, fomentando el
-                    ahorro interno nacional, facilitando económicamente la
-                    creación, expansión y desarrollo de empresas nacionales
+                    La opción acertada de Invertir tus fondos y contar con liquidez inmediata.
+
                   </p>
                   <hr />
                   <p>
@@ -178,7 +172,7 @@ export default function Producto({ data }) {
             <div className="col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
               <div className="banner-all area-80 text-center">
                 <div className="banner-content">
-                  <h3>Simulador de inversión</h3>
+                  <h3>Simula tu inversión</h3>
                   <br />
                   <Calculator data={data} />
                 </div>
