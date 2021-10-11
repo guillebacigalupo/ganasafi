@@ -19438,3 +19438,11 @@ footer[class=footer-main] ul>li>a {
 .hidden{
     display: none !important;
 }
+
+.dzu-submitButtonContainer{
+    display: none !important;
+}
+
+.dzu-dropzone{
+    height: 220px !important;
+}

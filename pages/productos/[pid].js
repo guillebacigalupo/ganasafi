@@ -96,12 +96,11 @@ const ContentGanaRendimiento = (
         </li>
         <li className="check">
           <strong className="text-light-green">Rescates permitidos:</strong> Sin
-          Restricciones. sin previa notificación Bs. 700.000
+          Restricciones. Sin previa notificación Bs. 700.000
         </li>
         <li className="check">
           <strong className="text-light-green">Política de rescate:</strong> Con
-          3 dias hábiles de notificación de bs. 700.001 a Bs. 3.500.000 <br />
-          Con 4 días hábiles mayores a Bs.3.500.001
+          3 dias hábiles de notificación de bs. 700.001 a Bs. 3.500.000
         </li>
         <li className="check">
           <strong className="text-light-green">
