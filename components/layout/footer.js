@@ -78,47 +78,47 @@ export default function Footer({ data }) {
       </div>
 
       <Script
-        src="assets/static/js/vendor/jquery-1.12.4.min.js"
+        src="/assets/static/js/vendor/jquery-1.12.4.min.js"
         strategy="beforeInteractive"
       />
       <Script
-        src="assets/static/js/bootstrap.min.js"
+        src="/assets/static/js/bootstrap.min.js"
         strategy="beforeInteractive"
       />
 
       <Script
-        src="assets/static/js/owl.carousel.min.js"
+        src="/assets/static/js/owl.carousel.min.js"
         strategy="afterInteractive"
       />
       <Script
-        src="assets/static/js/jquery.stellar.min.js"
+        src="/assets/static/js/jquery.stellar.min.js"
         strategy="afterInteractive"
       />
       <Script
-        src="assets/static/js/jquery.counterup.min.js"
+        src="/assets/static/js/jquery.counterup.min.js"
         strategy="afterInteractive"
       />
-      <Script src="assets/static/js/waypoints.js" strategy="afterInteractive" />
+      <Script src="/assets/static/js/waypoints.js" strategy="afterInteractive" />
       <Script
-        src="assets/static/js/jquery.nice-select.min.js"
-        strategy="afterInteractive"
-      />
-      <Script
-        src="assets/static/js/magnific.min.js"
-        strategy="afterInteractive"
-      />
-      <Script src="assets/static/js/wow.min.js" strategy="afterInteractive" />
-      <Script
-        src="assets/static/js/jquery.meanmenu.js"
+        src="/assets/static/js/jquery.nice-select.min.js"
         strategy="afterInteractive"
       />
       <Script
-        src="assets/static/js/form-validator.min.js"
+        src="/assets/static/js/magnific.min.js"
+        strategy="afterInteractive"
+      />
+      <Script src="/assets/static/js/wow.min.js" strategy="afterInteractive" />
+      <Script
+        src="/assets/static/js/jquery.meanmenu.js"
+        strategy="afterInteractive"
+      />
+      <Script
+        src="/assets/static/js/form-validator.min.js"
         strategy="afterInteractive"
       />
 
-      <Script src="assets/static/js/plugins.js" strategy="lazyOnload" />
-      <Script src="assets/static/js/main.js" strategy="lazyOnload" />
+      <Script src="/assets/static/js/plugins.js" strategy="lazyOnload" />
+      <Script src="/assets/static/js/main.js" strategy="lazyOnload" />
     </footer>
   );
 }

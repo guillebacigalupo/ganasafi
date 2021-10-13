@@ -140,11 +140,11 @@ export default function Producto({ data }) {
                   <h3 className="text-light-green">
                     Comienza a invertir tu dinero con GANASAFI
                   </h3>
-                  <div class="row">
-                    <div class="col-sm-2 col-xs-2">
+                  <div className="row">
+                    <div className="col-sm-2 col-xs-2">
                       <Img s={products[pid].image} a={`products[pid].title`} w="60px" />
                     </div>
-                    <div class="col-sm-10 col-xs-10">
+                    <div className="col-sm-10 col-xs-10">
                       <p>
 
                    {products[pid].bajada}
