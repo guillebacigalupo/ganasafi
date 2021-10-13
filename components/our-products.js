@@ -14,7 +14,7 @@ export default function OurProducts({ data }) {
           <div className="row">
             <div className="col-md-12 col-sm-12 col-xs-12">
               <div className="section-headline text-center">
-                <h3 className="text-white">Fondos de inversión</h3>
+                <h3 className="text-white">Fondos de Inversión</h3>
                 <p className="text-white">
                   Tu confianza, nuestro compromiso.<br/>Invierte en el fondo que más se adapte a tu perfil, objetivos y necesidades.
                 </p>
@@ -34,7 +34,7 @@ export default function OurProducts({ data }) {
                       <strong>GanaRendimiento - FIA</strong>
                     </h4>
                     <p>
-                     La alternativa perfecta para invertir en BS y tener disponibilidad de tus recursos.
+                    La opción acertada de Invertir en Bs y contar con liquidez inmediata.
                     </p>
 
                     <Link href="/productos/gana-rendimiento">

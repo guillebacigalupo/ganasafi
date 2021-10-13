@@ -9,9 +9,13 @@ const message = "Deseo solicitar infomación sobre GanaRendimiento";
 const products = {
   "gana-rendimiento": {
     title: "GanaRendimiento - FIA",
+    bajada: "La opción acertada de Invertir en Bs y contar con liquidez inmediata",
+    image:"rendimiento.png",
   },
   "gana-inversiones": {
     title: "GanaInversiones - FIA",
+    bajada: "La alternativa perfecta para invertir en USD y tener disponibilidad de tus recursos.",
+    image:"inversiones.png",
   },
 };
 
@@ -33,7 +37,7 @@ const ContentGanaInversiones = (
           </strong>
         </li>
         <li className="check">
-          <strong className="text-light-green">Monto de apertura:</strong> USD
+          <strong className="text-light-green">Monto mínimo de inversión:</strong> USD
           100
         </li>
         <li className="check">
@@ -91,7 +95,7 @@ const ContentGanaRendimiento = (
           </strong>
         </li>
         <li className="check">
-          <strong className="text-light-green">Monto de apertura:</strong> Bs.
+          <strong className="text-light-green">Monto mínimo de inversión:</strong> Bs.
           1000
         </li>
         <li className="check">
@@ -136,11 +140,23 @@ export default function Producto({ data }) {
                   <h3 className="text-light-green">
                     Comienza a invertir tu dinero con GANASAFI
                   </h3>
+                  <div class="row">
+                    <div class="col-sm-2 col-xs-2">
+                      <Img s={products[pid].image} a={`products[pid].title`} w="60px" />
+                    </div>
+                    <div class="col-sm-10 col-xs-10">
+                      <p>
 
-                  <p>
-                    La opción acertada de Invertir tus fondos y contar con liquidez inmediata.
+                   {products[pid].bajada}
+                   
+                  
+                    
 
                   </p>
+                    </div>
+                  </div>
+
+                  
                   <hr />
                   <p>
                     <strong>Reglamento interno</strong>

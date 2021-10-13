@@ -10,8 +10,7 @@ export default function Faq() {
               <div className="section-headline text-center">
                 <h3 className="text-green">¿Qué saber para invertir?</h3>
                 <p>
-                  Si tienes dudas, aquí te brindamos información sobre nuestra
-                  metodología de inversión
+                Si tienes dudas, aquí te brindamos más información.
                 </p>
               </div>
             </div>

@@ -37,7 +37,7 @@ export default function Comparator({ data }) {
                     </li>
                     <li className="check">
                       <strong className="text-light-green">
-                        Monto de apertura:
+                       Monto mínimo de Inversión
                       </strong>{" "}
                       USD 100
                     </li>
@@ -110,7 +110,7 @@ export default function Comparator({ data }) {
                     </li>
                     <li className="check">
                       <strong className="text-light-green">
-                        Monto de apertura:
+                        Monto mínimo de Inversión:
                       </strong>{" "}
                       Bs. 1000
                     </li>

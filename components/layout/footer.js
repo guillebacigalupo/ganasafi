@@ -14,16 +14,9 @@ export default function Footer({ data }) {
                 <div className="footer-head">
                   <div className="footer-logo">
                     <a className="footer-black-logo" href="#">
-                      <Img s="logo/logo.png" w="300px" a="" />
+                      <Img s="logo/logo.png" w="400px" a="" />
                     </a>
-                    <p>
-                      <strong className="text-green">
-                        <small>
-                          Ganadero Asociación Administradora de Fondos de
-                          Inversión S.A.
-                        </small>
-                      </strong>
-                    </p>
+                   
                   </div>
                   <p>
                     La oficina principal de GanaSafi S.A. se encuentra ubicada
@@ -58,7 +51,7 @@ export default function Footer({ data }) {
                   <h4 className="text-light-green">Contacto</h4>
                   <ul className="footer-list">
                     <li>
-                      <a href="tel:59133170400">Tel: 59133170400</a>
+                      <a href="tel:59133170400">Tel: 591 3 3170400</a>
                     </li>
                     <li>
                       <a href="mailto:informaciones@ganasafi.bom.bo">informaciones@ganasafi.bom.bo</a>

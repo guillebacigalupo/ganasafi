@@ -156,7 +156,7 @@ body {
 }
 
 .footer-logo {
-  width: 200px;
+  width: 250px;
 }
 
 .floatright {
@@ -1396,7 +1396,8 @@ a.s-menu {
   margin: 0 auto 30px;
 }
 
-.calculator-inner .banner-content h3 {
+.calculator-inner  h3,
+footer h3 {
    font-family: "Open sans", sans-serif;
   font-weight: 600;
  

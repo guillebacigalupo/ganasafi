@@ -109,7 +109,7 @@ export default function Contacts({ data }) {
             <div className="col-md-12 col-sm-12 col-xs-12">
               <div className="section-headline text-center">
                 <h3 className="text-light-green">Contáctanos</h3>
-                <p>¿No sabes como invertir?, contáctate con un asesor a través de las sucursales del banco ganadero como canal de distribución de los fondos.
+                <p>¿No sabes como invertir?, contáctate con un asesor a través de las sucursales del Banco Ganadero como canal de distribución de los fondos.
 </p>
               </div>
             </div>

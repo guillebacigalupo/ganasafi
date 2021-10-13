@@ -21,7 +21,7 @@ const Menu = (props) => {
 
       <li>
         <Link href="/productos">
-          <a className="pages">Fondos de inversión</a>
+          <a className="pages">Fondos de Inversión</a>
         </Link>
         <ul className="sub-menu">
           <li>
@@ -47,7 +47,7 @@ const Menu = (props) => {
               });
           }}
         >
-          <a>Comparador</a>
+          <a>Comparador de fondos</a>
         </Link>
       </li>
       <li>
