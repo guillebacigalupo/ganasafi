@@ -28,7 +28,7 @@ export default function Simulador({ products }) {
   };
 
   const _calc = () => {
-    let r = parseFloat(capital * Math.pow(1 + data.rate / 100, times)).toFixed(
+    let r = parseFloat(capital * Math.pow(1 + data.rate / 10000, 1/times)).toFixed(
       2
     );
     setResult(r);
@@ -110,7 +110,7 @@ export default function Simulador({ products }) {
                               <span>
                                 {" "}
                                 <strong>
-                                  {(data?.rate / 100).toFixed(4)}
+                                  {(data?.rate / 10000).toFixed(4)}
                                 </strong>{" "}
                                 Tasa mensual
                               </span>
