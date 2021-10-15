@@ -99,16 +99,16 @@ export default function Header({ data }) {
                   <div className="row">
                     <div className="col-md-2 col-sm-3">
                       <div className="logo">
-                        <Link href="/">
-                          <a className="navbar-brand page-scroll white-logo">
+                        
+                          <a href="/" className="navbar-brand page-scroll white-logo">
                             <Logo />
                           </a>
-                        </Link>
-                        <Link href="/">
-                          <a className="navbar-brand page-scroll black-logo">
+                        
+                        
+                          <a href="/" className="navbar-brand page-scroll black-logo">
                             <Logo />
                           </a>
-                        </Link>
+                        
                       </div>
                     </div>
                     <div className="col-md-10 col-sm-9">
@@ -143,11 +143,11 @@ export default function Header({ data }) {
                 <div className="col-md-12">
                   <div className="mobile-menu">
                     <div className="logo">
-                      <Link href="/">
-                        <a>
+                      
+                        <a href="/">
                           <Logo />
                         </a>
-                      </Link>
+                      
                     </div>
                     <nav id="dropdown">
                       <Menu />

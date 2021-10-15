@@ -61,7 +61,7 @@ export function Slide(props) {
                   <h2 className="title2">
                     {props?.data?.title.length > 0
                       ? props?.data?.title
-                      : `Invierte en fondos de inversión`}
+                      : `Invierte en Fondos de Inversión`}
                   </h2>
                   <p>
                     {props?.data?.description ??

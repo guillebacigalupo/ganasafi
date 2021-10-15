@@ -13,7 +13,7 @@ export default function Footer({ data }) {
               <div className="footer-content logo-footer">
                 <div className="footer-head">
                   <div className="footer-logo">
-                    <a className="footer-black-logo" href="#">
+                    <a className="footer-black-logo" href="/">
                       <Img s="logo/logo.png" w="400px" a="" />
                     </a>
                    

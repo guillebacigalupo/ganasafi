@@ -7,7 +7,8 @@ export default function Custom404() {
         <div className="container">
           <div className="row">
             <div className="feature-text">
-              <h1>404 - Page Not Found</h1>
+              <h1>Lo sentimos.<br/>La pagina no existe :(</h1>
+              <a href="/" class="text-green">Volver al inicio</a>
             </div>
           </div>
         </div>
