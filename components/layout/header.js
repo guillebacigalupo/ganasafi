@@ -97,7 +97,7 @@ export default function Header({ data }) {
               <div className="row">
                 <div className="col-md-12 col-sm-12">
                   <div className="row">
-                    <div className="col-md-2 col-sm-2">
+                    <div className="col-lg-3 col-md-2 col-sm-2">
                       <div className="logo">
                           <Link href="/">
                             <a className="navbar-brand page-scroll white-logo">
@@ -113,7 +113,7 @@ export default function Header({ data }) {
                         
                       </div>
                     </div>
-                    <div className="col-md-10 col-sm-10">
+                    <div className="col-lg-9 col-md-10 col-sm-10">
                       <div className="header-right-link">
                         <Link href="">
                           <a className="s-menu">Ingresar</a>
@@ -139,15 +139,15 @@ export default function Header({ data }) {
         </MediaQuery>
 
         <MediaQuery query={`(max-width: ${breakpoint}px)`}>
-          <div className="mobile-menu-area hidden-lg hidden-md">
-            <div className="container">
+          <div className="mobile-menu-area hidden-lg ">
+            <div className="container-fluid ">
               <div className="row">
                 <div className="col-md-12">
                   <div className="mobile-menu">
                     <div className="logo">
                       <Link href="/">
                         <a>
-                          <Img s="logo/logoheader.png" w="150px"/>
+                          <Img s="logo/logoheader.png" w="250px"/>
                         </a>
                       </Link>
                     </div>
