@@ -13,10 +13,13 @@ export default function Footer({ data }) {
               <div className="footer-content logo-footer">
                 <div className="footer-head">
                   <div className="footer-logo">
-                    <a className="footer-black-logo" href="/">
-                      <Img s="logo/logofooter.png" w="400px" a="" />
-                    </a>
-                   
+                    <Link href="/">
+                      <a className="footer-black-logo">
+
+                          <Img s="logo/logofooter.png" w="400px" a="" />
+                        
+                      </a>
+                   </Link>
                   </div>
                   <p>
                     La oficina principal de GanaSafi S.A. se encuentra ubicada
