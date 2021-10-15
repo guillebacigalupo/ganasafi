@@ -37,7 +37,7 @@ export default function Home({ sliders }) {
             <div className="col-md-6 col-sm-6 col-xs-12">
               <div className="feature-content">
                 <div className="feature-images">
-                  <Img s="feature/f1.png" a="Ganasafi" />
+                  <Img s="feature/about.png" a="Ganasafi" />
                 </div>
               </div>
             </div>
