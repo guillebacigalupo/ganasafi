@@ -26,7 +26,7 @@ export async function getServerSideProps(ctx) {
 
 export default function Home({ sliders }) {
   let count = sliders.length;
-  console.log("PRE HOME " + sliders);
+  
   return (
     <Container>
       {count > 0 && <Slider sliders={sliders} />}

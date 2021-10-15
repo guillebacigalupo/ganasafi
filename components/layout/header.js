@@ -5,7 +5,7 @@ import Link from "next/link";
 import Img from "../image";
 
 const Logo = () => {
-  return <Img s="logo/logo.png" />;
+  return <Img s="logo/logoheader.png" />;
 };
 
 const Menu = (props) => {
@@ -65,7 +65,7 @@ const Menu = (props) => {
 };
 
 export default function Header({ data }) {
-  const breakpoint = 767;
+  const breakpoint = 1024;
 
   const applyMMenu = () => {
     if (typeof window != "undefined" && !!window) {
@@ -97,7 +97,7 @@ export default function Header({ data }) {
               <div className="row">
                 <div className="col-md-12 col-sm-12">
                   <div className="row">
-                    <div className="col-md-2 col-sm-3">
+                    <div className="col-md-2 col-sm-2">
                       <div className="logo">
                         
                           <a href="/" className="navbar-brand page-scroll white-logo">
@@ -111,7 +111,7 @@ export default function Header({ data }) {
                         
                       </div>
                     </div>
-                    <div className="col-md-10 col-sm-9">
+                    <div className="col-md-10 col-sm-10">
                       <div className="header-right-link">
                         <Link href="">
                           <a className="s-menu">Ingresar</a>
@@ -137,7 +137,7 @@ export default function Header({ data }) {
         </MediaQuery>
 
         <MediaQuery query={`(max-width: ${breakpoint}px)`}>
-          <div className="mobile-menu-area hidden-lg hidden-md hidden-sm">
+          <div className="mobile-menu-area hidden-lg hidden-md">
             <div className="container">
               <div className="row">
                 <div className="col-md-12">
@@ -145,7 +145,7 @@ export default function Header({ data }) {
                     <div className="logo">
                       
                         <a href="/">
-                          <Logo />
+                          <Img s="logo/logoheader.png" w="150px"/>
                         </a>
                       
                     </div>
