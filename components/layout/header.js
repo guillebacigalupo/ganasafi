@@ -84,6 +84,8 @@ export default function Header({ data }) {
     applyMMenu();
   }, []);
 
+
+
   return (
     <>
       <HTMLHead />
@@ -99,13 +101,13 @@ export default function Header({ data }) {
                   <div className="row">
                     <div className="col-lg-3 col-md-2 col-sm-2">
                       <div className="logo">
-                          <Link href="/">
+                          <Link href="/" >
                             <a className="navbar-brand page-scroll white-logo">
                               <Logo />
                             </a>
                           </Link>
                           
-                          <Link href="/">
+                          <Link href="/" >
                             <a  className="navbar-brand page-scroll black-logo">
                               <Logo />
                             </a>
@@ -115,7 +117,7 @@ export default function Header({ data }) {
                     </div>
                     <div className="col-lg-9 col-md-10 col-sm-10">
                       <div className="header-right-link">
-                        <Link href="">
+                        <Link href="" >
                           <a className="s-menu">Ingresar</a>
                         </Link>
                       </div>
@@ -145,7 +147,7 @@ export default function Header({ data }) {
                 <div className="col-md-12">
                   <div className="mobile-menu">
                     <div className="logo">
-                      <Link href="/">
+                      <Link href="/" >
                         <a>
                           <Img s="logo/logoheader.png" w="250px"/>
                         </a>

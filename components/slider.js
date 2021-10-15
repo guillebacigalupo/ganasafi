@@ -2,7 +2,9 @@ import Script from "next/script";
 import Link from "next/link";
 
 export default function Slider({ sliders }) {
+
   return (
+
     <>
       {/* Start Slider content */}
       <div className="slider-main">
@@ -42,15 +44,14 @@ export default function Slider({ sliders }) {
 }
 
 export function Slide(props) {
-  const bg =
-    props?.data?.image.length > 0
-      ? { backgroundImage: `url(/uploads/${props.data.image}) !important` }
-      : false;
+
+ 
   return (
+
     <div
       className="slide-area fix"
       data-stellar-background-ratio=".4"
-      style={bg ?? ""}
+        
     >
       <div className="display-table">
         <div className="display-table-cell">
@@ -108,6 +109,14 @@ export function Slide(props) {
           </div>
         </div>
       </div>
+
+      if (props?.data?.image.length `&gt; 0){
+      <style jsx>{`
+        .slide-area{
+          background-image: url(/uploads/${props.data.image}) !important;
+        }
+      `}</style>
+      }
     </div>
   );
 }
