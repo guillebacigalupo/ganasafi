@@ -3026,6 +3026,14 @@ span.email-notes {
     margin-left: 5px;;
 }
 
+
+.bg-cta{
+  background: url(../public/img/cta.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center right;
+}
+
 /*----------------------------------------*/
 /*  23.	Animation  CSS
 /*----------------------------------------*/
@@ -3494,7 +3502,7 @@ span.email-notes {
     margin-bottom: 40px;
   }
   .how-to-area {
-    padding: 100px 0px 70px;
+    padding: 100px 10px 70px;
   }
   .brand-content {
     padding: 15px 0px 100px;

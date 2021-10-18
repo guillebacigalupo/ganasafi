@@ -4,14 +4,14 @@ export default function HowTo({ data }) {
     return (
         <>
 
-            <div className="how-to-area area-padding">
+            <div className="how-to-area area-padding ">
                 <h3 className="text-light-green text-center">
                     Empieza a invertir en solo tres pasos.
                 </h3>
                 <br/>
                 <div className="container">
                     <div className="row">
-                        <div className="all-services">
+                        <div className="all-services ">
                             <div className="col-md-4 col-sm-4 col-xs-12">
                                 <div className="well-services first-item">
                                     <div className="well-img">
