@@ -122,6 +122,9 @@ export default function Footer({ data }) {
 
       <Script src="/assets/static/js/plugins.js" strategy="lazyOnload" />
       <Script src="/assets/static/js/main.js" strategy="lazyOnload" />
+
+      <noscript dangerouslySetInnerHTML={{ __html:`<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PD6NWJG"
+height="0" width="0" style="display:none;visibility:hidden"></iframe>`}}></noscript>
     </footer>
   );
 }
