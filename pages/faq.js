@@ -116,7 +116,7 @@ export default function Faq() {
                   </a>
                   <div id="faq5" className="collapse">
                     <p>
-                      En la industria existen 2 tipos de fondos de Inversión de
+                      En la industria existen 2 tipos de Fondos de Inversión de
                       acuerdo a la disponibilidad de los recursos invertidos:
                     </p>
                     <br />
@@ -129,7 +129,7 @@ export default function Faq() {
                       participación compradas por los participantes son
                       redimibles directamente por el Fondo (mediante un rescate
                       de cuotas) y su plazo de duración es indefinido. Este tipo
-                      de fondos es el más común en los Mercados de Valores.
+                      de Fondos es el más común en los Mercados de Valores.
                     </p>
                     <br />
                     <p>
@@ -183,7 +183,7 @@ export default function Faq() {
                   </a>
                   <div id="faq7" className="collapse">
                     <p>
-                      Los activos en los que invierten los fondos de inversión
+                      Los activos en los que invierten los Fondos de inversión
                       se encuentran definidos en la Política de Inversiones que
                       se encuentra establecido el Reglamento Interno o Prospecto
                       de cada fondo, autorizado por la Autoridad de Supervisión

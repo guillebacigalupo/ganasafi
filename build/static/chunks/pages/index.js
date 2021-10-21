@@ -617,7 +617,7 @@ function Comparator(_ref) {
               className: "section-headline text-center",
               children: [/*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)("h3", {
                 className: "text-light-green",
-                children: "Comparador de fondos"
+                children: "Comparador de Fondos"
               }, void 0, false, {
                 fileName: _jsxFileName,
                 lineNumber: 9,
@@ -3905,7 +3905,7 @@ function Slide(_ref2) {
                 className: "slide-content",
                 children: [/*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)("h2", {
                   className: "title2",
-                  children: "Invierte en fondos de inversi\xF3n"
+                  children: "Invierte en Fondos de Inversi\xF3n"
                 }, void 0, false, {
                   fileName: _jsxFileName,
                   lineNumber: 26,

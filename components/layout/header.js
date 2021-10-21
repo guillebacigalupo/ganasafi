@@ -47,7 +47,7 @@ const Menu = (props) => {
               });
           }}
         >
-          <a>Comparador de fondos</a>
+          <a>Comparador de Fondos</a>
         </Link>
       </li>
       <li>

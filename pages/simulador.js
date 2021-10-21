@@ -3,6 +3,7 @@ import Comparator from "../components/comparator";
 import Script from "next/script";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import Link from "next/link";
 
 const products = {
   "gana-rendimiento": {
@@ -51,9 +52,11 @@ export default function Simulador({ products }) {
                       <h2 className="title2">Simula tu inversión </h2>
                       <p>Selecccioná tu fondo de inversión de preferencia e ingresa el valor a invertir para simular tu rendimiento.</p>
 
-                      <a className="ready-btn left-btn">
-                        Quiero empezar a invertir
-                      </a>
+                      <Link href="/contacto">
+                        <a className="ready-btn left-btn">
+                          Quiero empezar a invertir
+                        </a>
+                      </Link>
                       
                     </div>
                   </div>

@@ -1575,6 +1575,7 @@ footer h3 {
   border-radius: 20px;
   font-size: 25px;
   text-align: center;
+      font-family: "Open Sans", sans-serif;
 }
 .calculator-inner form {
   display: block;

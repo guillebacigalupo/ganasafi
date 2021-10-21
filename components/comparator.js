@@ -9,7 +9,7 @@ export default function Comparator({ data }) {
           <div className="row">
             <div className="col-md-12 col-sm-12 col-xs-12">
               <div className="section-headline text-center">
-                <h3 className="text-light-green">Comparador de fondos</h3>
+                <h3 className="text-light-green">Comparador de Fondos</h3>
                 <p>
                   Elige el fondo correcto que se adapte a tu perfil y necesidades
                 </p>
