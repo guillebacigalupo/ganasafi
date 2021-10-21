@@ -32,7 +32,7 @@ export default function Footer({ data }) {
             <div className="col-md-3 col-sm-3 col-xs-12">
               <div className="footer-content">
                 <div className="footer-head">
-                  <h4 className="text-light-green">Productos</h4>
+                  <h4 className="text-light-green">Fondos de Inversión</h4>
                   <ul className="footer-list">
                     <li>
                       <Link href="/productos/gana-inversiones">

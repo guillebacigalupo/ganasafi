@@ -41,12 +41,12 @@ const ContentGanaInversiones = (
           100
         </li>
         <li className="check">
-          <strong className="text-light-green">Rescates permitidos:</strong> Sin
-          Restricciones. Sin previa notificación USD 100.000
+          <strong className="text-light-green">Rescates permitidos:</strong> <br/>Sin
+          Restricciones. <br/>Sin previa notificación USD 100.000
         </li>
         <li className="check">
-          <strong className="text-light-green">Política de rescate:</strong> Con
-          3 dias hábiles de notificación de USD 100.001 a USD500.000
+          <strong className="text-light-green">Política de rescate:</strong> <br/>Con
+          3 días hábiles de notificación de USD 100.001 a USD500.000
         </li>
         <li className="check">
           <strong className="text-light-green">
@@ -99,12 +99,12 @@ const ContentGanaRendimiento = (
           1000
         </li>
         <li className="check">
-          <strong className="text-light-green">Rescates permitidos:</strong> Sin
-          Restricciones. Sin previa notificación Bs. 700.000
+          <strong className="text-light-green">Rescates permitidos:</strong> <br/>Sin
+          Restricciones. <br/>Sin previa notificación Bs. 700.000
         </li>
         <li className="check">
-          <strong className="text-light-green">Política de rescate:</strong> Con
-          3 dias hábiles de notificación de bs. 700.001 a Bs. 3.500.000
+          <strong className="text-light-green">Política de rescate:</strong><br/> Con
+          3 días hábiles de notificación de bs. 700.001 a Bs. 3.500.000
         </li>
         <li className="check">
           <strong className="text-light-green">

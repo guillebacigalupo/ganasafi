@@ -1479,6 +1479,7 @@ footer h3 {
   padding: 7px 0px 7px 25px;
   display: block;
   position: relative;
+  font-family: "Open Sans", sans-serif;
   font-weight: 400;
 }
 .footer-list li a:first-child {
