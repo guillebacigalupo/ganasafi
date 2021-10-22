@@ -19,7 +19,7 @@ export default function HowTo({ data }) {
                                     </div>
                                     <div className="main-wel">
                                         <div className="wel-content">
-                                            <h4><span>01.</span>Contacta tu asesor comercial</h4>
+                                            <h4><span>1.</span>Contacta tu asesor comercial</h4>
                                             <p>Te ayudamos a encontrar el fondo que se adapte más a tus necesidades.</p>
                                         </div>
                                     </div>
@@ -32,7 +32,7 @@ export default function HowTo({ data }) {
                                     </div>
                                     <div className="main-wel">
                                         <div className="wel-content">
-                                            <h4><span>02.</span>Elige el producto GANASAFI</h4>
+                                            <h4><span>2.</span>Elige el producto GANASAFI</h4>
                                             <p>Desde nuestras oficinas o la comodidad de tu casa.</p>
                                         </div>
                                     </div>
@@ -45,7 +45,7 @@ export default function HowTo({ data }) {
                                     </div>
                                     <div className="main-wel">
                                         <div className="wel-content">
-                                            <h4><span>03.</span>Listo, tu dinero está invertido</h4>
+                                            <h4><span>3.</span>Listo, tu dinero está invertido</h4>
                                             <p>Ahora puedes descansar y dejar que tu dinero trabaje para ti.</p>
                                         </div>
                                     </div>

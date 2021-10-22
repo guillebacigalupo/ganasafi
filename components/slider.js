@@ -49,7 +49,7 @@ export function Slide(props) {
   return (
 
     <div
-      className="slide-area fix"
+      className="slide-area home fix"
       data-stellar-background-ratio=".4"
         
     >
@@ -93,7 +93,7 @@ export function Slide(props) {
                         }
                       >
                         <a className="video-play vid-zone">
-                          <i className="fa fa-play"></i>
+                          <i className="fa fa-dollar"></i>
                           <span>
                             {props?.data?.text_button2.length > 0
                               ? props?.data?.text_button2
@@ -112,7 +112,7 @@ export function Slide(props) {
 
       if (props?.data?.image.length `&gt; 0){
       <style jsx>{`
-        .slide-area{
+        .slide-area.home{
           background-image: url(/uploads/${props.data.image}) !important;
         }
       `}</style>
