@@ -9,7 +9,7 @@ export default function Footer({ data }) {
         <div className="container">
           <div className="row">
             {" "}
-            <div className="col-md-5 col-sm-6 col-xs-12">
+            <div className="col-md-6 col-sm-6 col-xs-12">
               <div className="footer-content logo-footer">
                 <div className="footer-head">
                   <div className="footer-logo">
@@ -29,7 +29,7 @@ export default function Footer({ data }) {
                 </div>
               </div>
             </div>
-            <div className="col-md-3 col-sm-3 col-xs-12">
+            <div className="col-md-3 col-md-offset-3 col-sm-6 col-xs-12">
               <div className="footer-content">
                 <div className="footer-head">
                   <h4 className="text-light-green">Fondos de Inversión</h4>
@@ -48,21 +48,7 @@ export default function Footer({ data }) {
                 </div>
               </div>
             </div>
-            <div className="col-md-3 col-sm-3 col-xs-12">
-              <div className="footer-content">
-                <div className="footer-head">
-                  <h4 className="text-light-green">Contacto</h4>
-                  <ul className="footer-list">
-                    <li>
-                      <a href="tel:59133170400">Tel: 591 3 3170400</a>
-                    </li>
-                    <li>
-                      <a href="mailto:informaciones@ganasafi.bom.bo">informaciones@ganasafi.bom.bo</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+            
           </div>
         </div>
       </div>

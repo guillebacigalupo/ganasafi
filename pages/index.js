@@ -43,8 +43,8 @@ export default function Home({ sliders }) {
             </div>
             <div className="col-md-6 col-sm-6 col-xs-12">
               <div className="feature-text">
-                <h3 className="text-green title-about">Ganadero Sociedad Administradora de Fondos de Inversión S.A.
-                    GanaSafi S.A.</h3>
+                <h3 className="text-green title-about">GanaSafi S.A.<br/>Ganadero Sociedad Administradora de Fondos de Inversión S.A.
+                    </h3>
                
                 <p>
                   Es miembro del grupo <strong>Financiero Ganadero</strong>,

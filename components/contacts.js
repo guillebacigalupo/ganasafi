@@ -123,15 +123,15 @@ export default function Contacts({ data }) {
                       <Img s="celular.png" a="Ganasafi" w="80px" />
                       <br/><br/>
                       <p>
-                        <strong>La Paz:</strong> 5912 2173000
+                        <strong>La Paz:</strong> (591) 2-2173000
                         <br />
                         Interno: 3350 -3330
                         <br />
-                        <strong>Cochabamba:</strong> 591-4- 4173000
+                        <strong>Cochabamba:</strong> (591) 4-4173000
                         <br />
                         Interno: 3437-3430
                         <br />
-                        <strong>Santa Cruz:</strong> 591-3-3173000
+                        <strong>Santa Cruz:</strong> (591) 3-3173000
                         <br />
                         Interno: 3268-3270
                       </p>
@@ -158,10 +158,19 @@ export default function Contacts({ data }) {
                       <Img s="ubicacion.png" a="Ganasafi" w="80px" />
                       <br/><br/>
                       <p>
-                        <strong>Oficina Central de GanaSafi S.A.:</strong>
-                        <br />
-                        Calle Murillo N°89 y Bolívar, zona Central, Santa Cruz
-                        de la Sierra – Bolivia, Teléfono: 591-3-3170400
+                        <strong>Santa Cruz: </strong>
+                        
+                        Calle Murillo N°89 y Bolívar
+                      </p>
+                      <p>
+                        <strong>La Paz: </strong>
+                        
+                        Sucursal La Paz Av. Camacho N° 1372, Zona Central
+                      </p>
+                      <p>
+                        <strong>Santa Cruz: </strong>
+                        
+                        Sucursal Cochabamba Av. Ayacucho Nº 174 – Edificio María Antonieta - PB
                       </p>
                     </div>
                   </div>

@@ -5,7 +5,7 @@ export default function QuienesSomos() {
   return (
     <Container>
 
-      <div className="pricing-area area-padding-3" style={{paddingTop:50 }}>
+      <div className=" area-padding-3" style={{paddingTop:50 }}>
        <Img s="quienessomos.jpg" a="Ganasafi" />
         <div className="container">
           <div className="row">

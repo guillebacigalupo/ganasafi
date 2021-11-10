@@ -856,6 +856,7 @@ a.s-menu {
   z-index: 1;
   overflow: hidden;
   transition: 0.4s;
+  margin-top: 30px;
 }
 .big-icon {
   font-size: 60px;
@@ -904,8 +905,7 @@ a.s-menu {
 }
 .well-services.first-item,
 .well-services.thired-item {
-  position: relative;
-  top: 60px;
+  
 }
 /*--------------------------------*/
 /* 5.About Area
@@ -1426,7 +1426,7 @@ footer h3 {
   color: #444;
   font-size: 20px;
   margin-bottom: 30px;
-  text-transform: capitalize;
+  text-transform: initial;
   font-weight: 500;
 }
 
@@ -2201,16 +2201,21 @@ span.q-text {
 /*----------------------------------------*/
 .pricing-area {
   position: relative;
-  background: #f6f6f6;
+  background: #a1bc1b;
+}
+
+.pricing-area.gray {
+  position: relative;
+  background: #f3f3f3;
 }
 
 .pricing-area .price-title{
-      background: #a1bc1b;
+      background: #fff;
     padding: 18px 50px;
     margin-bottom: 20px;
         margin-left: -50px;
     margin-right: -50px;
-    margin-top: -40px;
+    margin-top: -20px;
 }
 
 .pricing-area .price-title h4{
@@ -2218,11 +2223,11 @@ span.q-text {
 }
 
 .pricing-area .price-title.dark{
-      background: #045017 !important;
+      background: #fff !important;
 }
 
 .pricing-area .price-title.dark h4{
-  color: white;
+  color: #045017 !important;
 }
 
 .title-icon {

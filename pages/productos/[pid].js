@@ -131,14 +131,14 @@ export default function Producto({ data }) {
 
   return (
     <Container>
-      <div className="pricing-area area-padding-3">
+      <div className="pricing-area  gray area-padding-3">
         <div className="container">
           <div className="row">
             <div className="pricing-content">
               <div className="col-md-5 col-sm-6  col-xs-12">
                 <div className="section-headline text-left">
                   <h3 className="text-light-green">
-                    Comienza a invertir tu dinero con GANASAFI
+                    Comienza a invertir tu dinero con GanaSafi
                   </h3>
                   <div className="row">
                     <div className="col-sm-2 col-xs-2">
@@ -162,7 +162,7 @@ export default function Producto({ data }) {
                     <strong>Reglamento interno</strong>
                   </p>
                   <a className="text-green">
-                    <u>Descargar reglamento</u>
+                    <u>Descargar Reglamento</u>
                   </a>
 
                   <hr />
@@ -170,7 +170,7 @@ export default function Producto({ data }) {
                     <strong>Prospecto</strong>
                   </p>
                   <a className="text-green">
-                    <u>Descargar prospecto</u>
+                    <u>Descargar Prospecto</u>
                   </a>
                 </div>
               </div>

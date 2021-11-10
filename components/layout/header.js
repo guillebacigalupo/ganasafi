@@ -15,7 +15,7 @@ const Menu = (props) => {
     <ul className={c ?? ""}>
       <li>
         <Link href="/quienes-somos">
-          <a className="pages">Quienes Somos</a>
+          <a className="pages">Quiénes Somos</a>
         </Link>
       </li>
 

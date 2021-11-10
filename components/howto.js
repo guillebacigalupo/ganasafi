@@ -32,7 +32,7 @@ export default function HowTo({ data }) {
                                     </div>
                                     <div className="main-wel">
                                         <div className="wel-content">
-                                            <h4><span>2.</span>Elige el producto GANASAFI</h4>
+                                            <h4><span>2.</span>Elige el producto GanaSafi</h4>
                                             <p>Desde nuestras oficinas o la comodidad de tu casa.</p>
                                         </div>
                                     </div>
