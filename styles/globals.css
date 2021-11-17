@@ -186,6 +186,10 @@ img {
 .fix {
   overflow: hidden;
 }
+
+.hide{
+  display: none;
+}
 p {
   margin: 0 0 15px;
   color: #888;

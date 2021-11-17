@@ -11,11 +11,17 @@ const products = {
     title: "GanaRendimiento - FIA",
     bajada: "La opción acertada de Invertir en Bs y contar con liquidez inmediata",
     image:"rendimiento.png",
+    prospecto: "",
+    reglamento: "", 
+    clase : "hide",
   },
   "gana-inversiones": {
     title: "GanaInversiones - FIA",
     bajada: "La alternativa perfecta para invertir en USD y tener disponibilidad de tus recursos.",
     image:"inversiones.png",
+    prospecto: "/docs/PROSPECTO_GanaInversiones_FIA_Definitivo_17092021.pdf",
+    reglamento: "/docs/Reglamento_GanaInversiones_23_08_2021_VF.pdf", 
+    clase : ""
   },
 };
 
@@ -158,20 +164,29 @@ export default function Producto({ data }) {
 
                   
                   <hr />
+                  <div className={products[pid].clase} >
                   <p>
                     <strong>Reglamento interno</strong>
                   </p>
-                  <a className="text-green">
-                    <u>Descargar Reglamento</u>
-                  </a>
 
-                  <hr />
+                  
+                    <a rel="noreferrer" target="_blank" href={products[pid].reglamento} className="text-green">
+                      <u>Descargar Reglamento</u>
+                    </a>
+                  
+
+                    <hr />
+                  </div>
+                  <div className={products[pid].clase} >
                   <p>
                     <strong>Prospecto</strong>
                   </p>
-                  <a className="text-green">
-                    <u>Descargar Prospecto</u>
-                  </a>
+                 
+                    <a rel="noreferrer" target="_blank" href={products[pid].prospecto} className="text-green">
+                      <u>Descargar Prospecto</u>
+                    </a>
+                  </div>
+                 
                 </div>
               </div>
 
