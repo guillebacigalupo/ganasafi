@@ -8,7 +8,7 @@ export default function Contacts({ data }) {
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [message, setMessage] = useState(router.query?.m ?? "");
+  const [message, setMessage] = useState(router.query.m ?? "");
   const [responseMessage, setResponseMessage] = useState("");
   const [submitted, setSubmitted] = useState("false");
   console.log(message);
@@ -38,8 +38,16 @@ export default function Contacts({ data }) {
   };
 
   useEffect(() => {
-    router.query?.m && message == "" && setMessage(router.query.m);
+    router.query.m && message == "" && setMessage(router.query.m);
   }, [router, message]);
+
+
+    useEffect(()=>{
+        if(!router.isReady) return;
+
+       router.query.m && message == "" && setMessage(router.query.m);
+
+    }, [router.isReady]);
   
   const handleSubmit = (e) => {
     e.preventDefault();

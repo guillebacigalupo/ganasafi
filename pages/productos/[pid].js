@@ -11,9 +11,9 @@ const products = {
     title: "GanaRendimiento - FIA",
     bajada: "La opción acertada de Invertir en Bs y contar con liquidez inmediata",
     image:"rendimiento.png",
-    prospecto: "",
-    reglamento: "", 
-    clase : "hide",
+    prospecto: "/docs/PROSPECTO_GANARENDIMIENTO_2022.pdf",
+    reglamento: "/docs/Reglamento_GanaRendimiento_2022.pdf", 
+    clase : "",
   },
   "gana-inversiones": {
     title: "GanaInversiones - FIA",
@@ -69,12 +69,12 @@ const ContentGanaInversiones = (
       <div className="price-btn">
         <Link
           href={{
-            pathname: "contacto/[message]",
+            pathname: "/contacto",
             query: {
               message,
             },
           }}
-          as={`contacto?m=${encodeURIComponent(message)}`}
+          as={`/contacto?m=${encodeURIComponent(message)}`}
         >
           <a>Solicitar</a>
         </Link>
@@ -125,7 +125,17 @@ const ContentGanaRendimiento = (
         </li>
       </ol>
       <div className="price-btn">
-        <a href="">Solicitar</a>
+       <Link
+          href={{
+            pathname: "/contacto",
+            query: {
+              message,
+            },
+          }}
+          as={`/contacto?m=${encodeURIComponent(message)}`}
+        >
+          <a>Solicitar</a>
+        </Link>
       </div>
     </div>
   </div>

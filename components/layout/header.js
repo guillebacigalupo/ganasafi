@@ -117,7 +117,7 @@ export default function Header({ data }) {
                     </div>
                     <div className="col-lg-9 col-md-10 col-sm-10">
                       <div className="header-right-link">
-                        <Link href="" >
+                        <Link href="/URLEXTERNA" >
                           <a className="s-menu">Ingresar</a>
                         </Link>
                       </div>
