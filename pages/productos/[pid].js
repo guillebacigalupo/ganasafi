@@ -4,7 +4,7 @@ import Calculator from "../../components/calculator";
 import Link from "next/link";
 import Img from "../../components/image";
 
-const message = "Deseo solicitar infomación sobre GanaRendimiento";
+const message = "Deseo solicitar información sobre GanaRendimiento";
 
 const products = {
   "gana-rendimiento": {

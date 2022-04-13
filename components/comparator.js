@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export default function Comparator({ data }) {
-    const message = "Deseo solicitar infomación sobre";
+    const message = "Deseo solicitar información sobre";
   return (
     <>
       <div className="pricing-area area-padding-2" id="comparador">

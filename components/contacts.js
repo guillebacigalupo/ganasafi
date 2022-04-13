@@ -176,7 +176,7 @@ export default function Contacts({ data }) {
                         Sucursal La Paz Av. Camacho N° 1372, Zona Central
                       </p>
                       <p>
-                        <strong>Santa Cruz: </strong>
+                        <strong>Cochabamba: </strong>
                         
                         Sucursal Cochabamba Av. Ayacucho Nº 174 – Edificio María Antonieta - PB
                       </p>
@@ -205,7 +205,7 @@ export default function Contacts({ data }) {
                           name="name"
                           id="name"
                           className="form-control"
-                          placeholder="Name"
+                          placeholder="Nombre"
                           required
                           data-error="Ingresa tu nombre"
                           onChange={(e) => {
@@ -235,7 +235,7 @@ export default function Contacts({ data }) {
                           id="message"
                           name="message"
                           rows="7"
-                          placeholder="Massage"
+                          placeholder="Mensaje"
                           className="form-control"
                           required
                           data-error="Escribe aquí tu mensaje"
