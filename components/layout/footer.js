@@ -66,6 +66,7 @@ export default function Footer({ data }) {
         </div>
       </div>
 
+
        <Script
         src="/assets/static/js/bootstrap.min.js"
         strategy="beforeInteractive"
