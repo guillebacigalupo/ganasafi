@@ -27,7 +27,7 @@ export default function Faq() {
                       </span>
                     </h4>
                   </a>
-                  <div id="faq1" className="collapse">
+                  <div id="faq1" className="collapse" role="tabpanel">
                     <p>
                       Todas las personas naturales (profesionales, empleados,
                       jubilados, comerciantes, estudiantes, amas de casa) o

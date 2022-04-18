@@ -66,14 +66,15 @@ export default function Footer({ data }) {
         </div>
       </div>
 
-      <Script
-        src="/assets/static/js/vendor/jquery-1.12.4.min.js"
-        strategy="beforeInteractive"
-      />
-      <Script
+
+       <Script
         src="/assets/static/js/bootstrap.min.js"
         strategy="beforeInteractive"
       />
+      <Script
+        src="/assets/static/js/vendor/jquery-1.12.4.min.js" strategy="beforeInteractive" />
+
+
 
       <Script
         src="/assets/static/js/owl.carousel.min.js"
