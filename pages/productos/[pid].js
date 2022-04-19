@@ -206,7 +206,7 @@ export default function Producto({ data }) {
           </div>
         </div>
       </div>
-      <div className="banner-area area-padding">
+      <div className="banner-area area-padding" id="simulador">
         <div className="container">
           <div className="row">
             <div className="col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
