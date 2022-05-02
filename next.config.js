@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 const CryptoJS = require("crypto-js");
 
 function nonceGenerator() {
@@ -19,11 +17,10 @@ function generateRandomString(length) {
 }
 
 const styleNonce = nonceGenerator();
-const scriptNonce = nonceGenerator();
 
 const ContentSecurityPolicy = `
   default-src 'self';
-  script-src 'self' 'nonce-${scriptNonce}';
+  script-src 'self';
   style-src 'self' 'nonce-${styleNonce}';
   font-src 'self';  
 `;
@@ -45,15 +42,14 @@ const securityHeaders = [
     key: "X-Content-Type-Options",
     value: "nosniff",
   },
-  
+  /*
   {
     key: "Content-Security-Policy",
     value: ContentSecurityPolicy.replace(/\s{2,}/g, " ").trim(),
   },
-  
+  */
 ];
 
->>>>>>> Stashed changes
 module.exports = {
   webpack: (config, { isServer }) => {
     if (!isServer) {
@@ -63,5 +59,22 @@ module.exports = {
     return config;
   },
   reactStrictMode: true,
-    
+  publicRuntimeConfig: {
+    styleNonce,
+  },
+  async headers() {
+    return [
+      {
+        // Apply these headers to all routes in your application.
+        source: "/:path*",
+        headers: securityHeaders,
+      },
+    ];
+  },
+  /*
+  compiler: {
+    removeConsole: true,
+  },
+  */
+  swcMinify: true,
 };
