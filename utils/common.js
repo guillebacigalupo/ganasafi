@@ -1,10 +1,15 @@
-import CryptoJS, { AES } from "crypto-js";
+import CryptoJS from "crypto-js";
 import Cookies from "js-cookie";
 
 const iv = CryptoJS.enc.Utf8.parse("1514838699281281");
 const secret = "b7352d519547f5a9df2424bb2072655a";
 const hashCookies = true;
 export const COOKIE_PATH = hash("GanasafiWeb_SPA_");
+
+export function nonceGenerator() {
+  const hash = CryptoJS.SHA256(generateRandomString(16) + ":" + secret);
+  return hash.toString(CryptoJS.enc.Base64);
+}
 
 export function generateRandomString(length) {
   var result = "";
@@ -19,12 +24,12 @@ export function generateRandomString(length) {
 
 export function encrypt(s, parse = false) {
   s = parse ? JSON.stringify(s) : s;
-  const h = AES.encrypt(s, secret, { iv });
+const h = CryptoJS.AES.encrypt(s, secret, { iv });
   return h.toString();
 }
 
 export function decrypt(s, parse = false) {
-  var h = AES.decrypt(s, secret, { iv });
+  var h = CryptoJS.AES.decrypt(s, secret, { iv });
   return parse
     ? JSON.stringify(h.toString(CryptoJS.enc.Utf8))
     : h.toString(CryptoJS.enc.Utf8);

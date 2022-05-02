@@ -15,7 +15,7 @@ export default async function handler(req, res) {
   
   if (!ch) {
     //user not found by uuid
-    res.status(500).json({ error: "Session var not found" });
+    res.status(401).json({ error: "Session var not found" });
     return;
   }
 
@@ -24,7 +24,7 @@ export default async function handler(req, res) {
 
   if (!accessToken || !uuid) {
     //user not found by uuid
-    res.status(500).json({ error: "User session vars not found" });
+    res.status(401).json({ error: "User session vars not found" });
     return;
   }
 
@@ -36,7 +36,7 @@ export default async function handler(req, res) {
 
   if (!user || !user.email) {
     //user not found by uuid
-    res.status(500).json({ error: e });
+    res.status(404).json({ error: "user not found" });
     return;
   }
 
@@ -48,7 +48,7 @@ export default async function handler(req, res) {
 
   if (!session || session.userId != user.id) {
     //session not found by accesstoken and userId
-    res.status(500).json({ error: e });
+    res.status(401).json({ error: "user session invalid" });
     return;
   }
 
@@ -66,4 +66,5 @@ export default async function handler(req, res) {
   } catch (e) {
     res.status(500).json({ error: e });
   }
+  res.end();
 }
