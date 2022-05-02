@@ -6,6 +6,13 @@ const secret = "b7352d519547f5a9df2424bb2072655a";
 const hashCookies = true;
 export const COOKIE_PATH = hash("GanasafiWeb_SPA_");
 
+export function nonceGenerator() {
+  const hash = CryptoJS.SHA256(
+    generateRandomString(16) + ":" + "SDF#$RVW#$B%^EB@#$@"
+  );
+  return hash.toString(CryptoJS.enc.Base64);
+}
+
 export function generateRandomString(length) {
   var result = "";
   var characters =
