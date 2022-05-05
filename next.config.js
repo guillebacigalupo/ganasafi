@@ -21,7 +21,6 @@ const securityHeaders = [
     value: ContentSecurityPolicy.replace(/\s{2,}/g, " ").trim(),
   },
   */
-  
 ];
 
 module.exports = {
@@ -42,10 +41,8 @@ module.exports = {
       },
     ];
   },
-  /*
   compiler: {
     removeConsole: true,
   },
-  */
   swcMinify: true,
 };

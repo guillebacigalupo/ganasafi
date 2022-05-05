@@ -50,18 +50,21 @@ export default function Simulador({ products }) {
                   <div className="col-md-6 col-sm-12 col-xs-12">
                     <div className="slide-content">
                       <h2 className="title2">Simula tu inversión </h2>
-                      <p>Selecccioná tu fondo de inversión de preferencia e ingresa el valor a invertir para simular tu rendimiento.</p>
+                      <p>
+                        Selecccioná tu fondo de inversión de preferencia e
+                        ingresa el valor a invertir para simular tu rendimiento.
+                      </p>
 
                       <Link href="/contacto">
                         <a className="ready-btn left-btn">
                           Quiero empezar a invertir
                         </a>
                       </Link>
-                      
                     </div>
                   </div>
-                  <div className="col-md-6 col-sm-12 col-xs-12"><br />
-                              <br />
+                  <div className="col-md-6 col-sm-12 col-xs-12">
+                    <br />
+                    <br />
                     <div className="money-send">
                       <div className="calculator-inner  text-left">
                         <div className="single-cal">
@@ -136,7 +139,6 @@ export default function Simulador({ products }) {
 
       <Comparator />
 
-
       <Script
         dangerouslySetInnerHTML={{
           __html: `if ($('.slider-main').length) $('.slider-main').owlCarousel( {
@@ -160,6 +162,7 @@ export default function Simulador({ products }) {
                     } );`,
         }}
         strategy="lazyOnload"
+        nonce={global.nonce["script-src"]}
       />
     </Container>
   );

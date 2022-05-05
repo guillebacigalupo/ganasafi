@@ -36,6 +36,7 @@ export default function Slider({ sliders }) {
           } );`,
           }}
           strategy="lazyOnload"
+          nonce={global.nonce["script-src"]}
         />
       )}
       {/* End Slider content */}
@@ -47,12 +48,7 @@ export function Slide(props) {
 
  
   return (
-
-    <div
-      className="slide-area home fix"
-      data-stellar-background-ratio=".4"
-        
-    >
+    <div className="slide-area home fix" data-stellar-background-ratio=".4">
       <div className="display-table">
         <div className="display-table-cell">
           <div className="container">
@@ -109,14 +105,19 @@ export function Slide(props) {
           </div>
         </div>
       </div>
-
-      if (props?.data?.image.length `&gt; 0){
-      <style jsx>{`
-        .slide-area.home{
-          background-image: url(/uploads/${props.data.image}) !important;
-        }
-      `}</style>
-      }
     </div>
   );
 }
+
+
+/*
+//??????
+if (props?.data?.image.length `&gt; 0)
+{
+  <style jsx>{`
+    .slide-area.home {
+      background-image: url(/uploads/${props.data.image}) !important;
+    }
+  `}</style>
+}
+*/

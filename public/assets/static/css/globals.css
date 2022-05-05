@@ -314,7 +314,7 @@ div#preloader {
   width: 100%;
   height: 100%;
   overflow: visible;
-  background: #fff url("../public/img/logo/preloader.gif") no-repeat center
+  background: #fff url("../../../img/logo/preloader.gif") no-repeat center
     center;
 }
 .navbar-collapse {
@@ -729,7 +729,7 @@ a.s-menu {
 }
 
 .slide-area {
-  background: rgba(0, 0, 0, 0) url(../public/img/slider/h1.jpg) no-repeat scroll
+  background: rgba(0, 0, 0, 0) url(../../../img/slider/h1.jpg) no-repeat scroll
     top center / cover;
   width: 100%;
   height: 100vh;
@@ -877,7 +877,7 @@ a.s-menu {
   content: "";
   right: 0;
   top: 0px;
-  background: url(../public/img/about/shape-bg.png);
+  background: url(../../../img/about/shape-bg.png);
   background-repeat: no-repeat;
   z-index: -1;
   width: 100%;
@@ -1163,7 +1163,7 @@ a.s-menu {
 /* 8. brand area css
 /*----------------------------------------*/
 .brand-area {
-  background: rgba(0, 0, 0, 0) url(../public/img/background/bg1.jpg) no-repeat
+  background: rgba(0, 0, 0, 0) url(../../../img/background/bg1.jpg) no-repeat
     scroll top center / cover;
   position: relative;
   padding: 100px 0px;
@@ -1242,7 +1242,7 @@ a.s-menu {
   top: 0;
   width: 100%;
   height: 100%;
-  background: url(../public/img/about/wl.png);
+  background: url(../../../img/about/wl.png);
   background-repeat: no-repeat;
   background-size: cover;
   transition: 0.4s;
@@ -1527,7 +1527,7 @@ footer h3 {
 /*  13.	Home page 02
 /*----------------------------------------*/
 .slide-area-2 {
-  background: rgba(0, 0, 0, 0) url(../public/img/slider/fondo-de-productos.jpg) no-repeat scroll
+  background: rgba(0, 0, 0, 0) url(../../../img/slider/fondo-de-productos.jpg) no-repeat scroll
     top center / cover;
   width: 100%;
   height: 100%;
@@ -3039,7 +3039,7 @@ span.email-notes {
 
 
 .bg-cta{
-  background: url(../public/img/cta.jpg);
+  background: url(../../../img/cta.jpg);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center right;

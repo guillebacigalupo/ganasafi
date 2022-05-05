@@ -3,13 +3,27 @@ import Cookies from "js-cookie";
 
 const iv = CryptoJS.enc.Utf8.parse("1514838699281281");
 const secret = "b7352d519547f5a9df2424bb2072655a";
-const hashCookies = true;
+
+export const hashCookies = true;
 export const COOKIE_PATH = hash("GanasafiWeb_SPA_");
 
+export function mt_rand() {
+  const min = 5;
+  const max = 50;
+  return parseInt(Math.floor(
+    Math.random() * (max - min) + min
+  ));
+}
+
 export function nonceGenerator() {
-  const hash = CryptoJS.SHA256(
-    generateRandomString(16) + ":" + "SDF#$RVW#$B%^EB@#$@"
-  );
+  const strToHash =
+    generateRandomString(mt_rand()) +
+    ":" +
+    Date.now() +
+    ":" +
+    "SDF#$RVW#$B%^EB@#$@";
+    
+  const hash = CryptoJS.SHA256(strToHash);
   return hash.toString(CryptoJS.enc.Base64);
 }
 
@@ -41,7 +55,15 @@ export function hash(str) {
   return CryptoJS.MD5(str + ":" + secret);
 }
 
-export function removeCookie(k, __customCookieString = null) {
+export function encryptObject(o) {  
+  return JSON.stringify(encrypt(JSON.stringify(o)));
+}
+
+export function decryptObject(str) {
+  return JSON.parse(decrypt(JSON.parse(str)));
+}
+
+export function removeCookie(k, __customCookieString = null, cb=null) {
   try {
     let c;
     if (!!__customCookieString) {
@@ -55,13 +77,15 @@ export function removeCookie(k, __customCookieString = null) {
     delete c[__key];
 
     let ch = encrypt(JSON.stringify(c));
-    Cookies.set(COOKIE_PATH, JSON.stringify(ch));
+    typeof cb === "function"
+      ? cb(COOKIE_PATH, JSON.stringify(ch))
+      : Cookies.set(COOKIE_PATH, JSON.stringify(ch));
   } catch (error) {
     console.error({ error });
   }
 }
 
-export function setCookie(k, v, __customCookieString = null) {
+export function setCookie(k, v, __customCookieString = null, cb=null) {
   try {
     let c;
     if (!!__customCookieString) {
@@ -75,15 +99,18 @@ export function setCookie(k, v, __customCookieString = null) {
 
     c[__key] = v;
     let ch = encrypt(JSON.stringify(c));
-    Cookies.set(COOKIE_PATH, JSON.stringify(ch));
+    
+    typeof cb === "function"
+      ? cb(COOKIE_PATH, JSON.stringify(ch))
+      : Cookies.set(COOKIE_PATH, JSON.stringify(ch));
   } catch (error) {
     console.error({ error });
   }
 }
 
-export function getCookie(k = null, __customCookieString = null) {
+export function getCookie(k = null, __customCookieString = null, cb=null) {
   try {
-    let __cookie = Cookies.get(COOKIE_PATH);
+    let __cookie = typeof cb === "function" ? cb(COOKIE_PATH) : Cookies.get(COOKIE_PATH);
 
     const __key = hashCookies ? hash(k) : k;
 
@@ -96,7 +123,7 @@ export function getCookie(k = null, __customCookieString = null) {
     if (!__cookie) initCookie();
 
     let c;
-    c = Cookies.get(COOKIE_PATH);
+    c = typeof cb === "function" ? cb(COOKIE_PATH) : Cookies.get(COOKIE_PATH);
     c = JSON.parse(c);
     c = decrypt(c);
     c = JSON.parse(c);
@@ -107,8 +134,10 @@ export function getCookie(k = null, __customCookieString = null) {
   }
 }
 
-export function initCookie() {
-  Cookies.set(COOKIE_PATH, JSON.stringify(encrypt(JSON.stringify({ a: 1 }))));
+export function initCookie(r=false) {
+  const str = JSON.stringify(encrypt(JSON.stringify({ a: 1 })));
+  Cookies.set(COOKIE_PATH, str);
+  if (r) return  str;
 }
 
 export function setToken(o) {

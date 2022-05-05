@@ -1,8 +1,28 @@
 import Script from "next/script";
 import Link from "next/link";
 import Img from "../image";
+import { StoreContext } from "../../context/store";
+import React from "react";
 
-export default function Footer({ data }) {
+export default function Footer() {
+  const store = React.useContext( StoreContext );
+
+    const jsFiles = [
+      "/assets/static/js/bootstrap.min.js",
+      "/assets/static/js/vendor/jquery-1.12.4.min.js",
+      "/assets/static/js/owl.carousel.min.js",
+      "/assets/static/js/jquery.stellar.min.js",
+      "/assets/static/js/jquery.counterup.min.js",
+      "/assets/static/js/waypoints.js",
+      "/assets/static/js/jquery.nice-select.min.js",
+      "/assets/static/js/magnific.min.js",
+      "/assets/static/js/wow.min.js",
+      "/assets/static/js/jquery.meanmenu.js",
+      "/assets/static/js/form-validator.min.js",
+      "/assets/static/js/plugins.js",
+      "/assets/static/js/main.js",
+    ];
+
   return (
     <footer className="footer-1">
       <div className="footer-area">
@@ -13,13 +33,11 @@ export default function Footer({ data }) {
               <div className="footer-content logo-footer">
                 <div className="footer-head">
                   <div className="footer-logo">
-                    <Link href="/" >
+                    <Link href="/">
                       <a className="footer-black-logo">
-
-                          <Img s="logo/logofooter.png" w="400px" a="" />
-                        
+                        <Img s="logo/logofooter.png" w="400px" a="" />
                       </a>
-                   </Link>
+                    </Link>
                   </div>
                   <p>
                     La oficina principal de GanaSafi S.A. se encuentra ubicada
@@ -48,7 +66,6 @@ export default function Footer({ data }) {
                 </div>
               </div>
             </div>
-            
           </div>
         </div>
       </div>
@@ -58,7 +75,8 @@ export default function Footer({ data }) {
             <div className="col-md-6 col-sm-6 col-xs-12">
               <div className="copyright">
                 <p>
-                  Copyright © 2021 <a href="#">GANASAFI</a> Todos los derechos reservados.
+                  Copyright © 2021 <a href="#">GANASAFI</a> Todos los derechos
+                  reservados.
                 </p>
               </div>
             </div>
@@ -66,52 +84,23 @@ export default function Footer({ data }) {
         </div>
       </div>
 
+      {jsFiles.map((src) => {
+        return (
+          <Script
+            key={src}
+            src={src}
+            strategy="beforeInteractive"
+            nonce={global.nonce["script-src"]}
+          />
+        );
+      }) ?? ""}
 
-       <Script
-        src="/assets/static/js/bootstrap.min.js"
-        strategy="beforeInteractive"
-      />
-      <Script
-        src="/assets/static/js/vendor/jquery-1.12.4.min.js" strategy="beforeInteractive" />
-
-
-
-      <Script
-        src="/assets/static/js/owl.carousel.min.js"
-        strategy="afterInteractive"
-      />
-      <Script
-        src="/assets/static/js/jquery.stellar.min.js"
-        strategy="afterInteractive"
-      />
-      <Script
-        src="/assets/static/js/jquery.counterup.min.js"
-        strategy="afterInteractive"
-      />
-      <Script src="/assets/static/js/waypoints.js" strategy="afterInteractive" />
-      <Script
-        src="/assets/static/js/jquery.nice-select.min.js"
-        strategy="afterInteractive"
-      />
-      <Script
-        src="/assets/static/js/magnific.min.js"
-        strategy="afterInteractive"
-      />
-      <Script src="/assets/static/js/wow.min.js" strategy="afterInteractive" />
-      <Script
-        src="/assets/static/js/jquery.meanmenu.js"
-        strategy="afterInteractive"
-      />
-      <Script
-        src="/assets/static/js/form-validator.min.js"
-        strategy="afterInteractive"
-      />
-
-      <Script src="/assets/static/js/plugins.js" strategy="lazyOnload" />
-      <Script src="/assets/static/js/main.js" strategy="lazyOnload" />
-
-      <noscript dangerouslySetInnerHTML={{ __html:`<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PD6NWJG"
-height="0" width="0" style="display:none;visibility:hidden"></iframe>`}}></noscript>
+      <noscript
+        dangerouslySetInnerHTML={{
+          __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PD6NWJG"
+height="0" width="0" style="display:none;visibility:hidden" nonce="${global.nonce["default-src"]}"></iframe>`,
+        }}
+      ></noscript>
     </footer>
   );
 }
