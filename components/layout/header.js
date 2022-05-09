@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import MediaQuery from "react-responsive";
-import HTMLHead from "./partials/head.js";
 import Link from "next/link";
 import Img from "../image";
 
@@ -88,8 +87,6 @@ export default function Header({ data }) {
 
   return (
     <>
-      <HTMLHead />
-
       {/*<div id="preloader"></div>*/}
 
       <header className="header-one">

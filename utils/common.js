@@ -2,10 +2,30 @@ import CryptoJS, { AES } from "crypto-js";
 import Cookies from "js-cookie";
 
 const iv = CryptoJS.enc.Utf8.parse("1514838699281281");
-const secret = "b7352d2424bb2072655a519547f5a9df";
-export const COOKIE_PATH = "GanaSafiWeb_SPA_";
+const secret = "b7352d519547f5a9df2424bb2072655a";
 
-Cookies.set(process.env.COOKIE_PATH, {});
+export const hashCookies = true;
+export const COOKIE_PATH = hash("GanasafiWeb_SPA_");
+
+export function mt_rand() {
+  const min = 5;
+  const max = 50;
+  return parseInt(Math.floor(
+    Math.random() * (max - min) + min
+  ));
+}
+
+export function nonceGenerator() {
+  const strToHash =
+    generateRandomString(mt_rand()) +
+    ":" +
+    Date.now() +
+    ":" +
+    "SDF#$RVW#$B%^EB@#$@";
+    
+  const hash = CryptoJS.SHA256(strToHash);
+  return hash.toString(CryptoJS.enc.Base64);
+}
 
 export function generateRandomString(length) {
   var result = "";
@@ -31,50 +51,93 @@ export function decrypt(s, parse = false) {
     : h.toString(CryptoJS.enc.Utf8);
 }
 
-export function removeCookie(k, __customCookieString = null) {
-  let c;
-  if (!!__customCookieString) {
-    //lets use custm store as cookie
-    c = getCookie(null, __customCookieString);
-  } else {
- c = getCookie();
-  }
-  c[k] = null;
-  delete c[k];
-  
-  let ch = encrypt(JSON.stringify(c));
-  Cookies.set(COOKIE_PATH, JSON.stringify(ch));
+export function hash(str) {
+  return CryptoJS.MD5(str + ":" + secret);
 }
 
-export function setCookie(k, v, __customCookieString = null) {
-  let c;
-  if (!!__customCookieString) {
-    //lets use custm store as cookie
-    c = getCookie(null, __customCookieString);
-  } else {
- c = getCookie();
-  }
-
-  c[k] = v;
-  let ch = encrypt(JSON.stringify(c));
-  Cookies.set(COOKIE_PATH, JSON.stringify(ch));
+export function encryptObject(o) {  
+  return JSON.stringify(encrypt(JSON.stringify(o)));
 }
 
-export function getCookie(k = null, __customCookieString = null) {
-  let __cookie = Cookies.get(COOKIE_PATH);
+export function decryptObject(str) {
+  return JSON.parse(decrypt(JSON.parse(str)));
+}
 
-  if (!!__customCookieString) {
-    //lets use custm store as cookie
-    let c = JSON.parse(decrypt(JSON.parse(__customCookieString)));
-    return !k ? c : !!c[k] ? c[k] : null;
-  }
+export function removeCookie(k, __customCookieString = null, cb=null) {
+  try {
+    let c;
+    if (!!__customCookieString) {
+      //lets use custm store as cookie
+      c = getCookie(null, __customCookieString);
+    } else {
+      c = getCookie();
+    }
+    const __key = hashCookies ? hash(k) : k;
+    c[__key] = null;
+    delete c[__key];
 
-  if (!__cookie) {
-    Cookies.set(COOKIE_PATH, {});
-    return {};
+    let ch = encrypt(JSON.stringify(c));
+    typeof cb === "function"
+      ? cb(COOKIE_PATH, JSON.stringify(ch))
+      : Cookies.set(COOKIE_PATH, JSON.stringify(ch));
+  } catch (error) {
+    console.error({ error });
   }
-  let c = JSON.parse(decrypt(JSON.parse(Cookies.get(COOKIE_PATH))));
-  return !k ? c : !!c[k] ? c[k] : null;
+}
+
+export function setCookie(k, v, __customCookieString = null, cb=null) {
+  try {
+    let c;
+    if (!!__customCookieString) {
+      //lets use custm store as cookie
+      c = getCookie(null, __customCookieString);
+    } else {
+      c = getCookie();
+    }
+
+    const __key = hashCookies ? hash(k) : k;
+
+    c[__key] = v;
+    let ch = encrypt(JSON.stringify(c));
+    
+    typeof cb === "function"
+      ? cb(COOKIE_PATH, JSON.stringify(ch))
+      : Cookies.set(COOKIE_PATH, JSON.stringify(ch));
+  } catch (error) {
+    console.error({ error });
+  }
+}
+
+export function getCookie(k = null, __customCookieString = null, cb=null) {
+  try {
+    let __cookie = typeof cb === "function" ? cb(COOKIE_PATH) : Cookies.get(COOKIE_PATH);
+
+    const __key = hashCookies ? hash(k) : k;
+
+    if (!!__customCookieString) {
+      //lets use custm store as cookie
+      let c = JSON.parse(decrypt(JSON.parse(__customCookieString)));
+      return !k ? c : !!c[__key] ? c[__key] : null;
+    }
+
+    if (!__cookie) initCookie();
+
+    let c;
+    c = typeof cb === "function" ? cb(COOKIE_PATH) : Cookies.get(COOKIE_PATH);
+    c = JSON.parse(c);
+    c = decrypt(c);
+    c = JSON.parse(c);
+
+    return !k ? c : !!c[__key] ? c[__key] : null;
+  } catch (error) {
+    console.error({ error });
+  }
+}
+
+export function initCookie(r=false) {
+  const str = JSON.stringify(encrypt(JSON.stringify({ a: 1 })));
+  Cookies.set(COOKIE_PATH, str);
+  if (r) return  str;
 }
 
 export function setToken(o) {
@@ -90,9 +153,9 @@ export function getToken() {
   return t || false;
 }
 
-export function log(o) {
-  console.log(o);
+export function log(...args) {
+  console.log(...args);
 }
 
 //init cookie var just when is in browser
-if (typeof window != 'undefined') setCookie("init", 1);
+if (typeof window != "undefined") setCookie("init", 1);

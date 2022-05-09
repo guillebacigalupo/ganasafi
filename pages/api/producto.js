@@ -1,5 +1,5 @@
 export default function handler(req, res) {
-  console.log(req.body);
+  console.log(req);
   try {
     res.status(200).json({
       result: "OK",

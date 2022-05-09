@@ -251,7 +251,7 @@ export default function Contacts({ data }) {
                           {responseMessage}
                         </div>
                         <div className="clearfix"></div>
-                        <ReCAPTCHA size="normal" sitekey="<YOUR SITE KEY>" />
+                        {/*<ReCAPTCHA size="normal" sitekey="<YOUR SITE KEY>" />*/}
 
                         <div className="clearfix"></div>
                         <button
