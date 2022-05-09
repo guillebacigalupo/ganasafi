@@ -30,9 +30,12 @@ export default function OurProducts({ data }) {
                     <Img s="rendimiento.png" a="Gana Rendimiento" w="60px" />
                   </a>
                   <div className="support-content">
-                    <h4 className="text-light-green">
-                      <strong>GanaRendimiento - FIA</strong>
-                    </h4>
+                    <Link href="/productos/gana-rendimiento">
+                      <a><h4 className="text-light-green">
+                        <strong>GanaRendimiento - FIA</strong>
+                      </h4>
+                      </a>
+                      </Link>
                     <p>
                     La opción acertada de Invertir en Bs y contar con liquidez inmediata.
                     </p>
@@ -52,9 +55,13 @@ export default function OurProducts({ data }) {
                     <Img s="inversiones.png" a="Gana Inversiones" w="60px" />
                   </a>
                   <div className="support-content">
-                    <h4 className="text-light-green">
-                      <strong>GanaInversiones - FIA</strong>
-                    </h4>
+                    <Link href="/productos/gana-rendimiento">
+                      <a>
+                        <h4 className="text-light-green">
+                          <strong>GanaInversiones - FIA</strong>
+                        </h4>
+                      </a>
+                    </Link>
                     <p>
                      La alternativa perfecta para invertir en USD y tener disponibilidad de tus recursos.
                     </p>

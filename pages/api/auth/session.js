@@ -12,7 +12,7 @@ const prisma = new PrismaClient();
 
 export default async function handler(req, res) {
   const ch = req.cookies[COOKIE_PATH] ?? null;
-  
+
   if (!ch) {
     //user not found by uuid
     res.status(401).json({ error: "Session var not found" });
@@ -21,7 +21,6 @@ export default async function handler(req, res) {
 
   let accessToken = getCookie("accessToken", ch);
   let uuid = getCookie("uuid", ch);
-
   if (!accessToken || !uuid) {
     //user not found by uuid
     res.status(401).json({ error: "User session vars not found" });
@@ -46,7 +45,7 @@ export default async function handler(req, res) {
     },
   });
 
-  if (!session || session.userId != user.id) {
+  if (!session || session?.userId != user?.id) {
     //session not found by accesstoken and userId
     res.status(401).json({ error: "user session invalid" });
     return;

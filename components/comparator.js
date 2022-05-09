@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export default function Comparator({ data }) {
-    const message = "Deseo solicitar infomación sobre";
+    const message = "Deseo solicitar información sobre";
   return (
     <>
       <div className="pricing-area area-padding-2" id="comparador">
@@ -9,9 +9,9 @@ export default function Comparator({ data }) {
           <div className="row">
             <div className="col-md-12 col-sm-12 col-xs-12">
               <div className="section-headline text-center">
-                <h3 className="text-light-green">Comparador de fondos</h3>
-                <p>
-                  Conoce las cracterísticas de cada uno de nuestros productos
+                <h3 className="text-white">Comparador de Fondos</h3>
+                <p className="text-green">
+                  Elige el fondo correcto que se adapte a tu perfil y necesidades
                 </p>
               </div>
             </div>
@@ -45,13 +45,13 @@ export default function Comparator({ data }) {
                       <strong className="text-light-green">
                         Rescates permitidos:
                       </strong>{" "}
-                      Sin Restricciones. Sin previa notificación USD 100.000
+                      <br/>Sin Restricciones.<br/> Sin previa notificación USD 100.000
                     </li>
                     <li className="check">
                       <strong className="text-light-green">
                         Política de rescate:
                       </strong>{" "}
-                      Con 3 dias hábiles de notificación de USD 100.001 a
+                      <br/>Con 3 días hábiles de notificación de USD 100.001 a
                       USD.500.000 
                     </li>
                     <li className="check">
@@ -118,13 +118,13 @@ export default function Comparator({ data }) {
                       <strong className="text-light-green">
                         Rescates permitidos:
                       </strong>{" "}
-                      Sin Restricciones. Sin previa notificación Bs. 700.000
+                      <br/>Sin Restricciones.<br/>Sin previa notificación Bs. 700.000
                     </li>
                     <li className="check">
                       <strong className="text-light-green">
                         Política de rescate:
                       </strong>{" "}
-                      Con 3 dias hábiles de notificación de bs. 700.001 a Bs.
+                      <br/>Con 3 días hábiles de notificación de bs. 700.001 a Bs.
                       3.500.000 
                     </li>
                     <li className="check">

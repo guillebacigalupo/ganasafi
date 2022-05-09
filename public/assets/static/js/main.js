@@ -231,5 +231,9 @@ preloader
       }
       $("#msgSubmit").removeClass().addClass(msgClasses).text(msg);
     }
+
+
+
+
   });
 })(jQuery);

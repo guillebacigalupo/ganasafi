@@ -2,7 +2,9 @@ import Script from "next/script";
 import Link from "next/link";
 
 export default function Slider({ sliders }) {
+
   return (
+
     <>
       {/* Start Slider content */}
       <div className="slider-main">
@@ -34,6 +36,7 @@ export default function Slider({ sliders }) {
           } );`,
           }}
           strategy="lazyOnload"
+          nonce={global.nonce["script-src"]}
         />
       )}
       {/* End Slider content */}
@@ -42,16 +45,10 @@ export default function Slider({ sliders }) {
 }
 
 export function Slide(props) {
-  const bg =
-    props?.data?.image.length > 0
-      ? { backgroundImage: `url(/uploads/${props.data.image}) !important` }
-      : false;
+
+ 
   return (
-    <div
-      className="slide-area fix"
-      data-stellar-background-ratio=".4"
-      style={bg ?? ""}
-    >
+    <div className="slide-area home fix" data-stellar-background-ratio=".4">
       <div className="display-table">
         <div className="display-table-cell">
           <div className="container">
@@ -92,7 +89,7 @@ export function Slide(props) {
                         }
                       >
                         <a className="video-play vid-zone">
-                          <i className="fa fa-play"></i>
+                          <i className="fa fa-dollar"></i>
                           <span>
                             {props?.data?.text_button2.length > 0
                               ? props?.data?.text_button2
@@ -111,3 +108,16 @@ export function Slide(props) {
     </div>
   );
 }
+
+
+/*
+//??????
+if (props?.data?.image.length `&gt; 0)
+{
+  <style jsx>{`
+    .slide-area.home {
+      background-image: url(/uploads/${props.data.image}) !important;
+    }
+  `}</style>
+}
+*/

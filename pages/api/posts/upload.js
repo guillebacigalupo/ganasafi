@@ -23,7 +23,9 @@ export default async function handler(req, res) {
 
     const dataHandler = (data) => {
       if (completed === true) {
-        log(`Error: data chunk for completed upload!`);
+        log(
+          `Error: data chunk for completed upload!`
+        );
         return;
       }
       buffers.push(data);
@@ -34,18 +36,18 @@ export default async function handler(req, res) {
 
     //upload dir
     const d = new Date();
-    const subdir = (d.getMonth()*1+1) + "-" + d.getFullYear() + "/";
+    const subdir = d.getMonth() + "-" + d.getFullYear() + "/";
     const uploadDir = path.join(
       __dirname + "../../../../../../public/uploads/" + subdir
     );
-    
+
     //create upload dir if not exists
     if (!fs.existsSync(uploadDir)) {
       fs.mkdirSync(uploadDir, {
         recursive: true,
       });
     }
-    log({ subdir, uploadDir, exists: fs.existsSync(uploadDir) });
+    
     //parse form data
     const busboy = new Busboy(req);
     busboy.on("file", function (fieldname, file, filename, encoding, mimetype) {
@@ -54,7 +56,7 @@ export default async function handler(req, res) {
       file.on("data", function (data) {
         dataHandler(data);
       });
-
+      
       file.on("end", function () {
         image = subdir + filename;
       });
