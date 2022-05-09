@@ -10,7 +10,7 @@ export default function Calculator({ data }) {
   const [result, setResult] = useState(0);
 
   const _calc = () => {
-    let r = parseFloat(capital * Math.pow(1 + (rate / 10000), 1/times)).toFixed(2);
+    let r = parseFloat(capital * Math.pow(1 + (rate / 100), 1/times)).toFixed(2);
     setResult(r);
     return r;
   };
@@ -59,7 +59,7 @@ export default function Calculator({ data }) {
               <div className="rate-text">
                 <span>
                   {" "}
-                  <strong>{(rate / 10000).toFixed(4)}</strong> Tasa mensual
+                  <strong>{(rate / 100).toFixed(4)}</strong> Tasa mensual
                 </span>
                 <span>
                   {" "}
