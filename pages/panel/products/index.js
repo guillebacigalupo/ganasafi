@@ -36,29 +36,8 @@ export default function Products(props) {
   };
   const handleDelete = async (d) => {
     console.log(d);
+    setModalContent("No se puede eliminar, por favor no intente de nuevo");
 
-    setModalContent(<LoadingIcon />);
-    //POST form values
-    const res = await fetch("/api/products/" + uuid, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        uuid,
-      }),
-    });
-
-    //workflow success or fail
-    if (res.status < 300) {
-      setModalContent(<CheckIcon />);
-      refreshData();
-      setTimeout(() => {
-        toggle();
-      }, 1200);
-    } else {
-      setModalContent("No se pudo eliminar, por favor intente de nuevo");
-    }
     setModal(true);
   };
 
@@ -83,14 +62,7 @@ export default function Products(props) {
               >
                 <i className="fa fa-edit"></i>
               </button>
-              <button
-                className="btn btn-default"
-                onClick={(e) => {
-                  removeRecord(e, item.id);
-                }}
-              >
-                <i className="fa fa-trash"></i>
-              </button>
+              
             </td>
           </tr>
         );
