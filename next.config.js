@@ -44,5 +44,5 @@ module.exports = {
   compiler: {
     removeConsole: true,
   },
-  swcMinify: true,
+  //swcMinify: true,
 };
