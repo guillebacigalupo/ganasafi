@@ -83,14 +83,7 @@ export default function Products(props) {
               >
                 <i className="fa fa-edit"></i>
               </button>
-              <button
-                className="btn btn-default"
-                onClick={(e) => {
-                  removeRecord(e, item.id);
-                }}
-              >
-                <i className="fa fa-trash"></i>
-              </button>
+             
             </td>
           </tr>
         );

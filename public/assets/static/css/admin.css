@@ -19293,8 +19293,8 @@ footer[class=footer-main] ul>li>a {
 }
 
 .navbar {
-    padding-top: 0;
-    padding-bottom: 0
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .w-10 {
