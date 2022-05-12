@@ -6,14 +6,19 @@ import React from "react";
 
 export default function Footer() {
   const store = React.useContext( StoreContext );
+  const [jQueryLoaded, setJQLoaded] = React.useState(false);
+
+    const jsFirstFiles = ["/assets/static/js/vendor/jquery-1.12.4.min.js"];
 
     const jsFiles = [
       "/assets/static/js/bootstrap.min.js",
-      "/assets/static/js/vendor/jquery-1.12.4.min.js",
       "/assets/static/js/owl.carousel.min.js",
       "/assets/static/js/jquery.stellar.min.js",
       "/assets/static/js/jquery.counterup.min.js",
       "/assets/static/js/waypoints.js",
+    ];
+
+    const jsLazyLoadFiles = [
       "/assets/static/js/jquery.nice-select.min.js",
       "/assets/static/js/magnific.min.js",
       "/assets/static/js/wow.min.js",
@@ -22,6 +27,17 @@ export default function Footer() {
       "/assets/static/js/plugins.js",
       "/assets/static/js/main.js",
     ];
+
+    React.useEffect(()=>{
+      let i = setTimeout(()=>{
+        if (!!window && !!window.jQuery) {
+          setJQLoaded(true);
+        }
+        if (jQueryLoaded) {
+          clearTimeout(i);
+        }
+      }, 100);
+    }, [setJQLoaded, jQueryLoaded]);
 
   return (
     <footer className="footer-1">
@@ -84,16 +100,35 @@ export default function Footer() {
         </div>
       </div>
 
-      {jsFiles.map((src) => {
+      {jsFirstFiles.map((src) => {
+        return (
+          <Script key={src} src={src} nonce={global.nonce["script-src"]} />
+        );
+      }) ?? ""}
+
+      {jQueryLoaded &&
+        jsFiles.map((src) => {
+          return (
+            <Script
+              key={src}
+              src={src}
+              strategy="afterInteractive"
+              defer
+              nonce={global.nonce["script-src"]}
+            />
+          );
+        })}
+
+      {jQueryLoaded && jsLazyLoadFiles.map((src) => {
         return (
           <Script
             key={src}
             src={src}
-            strategy="beforeInteractive"
+            strategy="lazyOnload"
             nonce={global.nonce["script-src"]}
           />
         );
-      }) ?? ""}
+      })}
 
       <noscript
         dangerouslySetInnerHTML={{
