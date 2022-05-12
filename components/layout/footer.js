@@ -29,14 +29,14 @@ export default function Footer() {
     ];
 
     React.useEffect(()=>{
-      let i = setTimeout(()=>{
+      let i = setInterval(()=>{
         if (!!window && !!window.jQuery) {
           setJQLoaded(true);
         }
         if (jQueryLoaded) {
-          clearTimeout(i);
+          clearInterval(i);
         }
-      }, 500);
+      }, 100);
     }, [setJQLoaded, jQueryLoaded]);
 
   return (
