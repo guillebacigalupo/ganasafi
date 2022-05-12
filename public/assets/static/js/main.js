@@ -2,12 +2,13 @@
   "use strict";
 
   var windows = $(window);
-  
-    if (window?.innerWidth < 1040 && !!jQuery.fn.meanmenu && !window.mmSetup) {
-      var mean_menu = $("nav#dropdown");
-      mean_menu.meanmenu();
-      window.mmSetup = true;
-    }
+  let mmSetupFront = false;
+  if (window?.innerWidth < 1040 && !!jQuery.fn.meanmenu && !mmSetupFront) {
+    var mean_menu = $("nav#dropdown");
+    mean_menu.meanmenu();
+    mmSetupFront = true;
+    window.mmSetupFront = true;
+  }
 
   windows.on("load", function () {
     /*--------------------------
@@ -40,17 +41,12 @@ preloader
  jQuery MeanMenu
 ------------------------------ */
 
-    
-    if (
-      window?.innerWidth < 1040 &&
-      !!jQuery.fn.meanmenu &&
-      !window.mmSetup
-    ) {      
-      var mean_menu = $("nav#dropdown");
-      mean_menu.meanmenu();
-      window.mmSetup = true;
-    }
-
+  if (window?.innerWidth < 1040 && !!jQuery.fn.meanmenu && !mmSetupFront) {
+    var mean_menu = $("nav#dropdown");
+    mean_menu.meanmenu();
+    mmSetupFront = true;
+    window.mmSetupFront = true;
+  }
     /*---------------------
  wow .js
 --------------------- */

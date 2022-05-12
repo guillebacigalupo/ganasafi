@@ -36,7 +36,7 @@ export default function Footer() {
         if (jQueryLoaded) {
           clearTimeout(i);
         }
-      }, 100);
+      }, 500);
     }, [setJQLoaded, jQueryLoaded]);
 
   return (
