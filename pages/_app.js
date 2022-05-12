@@ -11,7 +11,7 @@ const DisableSSR = ({ children }) => {
 };
 
 function MyApp({ Component, pageProps, nonce, csp }) {
-  global.nonce = nonce;
+  if (nonce) global.nonce = nonce;
   
   if (typeof window !== "undefined") window.__webpack_nonce__ = nonce["style-src"];
 
@@ -33,7 +33,7 @@ MyApp.getInitialProps = async (props) => {
   const nonce = {};
 
   res
-    .getHeaders()
+    ?.getHeaders()
     ["content-security-policy"]?.split(";")
     .filter(Boolean)
     .forEach((part) => {
@@ -54,7 +54,7 @@ MyApp.getInitialProps = async (props) => {
 
     return {
       nonce,
-      csp: res.getHeaders()["content-security-policy"],
+      csp: res?.getHeaders()["content-security-policy"],
     };
 };
 

@@ -2,7 +2,13 @@
   "use strict";
 
   var windows = $(window);
-  $("nav#dropdown").meanmenu();
+  
+    if (window?.innerWidth < 1040 && !!jQuery.fn.meanmenu && !window.mmSetup) {
+      var mean_menu = $("nav#dropdown");
+      mean_menu.meanmenu();
+      window.mmSetup = true;
+    }
+
   windows.on("load", function () {
     /*--------------------------
 preloader
@@ -34,8 +40,16 @@ preloader
  jQuery MeanMenu
 ------------------------------ */
 
-    var mean_menu = $("nav#dropdown");
-    mean_menu.meanmenu();
+    
+    if (
+      window?.innerWidth < 1040 &&
+      !!jQuery.fn.meanmenu &&
+      !window.mmSetup
+    ) {      
+      var mean_menu = $("nav#dropdown");
+      mean_menu.meanmenu();
+      window.mmSetup = true;
+    }
 
     /*---------------------
  wow .js
