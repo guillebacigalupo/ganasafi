@@ -65,21 +65,23 @@ const Menu = (props) => {
 
 export default function Header({ data }) {
   const breakpoint = 1024;
-
-  const handleResize = () => {
-    if (
-      window?.innerWidth < breakpoint &&
-      !!jQuery.fn.meanmenu &&
-      !window.mmSetup
-    ) {
-      window.jQuery("nav#dropdown")?.meanmenu();
-      window.mmSetup = true;
-    }
-  }
+  const [mmLoaded, setMM] = useState(false);
 
   useEffect(() => {
-    window.addEventListener("resize", handleResize);
-  }, [handleResize]);
+  const applyMM = () => {
+    if (
+      window?.innerWidth < breakpoint &&
+      !!window.jQuery?.fn?.meanmenu &&
+      !mmLoaded
+    ) {
+      window.jQuery("nav#dropdown").meanmenu();
+      window.mmSetupFront = true;
+      setMM(true);
+    }
+  };
+
+    if (typeof window !== "undefined") applyMM();
+  }, []);
 
   return (
     <>
