@@ -116,7 +116,7 @@ export default function Simulador({ products }) {
                               <span>
                                 {" "}
                                 <strong>
-                                  {(data?.rate / 10000).toFixed(4)}
+                                  {(data?.rate / 10000).toFixed(4)}%
                                 </strong>{" "}
                                 Tasa mensual
                               </span>
