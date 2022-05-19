@@ -59,7 +59,8 @@ export default function Calculator({ data }) {
               <div className="rate-text">
                 <span>
                   {" "}
-                  <strong>{(rate / 100).toFixed(4)}</strong> Tasa mensual
+                  <strong>{parseFloat(rate).toFixed(2)}</strong> Tasa mensual
+                  {/*<strong>{(rate / 100).toFixed(4)}</strong> Tasa mensual*/}
                 </span>
                 <span>
                   {" "}
