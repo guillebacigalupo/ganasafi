@@ -37,22 +37,28 @@ export default function Comparator({ data }) {
                     </li>
                     <li className="check">
                       <strong className="text-light-green">
+                       Calificación de Riesgo
+                      </strong>{" "}
+                      AA3
+                    </li>
+                    <li className="check">
+                      <strong className="text-light-green">
                        Monto mínimo de Inversión
                       </strong>{" "}
-                      USD 100
+                      $us. 100
                     </li>
                     <li className="check">
                       <strong className="text-light-green">
                         Rescates permitidos:
                       </strong>{" "}
-                      <br/>Sin Restricciones.<br/> Sin previa notificación USD 100.000
+                      <br/>Sin Restricciones.<br/> Sin previa notificación $us. 100.000
                     </li>
                     <li className="check">
                       <strong className="text-light-green">
                         Política de rescate:
                       </strong>{" "}
-                      <br/>Con 3 días hábiles de notificación de USD 100.001 a
-                      USD.500.000 
+                      <br/>Con 4 días hábiles para montos mayores a $us. 500.001
+                      <br/>Con 4 días hábiles mayores a $us. 500.000
                     </li>
                     <li className="check">
                       <strong className="text-light-green">
@@ -66,6 +72,17 @@ export default function Comparator({ data }) {
                       </strong>{" "}
                       Invesores conservadores que desean un rendimiento
                       atractivo en USD, y alta disponibilidad de sus recursos
+                    </li>
+                    <li className="check">
+                      <strong className="text-light-green">
+                        Beneficios:
+                      </strong>{" "}<br/>
+                      • Transaccionalidad a través de las Oficinas del Banco Ganadero a nivel Nacional<br/>
+                      • Emisión de Cheques sin Costo<br/>
+                      • Transferencias ACH<br/>
+                      • Recepción y Envíos de Transferencias del Exterior <br/>
+                      • Tarjeta de Débito para Personas Naturales<br/>
+
                     </li>
                   </ol>
                   <div className="price-btn">
@@ -110,6 +127,12 @@ export default function Comparator({ data }) {
                     </li>
                     <li className="check">
                       <strong className="text-light-green">
+                       Calificación de Riesgo
+                      </strong>{" "}
+                      AA3
+                    </li>
+                    <li className="check">
+                      <strong className="text-light-green">
                         Monto mínimo de Inversión:
                       </strong>{" "}
                       Bs. 1000
@@ -126,6 +149,8 @@ export default function Comparator({ data }) {
                       </strong>{" "}
                       <br/>Con 3 días hábiles de notificación de bs. 700.001 a Bs.
                       3.500.000 
+                      <br/>
+                      Con 4 días hábiles mayores a Bs.3.500.001
                     </li>
                     <li className="check">
                       <strong className="text-light-green">
@@ -139,6 +164,16 @@ export default function Comparator({ data }) {
                       </strong>{" "}
                       Invesores conservadores que desean un rendimiento
                       atractivo en Bs, y alta disponibilidad de sus recursos
+                    </li>
+                    <li className="check">
+                      <strong className="text-light-green">
+                        Beneficios:
+                      </strong>{" "}<br/>
+                      • Transaccionalidad a través de las Oficinas del Banco Ganadero a nivel Nacional<br/>
+                      • Emisión de Cheques sin Costo<br/>
+                      • Transferencias ACH<br/>
+                      • Tarjeta de Débito para Personas Naturales<br/>
+
                     </li>
                   </ol>
                   <div className="price-btn">

@@ -133,15 +133,15 @@ export default function Contacts({ data }) {
                       <p>
                         <strong>La Paz:</strong> (591) 2-2173000
                         <br />
-                        Interno: 3350 -3330
+                        Interno: 3350 - 3330
                         <br />
                         <strong>Cochabamba:</strong> (591) 4-4173000
                         <br />
-                        Interno: 3437-3430
+                        Interno: 3437 - 3430
                         <br />
-                        <strong>Santa Cruz:</strong> (591) 3-3173000
+                        <strong>Santa Cruz:</strong> (591) 317-0400
                         <br />
-                        Interno: 3268-3270
+                        Internos: 3095 – 0468 – 0467
                       </p>
                     </div>
                   </div>
@@ -153,9 +153,7 @@ export default function Contacts({ data }) {
                       <br/><br/>
                       <p>
                         <strong>Email:</strong> informaciones@ganasafi.com.bo
-                        <br />
-                        <strong>Horarios:</strong> Lunes a viernes de 9:00 a
-                        16:00 y sábados de 9:00 a 13:00.
+                      
                       </p>
                     </div>
                   </div>
@@ -168,7 +166,7 @@ export default function Contacts({ data }) {
                       <p>
                         <strong>Santa Cruz: </strong>
                         
-                        Calle Murillo N°89 y Bolívar
+                        Calle Murillo No 89 esq. Bolívar
                       </p>
                       <p>
                         <strong>La Paz: </strong>

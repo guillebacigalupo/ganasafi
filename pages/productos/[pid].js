@@ -43,6 +43,12 @@ const ContentGanaInversiones = (
           </strong>
         </li>
         <li className="check">
+          <strong className="text-light-green">
+           Calificación de Riesgo
+          </strong>{" "}
+          AA3
+        </li>
+        <li className="check">
           <strong className="text-light-green">Monto mínimo de inversión:</strong> USD
           100
         </li>
@@ -53,6 +59,7 @@ const ContentGanaInversiones = (
         <li className="check">
           <strong className="text-light-green">Política de rescate:</strong> <br/>Con
           3 días hábiles de notificación de USD 100.001 a USD500.000
+          <br/>Con 4 días hábiles mayores a $us. 500.000
         </li>
         <li className="check">
           <strong className="text-light-green">
@@ -65,6 +72,17 @@ const ContentGanaInversiones = (
           Invesores conservadores que desean un rendimiento atractivo en USD, y
           alta disponibilidad de sus recursos
         </li>
+        <li className="check">
+                      <strong className="text-light-green">
+                        Beneficios:
+                      </strong>{" "}<br/>
+                      • Transaccionalidad a través de las Oficinas del Banco Ganadero a nivel Nacional<br/>
+                      • Emisión de Cheques sin Costo<br/>
+                      • Transferencias ACH<br/>
+                      • Recepción y Envíos de Transferencias del Exterior <br/>
+                      • Tarjeta de Débito para Personas Naturales<br/>
+
+                    </li>
       </ol>
       <div className="price-btn">
         <Link
@@ -101,6 +119,12 @@ const ContentGanaRendimiento = (
           </strong>
         </li>
         <li className="check">
+          <strong className="text-light-green">
+           Calificación de Riesgo
+          </strong>{" "}
+          AA3
+        </li>
+        <li className="check">
           <strong className="text-light-green">Monto mínimo de inversión:</strong> Bs.
           1000
         </li>
@@ -111,6 +135,8 @@ const ContentGanaRendimiento = (
         <li className="check">
           <strong className="text-light-green">Política de rescate:</strong><br/> Con
           3 días hábiles de notificación de bs. 700.001 a Bs. 3.500.000
+          <br/>
+          Con 4 días hábiles mayores a Bs.3.500.001
         </li>
         <li className="check">
           <strong className="text-light-green">
@@ -122,6 +148,16 @@ const ContentGanaRendimiento = (
           <strong className="text-light-green">Perfil Inversor:</strong>{" "}
           Invesores conservadores que desean un rendimiento atractivo en Bs, y
           alta disponibilidad de sus recursos
+        </li>
+        <li className="check">
+          <strong className="text-light-green">
+            Beneficios:
+          </strong>{" "}<br/>
+          • Transaccionalidad a través de las Oficinas del Banco Ganadero a nivel Nacional<br/>
+          • Emisión de Cheques sin Costo<br/>
+          • Transferencias ACH<br/>
+          • Tarjeta de Débito para Personas Naturales<br/>
+
         </li>
       </ol>
       <div className="price-btn">
