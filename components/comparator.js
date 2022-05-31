@@ -85,6 +85,46 @@ export default function Comparator({ data }) {
 
                     </li>
                   </ol>
+
+                  <table border="1" class="table-rendimientos">
+                    <tbody >
+                        <tr>
+                            <th>
+                                GanaInversiones FIA
+                            </th>
+                            <th>
+                                A 30 días
+                            </th>
+                            <th>
+                                A 90 días   
+                            </th>
+                            <th>
+                                A 180 días   
+                            </th>
+                            <th>
+                                A 360 días   
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                Tasas de interés al 23/5/22
+                            </td>
+                            <td>
+                                1.01%
+                            </td>
+                            <td>
+                                1.31%
+                            </td>
+                            <td>
+                                1.52%
+                            </td>
+                            <td>
+                                -
+                            </td>
+                        </tr>
+                    </tbody>
+                    </table>
+
                   <div className="price-btn">
                     <Link
                       href={{
@@ -105,6 +145,9 @@ export default function Comparator({ data }) {
                         Quiero saber más
                       </a>
                     </Link>
+
+
+                  
                   
                 </div>
               </div>
@@ -176,6 +219,47 @@ export default function Comparator({ data }) {
 
                     </li>
                   </ol>
+
+                  <table border="1" class="table-rendimientos">
+                    <tbody >
+                        <tr>
+                            <th>
+                                GanaRendimientos FIA
+                            </th>
+                            <th>
+                                A 30 días
+                            </th>
+                            <th>
+                                A 90 días   
+                            </th>
+                            <th>
+                                A 180 días   
+                            </th>
+                            <th>
+                                A 360 días   
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                Tasas de interés al 23/5/22
+                            </td>
+                            <td>
+                               2.94%
+                            </td>
+                            <td>
+                                2.84%
+                            </td>
+                            <td>
+                                -
+                            </td>
+                            <td>
+                                -
+                            </td>
+                        </tr>
+                    </tbody>
+                    </table>
+
+
                   <div className="price-btn">
                     <Link
                       href={{

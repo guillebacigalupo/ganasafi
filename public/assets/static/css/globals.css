@@ -3733,5 +3733,20 @@ span.email-notes {
 /*--------------------------------*/
 /* .End CSS
 /*--------------------------------*/
+.table-rendimientos{
+  margin: 20px 0;
+  border:  solid 1px #a1bc1b;
+  border-radius: 20px;
+}
+.table-rendimientos th{
+  border-bottom:  solid 1px #a1bc1b;
+}
+
+.table-rendimientos td,
+.table-rendimientos th{
+      padding: 7px 5px;
+    font-size: 12px;
+}
+
 
 
