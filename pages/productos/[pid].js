@@ -85,7 +85,7 @@ const ContentGanaInversiones = (
                     </li>
       </ol>
 
-      <table border="1" class="table-rendimientos">
+      <table border="1" className="table-rendimientos">
                     <tbody >
                         <tr>
                             <th>
@@ -201,7 +201,7 @@ const ContentGanaRendimiento = (
         </li>
       </ol>
 
-      <table border="1" class="table-rendimientos">
+      <table border="1" className="table-rendimientos">
         <tbody >
             <tr>
                 <th>

@@ -86,7 +86,7 @@ export default function Comparator({ data }) {
                     </li>
                   </ol>
 
-                  <table border="1" class="table-rendimientos">
+                  <table border="1" className="table-rendimientos">
                     <tbody >
                         <tr>
                             <th>
@@ -220,7 +220,7 @@ export default function Comparator({ data }) {
                     </li>
                   </ol>
 
-                  <table border="1" class="table-rendimientos">
+                  <table border="1" className="table-rendimientos">
                     <tbody >
                         <tr>
                             <th>
