@@ -58,7 +58,7 @@ const ContentGanaInversiones = (
         </li>
         <li className="check">
           <strong className="text-light-green">Política de rescate:</strong> <br/>Con
-          3 días hábiles de notificación de USD 100.001 a USD500.000
+          Con 3 dias hábiles de notificación de $us. 100.001 a $us.500.000
           <br/>Con 4 días hábiles mayores a $us. 500.000
         </li>
         <li className="check">
@@ -174,7 +174,7 @@ const ContentGanaRendimiento = (
         </li>
         <li className="check">
           <strong className="text-light-green">Política de rescate:</strong><br/> Con
-          3 días hábiles de notificación de bs. 700.001 a Bs. 3.500.000
+          Con 3 dias hábiles de notificación de bs. 700.001 a Bs. 3.500.000
           <br/>
           Con 4 días hábiles mayores a Bs.3.500.001
         </li>
