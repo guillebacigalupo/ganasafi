@@ -69,7 +69,7 @@ const ContentGanaInversiones = (
         </li>
         <li className="check">
           <strong className="text-light-green">Perfil Inversor:</strong>{" "}
-          Invesores conservadores que desean un rendimiento atractivo en USD, y
+          Inversionistas conservadores que desean un rendimiento atractivo en USD, y
           alta disponibilidad de sus recursos
         </li>
         <li className="check">
@@ -154,8 +154,7 @@ const ContentGanaRendimiento = (
       <ol>
         <li className="">
           <strong>
-            Inversiones a Corto Plazo concentradas en Bs y también en USD,
-            perfil conservador
+            Inversiones a Corto Plazo concentradas en Bs, perfil conservador
           </strong>
         </li>
         <li className="check">
@@ -186,7 +185,7 @@ const ContentGanaRendimiento = (
         </li>
         <li className="check">
           <strong className="text-light-green">Perfil Inversor:</strong>{" "}
-          Invesores conservadores que desean un rendimiento atractivo en Bs, y
+          Inversionistas conservadores que desean un rendimiento atractivo en Bs, y
           alta disponibilidad de sus recursos
         </li>
         <li className="check">
