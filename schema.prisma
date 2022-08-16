@@ -9,16 +9,20 @@ datasource db {
 }
 
 model Property {
-  id          Int     @id @default(autoincrement())
-  uuid        String  @unique @default(cuid())
-  object_id   Int
-  object_type String
-  prop_group  String
-  prop_key    String
-  prop_value  String?
-  prop_status Int?
+  id         Int       @id @default(autoincrement())
+  uuid       String    @unique @default(cuid())
+  objectId   Int?
+  objectType String
+  dataType   String
+  group      String
+  key        String
+  value      String?
+  status     Int?
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime?
 
-  @@unique([object_id, object_type, prop_group, prop_key], name: "object_property")
+  @@unique([objectId, objectType, group, key])
+  @@index([objectId, objectType], map: "object_index_property")
 }
 
 model Content {
