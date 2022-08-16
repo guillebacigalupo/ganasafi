@@ -3,6 +3,7 @@ import Comparator from "../components/comparator";
 import Script from "next/script";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import Link from "next/link";
 
 const products = {
   "gana-rendimiento": {
@@ -28,7 +29,7 @@ export default function Simulador({ products }) {
   };
 
   const _calc = () => {
-    let r = parseFloat(capital * Math.pow(1 + data.rate / 100, times)).toFixed(
+    let r = parseFloat(capital * Math.pow(1 + data.rate / 10000, 1/times)).toFixed(
       2
     );
     setResult(r);
@@ -48,16 +49,22 @@ export default function Simulador({ products }) {
                 <div className="slide-text-inner">
                   <div className="col-md-6 col-sm-12 col-xs-12">
                     <div className="slide-content">
-                      <h2 className="title2">Realiza la simulación </h2>
-                      <p>Selecccioná tu fondo de inversión de preferencia e ingresa el valor a invertir para simular tu rendimiento.</p>
+                      <h2 className="title2">Simula tu inversión </h2>
+                      <p>
+                        Selecccioná tu fondo de inversión de preferencia e
+                        ingresa el valor a invertir para simular tu rendimiento.
+                      </p>
 
-                      <a className="ready-btn left-btn">
-                        Quiero empezar a invertir
-                      </a>
+                      <Link href="/contacto">
+                        <a className="ready-btn left-btn">
+                          Quiero empezar a invertir
+                        </a>
+                      </Link>
                     </div>
                   </div>
-                  <div className="col-md-6 col-sm-12 col-xs-12"><br />
-                              <br />
+                  <div className="col-md-6 col-sm-12 col-xs-12">
+                    <br />
+                    <br />
                     <div className="money-send">
                       <div className="calculator-inner  text-left">
                         <div className="single-cal">
@@ -109,7 +116,7 @@ export default function Simulador({ products }) {
                               <span>
                                 {" "}
                                 <strong>
-                                  {(data?.rate / 100).toFixed(4)}
+                                  {(data?.rate / 10000).toFixed(4)}
                                 </strong>{" "}
                                 Tasa mensual
                               </span>
@@ -131,7 +138,6 @@ export default function Simulador({ products }) {
       </div>
 
       <Comparator />
-
 
       <Script
         dangerouslySetInnerHTML={{
@@ -156,6 +162,7 @@ export default function Simulador({ products }) {
                     } );`,
         }}
         strategy="lazyOnload"
+        nonce={global.nonce["script-src"]}
       />
     </Container>
   );

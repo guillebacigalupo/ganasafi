@@ -2,15 +2,26 @@ import { useRouter } from "next/router";
 import Container from "../../components/layout/container";
 import Calculator from "../../components/calculator";
 import Link from "next/link";
+import Img from "../../components/image";
 
-const message = "Deseo solicitar infomación sobre GanaRendimiento";
+const message = "Deseo solicitar información sobre GanaRendimiento";
 
 const products = {
   "gana-rendimiento": {
     title: "GanaRendimiento - FIA",
+    bajada: "La opción acertada de Invertir en Bs y contar con liquidez inmediata",
+    image:"rendimiento.png",
+    prospecto: "/docs/PROSPECTO_GANARENDIMIENTO_2022.pdf",
+    reglamento: "/docs/Reglamento_GanaRendimiento_2022.pdf", 
+    clase : "",
   },
   "gana-inversiones": {
     title: "GanaInversiones - FIA",
+    bajada: "La alternativa perfecta para invertir en USD y tener disponibilidad de tus recursos.",
+    image:"inversiones.png",
+    prospecto: "/docs/PROSPECTO_GanaInversiones_FIA_Definitivo_17092021.pdf",
+    reglamento: "/docs/Reglamento_GanaInversiones_23_08_2021_VF.pdf", 
+    clase : ""
   },
 };
 
@@ -18,11 +29,11 @@ const ContentGanaInversiones = (
   <div className="col-md-6 col-sm-6  col-xs-12">
     <div className="table-list">
       <div className="top-price-inner">
-        <div className="price-title">
-          <h4 className="text-green">GanaInversiones - FIA</h4>
-        </div>
+        
+        <Img s="logoinversiones.png" a="Ganasafi" w="500px" />
+        <br/><br/>
         <div className="rates">
-          Moneda: <span className="users">Dolares</span>
+          Moneda: <span className="users">Dólares</span>
         </div>
       </div>
       <ol>
@@ -32,17 +43,16 @@ const ContentGanaInversiones = (
           </strong>
         </li>
         <li className="check">
-          <strong className="text-light-green">Monto de apertura:</strong> USD
+          <strong className="text-light-green">Monto mínimo de inversión:</strong> USD
           100
         </li>
         <li className="check">
-          <strong className="text-light-green">Rescates permitidos:</strong> Sin
-          Restricciones. Sin previa notificación $us. 100.000
+          <strong className="text-light-green">Rescates permitidos:</strong> <br/>Sin
+          Restricciones. <br/>Sin previa notificación USD 100.000
         </li>
         <li className="check">
-          <strong className="text-light-green">Política de rescate:</strong> Con
-          3 dias hábiles de notificación de $us. 100.001 a $us.500.000 <br />
-          Con 4 días hábiles mayores a $us. 500.000
+          <strong className="text-light-green">Política de rescate:</strong> <br/>Con
+          3 días hábiles de notificación de USD 100.001 a USD500.000
         </li>
         <li className="check">
           <strong className="text-light-green">
@@ -59,12 +69,12 @@ const ContentGanaInversiones = (
       <div className="price-btn">
         <Link
           href={{
-            pathname: "contacto/[message]",
+            pathname: "/contacto",
             query: {
               message,
             },
           }}
-          as={`contacto?m=${encodeURIComponent(message)}`}
+          as={`/contacto?m=${encodeURIComponent(message)}`}
         >
           <a>Solicitar</a>
         </Link>
@@ -77,9 +87,8 @@ const ContentGanaRendimiento = (
   <div className="col-md-7 col-sm-6 col-xs-12">
     <div className="table-list">
       <div className="top-price-inner">
-        <div className="price-title dark">
-          <h4 className="">GanaRendimiento - FIA</h4>
-        </div>
+        <Img s="logorendimiento.png" a="Ganasafi" w="500px" />
+        <br/><br/>
         <div className="rates">
           Moneda: <span className="users">Bolivianos</span>
         </div>
@@ -92,17 +101,16 @@ const ContentGanaRendimiento = (
           </strong>
         </li>
         <li className="check">
-          <strong className="text-light-green">Monto de apertura:</strong> Bs.
+          <strong className="text-light-green">Monto mínimo de inversión:</strong> Bs.
           1000
         </li>
         <li className="check">
-          <strong className="text-light-green">Rescates permitidos:</strong> Sin
-          Restricciones. sin previa notificación Bs. 700.000
+          <strong className="text-light-green">Rescates permitidos:</strong> <br/>Sin
+          Restricciones. <br/>Sin previa notificación Bs. 700.000
         </li>
         <li className="check">
-          <strong className="text-light-green">Política de rescate:</strong> Con
-          3 dias hábiles de notificación de bs. 700.001 a Bs. 3.500.000 <br />
-          Con 4 días hábiles mayores a Bs.3.500.001
+          <strong className="text-light-green">Política de rescate:</strong><br/> Con
+          3 días hábiles de notificación de bs. 700.001 a Bs. 3.500.000
         </li>
         <li className="check">
           <strong className="text-light-green">
@@ -117,7 +125,17 @@ const ContentGanaRendimiento = (
         </li>
       </ol>
       <div className="price-btn">
-        <a href="">Solicitar</a>
+       <Link
+          href={{
+            pathname: "/contacto",
+            query: {
+              message,
+            },
+          }}
+          as={`/contacto?m=${encodeURIComponent(message)}`}
+        >
+          <a>Solicitar</a>
+        </Link>
       </div>
     </div>
   </div>
@@ -129,40 +147,56 @@ export default function Producto({ data }) {
 
   return (
     <Container>
-      <div className="pricing-area area-padding-3">
+      <div className="pricing-area  gray area-padding-3">
         <div className="container">
           <div className="row">
             <div className="pricing-content">
               <div className="col-md-5 col-sm-6  col-xs-12">
                 <div className="section-headline text-left">
                   <h3 className="text-light-green">
-                    Comienza a invertir tu dinero con GANASAFI
+                    Comienza a invertir tu dinero con GanaSafi
                   </h3>
+                  <div className="row">
+                    <div className="col-sm-2 col-xs-2">
+                      <Img s={products[pid].image} a={`products[pid].title`} w="60px" />
+                    </div>
+                    <div className="col-sm-10 col-xs-10">
+                      <p>
 
-                  <p>
-                    Ganadero Sociedad Administradora de Fondos de Inversión S.A.
-                    GanaSafi S.A. Es miembro del grupo Financiero Ganadero, nace
-                    el año 2020, con la misión de Administrar Fondos de
-                    Inversión que coadyuven activamente en el desarrollo
-                    económico, financiero y social del país, fomentando el
-                    ahorro interno nacional, facilitando económicamente la
-                    creación, expansión y desarrollo de empresas nacionales
+                   {products[pid].bajada}
+                   
+                  
+                    
+
                   </p>
+                    </div>
+                  </div>
+
+                  
                   <hr />
+                  <div className={products[pid].clase} >
                   <p>
                     <strong>Reglamento interno</strong>
                   </p>
-                  <a className="text-green">
-                    <u>Descargar reglamento</u>
-                  </a>
 
-                  <hr />
+                  
+                    <a rel="noreferrer" target="_blank" href={products[pid].reglamento} className="text-green">
+                      <u>Descargar Reglamento</u>
+                    </a>
+                  
+
+                    <hr />
+                  </div>
+                  <div className={products[pid].clase} >
                   <p>
                     <strong>Prospecto</strong>
                   </p>
-                  <a className="text-green">
-                    <u>Descargar prospecto</u>
-                  </a>
+                 
+                    <a rel="noreferrer" target="_blank" href={products[pid].prospecto} className="text-green">
+                      <u>Descargar Prospecto</u>
+                    </a>
+                  </div>
+                 
                 </div>
               </div>
 
@@ -172,13 +206,13 @@ export default function Producto({ data }) {
           </div>
         </div>
       </div>
-      <div className="banner-area area-padding">
+      <div className="banner-area area-padding" id="simulador">
         <div className="container">
           <div className="row">
             <div className="col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
               <div className="banner-all area-80 text-center">
                 <div className="banner-content">
-                  <h3>Simulador de inversión</h3>
+                  <h3>Simula tu inversión</h3>
                   <br />
                   <Calculator data={data} />
                 </div>

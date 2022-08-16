@@ -10,8 +10,7 @@ export default function Faq() {
               <div className="section-headline text-center">
                 <h3 className="text-green">¿Qué saber para invertir?</h3>
                 <p>
-                  Si tienes dudas, aquí te brindamos información sobre nuestra
-                  metodología de inversión
+                Si tienes dudas, aquí te brindamos más información.
                 </p>
               </div>
             </div>
@@ -28,7 +27,7 @@ export default function Faq() {
                       </span>
                     </h4>
                   </a>
-                  <div id="faq1" className="collapse">
+                  <div id="faq1" className="collapse" role="tabpanel">
                     <p>
                       Todas las personas naturales (profesionales, empleados,
                       jubilados, comerciantes, estudiantes, amas de casa) o
@@ -117,7 +116,7 @@ export default function Faq() {
                   </a>
                   <div id="faq5" className="collapse">
                     <p>
-                      En la industria existen 2 tipos de fondos de Inversión de
+                      En la industria existen 2 tipos de Fondos de Inversión de
                       acuerdo a la disponibilidad de los recursos invertidos:
                     </p>
                     <br />
@@ -130,7 +129,7 @@ export default function Faq() {
                       participación compradas por los participantes son
                       redimibles directamente por el Fondo (mediante un rescate
                       de cuotas) y su plazo de duración es indefinido. Este tipo
-                      de fondos es el más común en los Mercados de Valores.
+                      de Fondos es el más común en los Mercados de Valores.
                     </p>
                     <br />
                     <p>
@@ -184,7 +183,7 @@ export default function Faq() {
                   </a>
                   <div id="faq7" className="collapse">
                     <p>
-                      Los activos en los que invierten los fondos de inversión
+                      Los activos en los que invierten los Fondos de inversión
                       se encuentran definidos en la Política de Inversiones que
                       se encuentra establecido el Reglamento Interno o Prospecto
                       de cada fondo, autorizado por la Autoridad de Supervisión

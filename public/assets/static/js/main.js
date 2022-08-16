@@ -2,7 +2,14 @@
   "use strict";
 
   var windows = $(window);
-  $("nav#dropdown").meanmenu();
+  let mmSetupFront = false;
+  if (window?.innerWidth < 1040 && !!jQuery.fn.meanmenu && !mmSetupFront) {
+    var mean_menu = $("nav#dropdown");
+    mean_menu.meanmenu();
+    mmSetupFront = true;
+    window.mmSetupFront = true;
+  }
+
   windows.on("load", function () {
     /*--------------------------
 preloader
@@ -34,9 +41,12 @@ preloader
  jQuery MeanMenu
 ------------------------------ */
 
+  if (window?.innerWidth < 1040 && !!jQuery.fn.meanmenu && !mmSetupFront) {
     var mean_menu = $("nav#dropdown");
     mean_menu.meanmenu();
-
+    mmSetupFront = true;
+    window.mmSetupFront = true;
+  }
     /*---------------------
  wow .js
 --------------------- */
@@ -231,5 +241,9 @@ preloader
       }
       $("#msgSubmit").removeClass().addClass(msgClasses).text(msg);
     }
+
+
+
+
   });
 })(jQuery);

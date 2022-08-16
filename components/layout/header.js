@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import MediaQuery from "react-responsive";
-import HTMLHead from "./partials/head.js";
 import Link from "next/link";
 import Img from "../image";
 
 const Logo = () => {
-  return <Img s="logo/logo.png" />;
+  return <Img s="logo/logoheader.png" />;
 };
 
 const Menu = (props) => {
@@ -15,13 +14,13 @@ const Menu = (props) => {
     <ul className={c ?? ""}>
       <li>
         <Link href="/quienes-somos">
-          <a className="pages">Quienes Somos</a>
+          <a className="pages">Quiénes Somos</a>
         </Link>
       </li>
 
       <li>
         <Link href="/productos">
-          <a className="pages">Fondos de inversión</a>
+          <a className="pages">Fondos de Inversión</a>
         </Link>
         <ul className="sub-menu">
           <li>
@@ -47,7 +46,7 @@ const Menu = (props) => {
               });
           }}
         >
-          <a>Comparador</a>
+          <a>Comparador de Fondos</a>
         </Link>
       </li>
       <li>
@@ -65,29 +64,27 @@ const Menu = (props) => {
 };
 
 export default function Header({ data }) {
-  const breakpoint = 767;
+  const breakpoint = 1024;
+  const [mmLoaded, setMM] = useState(false);
 
-  const applyMMenu = () => {
-    if (typeof window != "undefined" && !!window) {
-      if (
-        typeof jQuery != "undefined" &&
-        !!jQuery &&
-        typeof jQuery.fn.meanmenu != "undefined" &&
-        !!jQuery.fn.meanmenu
-      ) {
-        window.jQuery("nav#dropdown").meanmenu();
-      }
+  useEffect(() => {
+  const applyMM = () => {
+    if (
+      window?.innerWidth < breakpoint &&
+      !!window.jQuery?.fn?.meanmenu &&
+      !mmLoaded
+    ) {
+      window.jQuery("nav#dropdown").meanmenu();
+      window.mmSetupFront = true;
+      setMM(true);
     }
   };
 
-  useEffect(() => {
-    applyMMenu();
+    if (typeof window !== "undefined") applyMM();
   }, []);
 
   return (
     <>
-      <HTMLHead />
-
       {/*<div id="preloader"></div>*/}
 
       <header className="header-one">
@@ -97,23 +94,25 @@ export default function Header({ data }) {
               <div className="row">
                 <div className="col-md-12 col-sm-12">
                   <div className="row">
-                    <div className="col-md-2 col-sm-3">
+                    <div className="col-lg-3 col-md-2 col-sm-2">
                       <div className="logo">
-                        <Link href="/">
-                          <a className="navbar-brand page-scroll white-logo">
-                            <Logo />
-                          </a>
-                        </Link>
-                        <Link href="/">
-                          <a className="navbar-brand page-scroll black-logo">
-                            <Logo />
-                          </a>
-                        </Link>
+                          <Link href="/" >
+                            <a className="navbar-brand page-scroll white-logo">
+                              <Logo />
+                            </a>
+                          </Link>
+                          
+                          <Link href="/" >
+                            <a  className="navbar-brand page-scroll black-logo">
+                              <Logo />
+                            </a>
+                          </Link>
+                        
                       </div>
                     </div>
-                    <div className="col-md-10 col-sm-9">
+                    <div className="col-lg-9 col-md-10 col-sm-10">
                       <div className="header-right-link">
-                        <Link href="">
+                        <Link href="/URLEXTERNA" >
                           <a className="s-menu">Ingresar</a>
                         </Link>
                       </div>
@@ -137,15 +136,15 @@ export default function Header({ data }) {
         </MediaQuery>
 
         <MediaQuery query={`(max-width: ${breakpoint}px)`}>
-          <div className="mobile-menu-area hidden-lg hidden-md hidden-sm">
-            <div className="container">
+          <div className="mobile-menu-area hidden-lg ">
+            <div className="container-fluid ">
               <div className="row">
                 <div className="col-md-12">
                   <div className="mobile-menu">
                     <div className="logo">
-                      <Link href="/">
+                      <Link href="/" >
                         <a>
-                          <Logo />
+                          <Img s="logo/logoheader.png" w="250px"/>
                         </a>
                       </Link>
                     </div>

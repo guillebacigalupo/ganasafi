@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Img from "../components/image";
 
 export default function OurProducts({ data }) {
   const { standalone } = data;
@@ -13,7 +14,7 @@ export default function OurProducts({ data }) {
           <div className="row">
             <div className="col-md-12 col-sm-12 col-xs-12">
               <div className="section-headline text-center">
-                <h3 className="text-white">Fondos de inversión</h3>
+                <h3 className="text-white">Fondos de Inversión</h3>
                 <p className="text-white">
                   Tu confianza, nuestro compromiso.<br/>Invierte en el fondo que más se adapte a tu perfil, objetivos y necesidades.
                 </p>
@@ -26,14 +27,17 @@ export default function OurProducts({ data }) {
               <div className="col-md-6 col-sm-6 col-xs-12">
                 <div className="support-services wow ">
                   <a className="support-images" href="#">
-                    <i className="flaticon-like-2"></i>
+                    <Img s="rendimiento.png" a="Gana Rendimiento" w="60px" />
                   </a>
                   <div className="support-content">
-                    <h4 className="text-light-green">
-                      <strong>GanaRendimiento - FIA</strong>
-                    </h4>
+                    <Link href="/productos/gana-rendimiento">
+                      <a><h4 className="text-light-green">
+                        <strong>GanaRendimiento - FIA</strong>
+                      </h4>
+                      </a>
+                      </Link>
                     <p>
-                     La alternativa perfecta para invertir en BS y tener disponibilidad de tus recursos.
+                    La opción acertada de Invertir en Bs y contar con liquidez inmediata.
                     </p>
 
                     <Link href="/productos/gana-rendimiento">
@@ -48,12 +52,16 @@ export default function OurProducts({ data }) {
               <div className="col-md-6 col-sm-6 col-xs-12">
                 <div className="support-services wow ">
                   <a className="support-images" href="#">
-                    <i className="flaticon-like-3"></i>
+                    <Img s="inversiones.png" a="Gana Inversiones" w="60px" />
                   </a>
                   <div className="support-content">
-                    <h4 className="text-light-green">
-                      <strong>GanaInversiones - FIA</strong>
-                    </h4>
+                    <Link href="/productos/gana-rendimiento">
+                      <a>
+                        <h4 className="text-light-green">
+                          <strong>GanaInversiones - FIA</strong>
+                        </h4>
+                      </a>
+                    </Link>
                     <p>
                      La alternativa perfecta para invertir en USD y tener disponibilidad de tus recursos.
                     </p>

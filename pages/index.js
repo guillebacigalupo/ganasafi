@@ -7,8 +7,26 @@ import Comparator from "../components/comparator";
 import Contacts from "../components/contacts";
 import Img from "../components/image";
 
+
+export async function getServerSideProps(ctx) {
+  const { req, res, params } = ctx;
+  const PORT = process.env.PORT ?? 3000;
+  const baseurl = process.env.BASE_URL + ":" + PORT;
+  
+  let r = await fetch(baseurl + '/api/posts?where={"post_type":"slider"}');
+
+  let sliders = r.status === 200 ? await r.json() : [];
+
+  return {
+    props: {
+      sliders,
+    },
+  };
+}
+
 export default function Home({ sliders }) {
   let count = sliders.length;
+  
   return (
     <Container>
       {count > 0 && <Slider sliders={sliders} />}
@@ -19,19 +37,15 @@ export default function Home({ sliders }) {
             <div className="col-md-6 col-sm-6 col-xs-12">
               <div className="feature-content">
                 <div className="feature-images">
-                  <Img s="feature/f1.png" a="Picture of the author" />
+                  <Img s="feature/about.png" a="Ganasafi" />
                 </div>
               </div>
             </div>
             <div className="col-md-6 col-sm-6 col-xs-12">
               <div className="feature-text">
-                <h3 className="text-green">¿Qué es GANASAFI?</h3>
-                <p>
-                  <strong>
-                    Ganadero Sociedad Administradora de Fondos de Inversión S.A.
-                    GanaSafi S.A.
-                  </strong>
-                </p>
+                <h3 className="text-green title-about">GanaSafi S.A.<br/>Ganadero Sociedad Administradora de Fondos de Inversión S.A.
+                    </h3>
+               
                 <p>
                   Es miembro del grupo <strong>Financiero Ganadero</strong>,
                   nace el año 2020, con la <strong>misión</strong> de
@@ -60,17 +74,3 @@ export default function Home({ sliders }) {
   );
 }
 
-export async function getServerSideProps(ctx) {
-  const { req, res, params } = ctx;
-  const PORT = process.env.PORT ?? 3000;
-  const baseurl = process.env.BASE_URL + ":" + PORT;
-
-  let r = await fetch(baseurl + '/api/posts?where={"post_type":"slider"}');
-
-  let sliders = r.status === 200 ? await r.json() : [];
-  return {
-    props: {
-      sliders,
-    },
-  };
-}

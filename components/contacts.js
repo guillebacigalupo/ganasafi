@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import ReCAPTCHA from "react-google-recaptcha";
+import Img from "../components/image";
 
 export default function Contacts({ data }) {
   const router = useRouter();
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [message, setMessage] = useState(router.query?.m ?? "");
+  const [message, setMessage] = useState(router.query.m ?? "");
   const [responseMessage, setResponseMessage] = useState("");
   const [submitted, setSubmitted] = useState("false");
   console.log(message);
@@ -37,8 +38,16 @@ export default function Contacts({ data }) {
   };
 
   useEffect(() => {
-    router.query?.m && message == "" && setMessage(router.query.m);
+    router.query.m && message == "" && setMessage(router.query.m);
   }, [router, message]);
+
+
+    useEffect(()=>{
+        if(!router.isReady) return;
+
+       router.query.m && message == "" && setMessage(router.query.m);
+
+    }, [router.isReady]);
   
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -108,7 +117,7 @@ export default function Contacts({ data }) {
             <div className="col-md-12 col-sm-12 col-xs-12">
               <div className="section-headline text-center">
                 <h3 className="text-light-green">Contáctanos</h3>
-                <p>¿No sabes como invertir?, contáctate con un asesor a través de las sucursales del banco ganadero como canal de distribución de los fondos.
+                <p>¿No sabes como invertir?, contáctate con un asesor a través de las sucursales del Banco Ganadero como canal de distribución de los fondos.
 </p>
               </div>
             </div>
@@ -119,17 +128,18 @@ export default function Contacts({ data }) {
                 <div className="col-md-4 col-sm-4 col-xs-12">
                   <div className="contact-icon text-center">
                     <div className="single-icon">
-                      <i className="fa fa-mobile"></i>
+                      <Img s="celular.png" a="Ganasafi" w="80px" />
+                      <br/><br/>
                       <p>
-                        <strong>La Paz:</strong> 5912 2173000
+                        <strong>La Paz:</strong> (591) 2-2173000
                         <br />
                         Interno: 3350 -3330
                         <br />
-                        <strong>Cochabamba:</strong> 591-4- 4173000
+                        <strong>Cochabamba:</strong> (591) 4-4173000
                         <br />
                         Interno: 3437-3430
                         <br />
-                        <strong>Santa Cruz:</strong> 591-3-3173000
+                        <strong>Santa Cruz:</strong> (591) 3-3173000
                         <br />
                         Interno: 3268-3270
                       </p>
@@ -139,7 +149,8 @@ export default function Contacts({ data }) {
                 <div className="col-md-4 col-sm-4 col-xs-12">
                   <div className="contact-icon text-center">
                     <div className="single-icon">
-                      <i className="fa fa-envelope-o"></i>
+                      <Img s="mail.png" a="Ganasafi" w="80px" />
+                      <br/><br/>
                       <p>
                         <strong>Email:</strong> informaciones@ganasafi.com.bo
                         <br />
@@ -152,12 +163,22 @@ export default function Contacts({ data }) {
                 <div className="col-md-4 col-sm-4 col-xs-12">
                   <div className="contact-icon text-center">
                     <div className="single-icon">
-                      <i className="fa fa-map-marker"></i>
+                      <Img s="ubicacion.png" a="Ganasafi" w="80px" />
+                      <br/><br/>
                       <p>
-                        <strong>Oficina Central de GanaSafi S.A.:</strong>
-                        <br />
-                        Calle Murillo N°89 y Bolívar, zona Central, Santa Cruz
-                        de la Sierra – Bolivia, Teléfono: 591-3-3170400
+                        <strong>Santa Cruz: </strong>
+                        
+                        Calle Murillo N°89 y Bolívar
+                      </p>
+                      <p>
+                        <strong>La Paz: </strong>
+                        
+                        Sucursal La Paz Av. Camacho N° 1372, Zona Central
+                      </p>
+                      <p>
+                        <strong>Cochabamba: </strong>
+                        
+                        Sucursal Cochabamba Av. Ayacucho Nº 174 – Edificio María Antonieta - PB
                       </p>
                     </div>
                   </div>
@@ -184,7 +205,7 @@ export default function Contacts({ data }) {
                           name="name"
                           id="name"
                           className="form-control"
-                          placeholder="Name"
+                          placeholder="Nombre"
                           required
                           data-error="Ingresa tu nombre"
                           onChange={(e) => {
@@ -214,7 +235,7 @@ export default function Contacts({ data }) {
                           id="message"
                           name="message"
                           rows="7"
-                          placeholder="Massage"
+                          placeholder="Mensaje"
                           className="form-control"
                           required
                           data-error="Escribe aquí tu mensaje"
@@ -230,7 +251,7 @@ export default function Contacts({ data }) {
                           {responseMessage}
                         </div>
                         <div className="clearfix"></div>
-                        <ReCAPTCHA size="normal" sitekey="<YOUR SITE KEY>" />
+                        {/*<ReCAPTCHA size="normal" sitekey="<YOUR SITE KEY>" />*/}
 
                         <div className="clearfix"></div>
                         <button

@@ -17,7 +17,7 @@ cacheImages = importAll(
   )
 );
 
-export default function Img({ s, a, c }) {
+export default function Img({ s, a, c, w }) {
   /*
   let subfolders = s.split('/');
   let basedir = process.env.NEXT_PUBLIC_IMAGE_PATH;
@@ -50,6 +50,7 @@ export default function Img({ s, a, c }) {
           src={cacheImages[s]}
           layout="fill"
           alt={a ?? ""}
+          width={w ?? ""}
         />
       )}
 

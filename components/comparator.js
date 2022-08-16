@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export default function Comparator({ data }) {
-    const message = "Deseo solicitar infomación sobre";
+    const message = "Deseo solicitar información sobre";
   return (
     <>
       <div className="pricing-area area-padding-2" id="comparador">
@@ -9,9 +9,9 @@ export default function Comparator({ data }) {
           <div className="row">
             <div className="col-md-12 col-sm-12 col-xs-12">
               <div className="section-headline text-center">
-                <h3 className="text-light-green">Comparador de fondos</h3>
-                <p>
-                  Conoce las cracterísticas de cada uno de nuestros productos
+                <h3 className="text-white">Comparador de Fondos</h3>
+                <p className="text-green">
+                  Elige el fondo correcto que se adapte a tu perfil y necesidades
                 </p>
               </div>
             </div>
@@ -25,7 +25,7 @@ export default function Comparator({ data }) {
                       <h4 className="text-green">GanaInversiones - FIA</h4>
                     </div>
                     <div className="rates">
-                      Moneda: <span className="users">Dolares</span>
+                      Moneda: <span className="users">Dólares</span>
                     </div>
                   </div>
                   <ol>
@@ -37,7 +37,7 @@ export default function Comparator({ data }) {
                     </li>
                     <li className="check">
                       <strong className="text-light-green">
-                        Monto de apertura:
+                       Monto mínimo de Inversión
                       </strong>{" "}
                       USD 100
                     </li>
@@ -45,15 +45,14 @@ export default function Comparator({ data }) {
                       <strong className="text-light-green">
                         Rescates permitidos:
                       </strong>{" "}
-                      Sin Restricciones. Sin previa notificación $us. 100.000
+                      <br/>Sin Restricciones.<br/> Sin previa notificación USD 100.000
                     </li>
                     <li className="check">
                       <strong className="text-light-green">
                         Política de rescate:
                       </strong>{" "}
-                      Con 3 dias hábiles de notificación de $us. 100.001 a
-                      $us.500.000 <br />
-                      Con 4 días hábiles mayores a $us. 500.000
+                      <br/>Con 3 días hábiles de notificación de USD 100.001 a
+                      USD.500.000 
                     </li>
                     <li className="check">
                       <strong className="text-light-green">
@@ -84,7 +83,7 @@ export default function Comparator({ data }) {
 
 
                   </div>
-                  <Link href="/productos/gana-rendimiento">
+                  <Link href="/productos/gana-inversiones">
                       <a className="ab-btn left-ab-btn btn-service">
                         Quiero saber más
                       </a>
@@ -111,7 +110,7 @@ export default function Comparator({ data }) {
                     </li>
                     <li className="check">
                       <strong className="text-light-green">
-                        Monto de apertura:
+                        Monto mínimo de Inversión:
                       </strong>{" "}
                       Bs. 1000
                     </li>
@@ -119,15 +118,14 @@ export default function Comparator({ data }) {
                       <strong className="text-light-green">
                         Rescates permitidos:
                       </strong>{" "}
-                      Sin Restricciones. sin previa notificación Bs. 700.000
+                      <br/>Sin Restricciones.<br/>Sin previa notificación Bs. 700.000
                     </li>
                     <li className="check">
                       <strong className="text-light-green">
                         Política de rescate:
                       </strong>{" "}
-                      Con 3 dias hábiles de notificación de bs. 700.001 a Bs.
-                      3.500.000 <br />
-                      Con 4 días hábiles mayores a Bs.3.500.001
+                      <br/>Con 3 días hábiles de notificación de bs. 700.001 a Bs.
+                      3.500.000 
                     </li>
                     <li className="check">
                       <strong className="text-light-green">
@@ -157,7 +155,7 @@ export default function Comparator({ data }) {
                     </Link>
                   </div>
 
-                  <Link href="/productos/gana-inversiones">
+                  <Link href="/productos/gana-rendimiento">
                     <a className="ab-btn left-ab-btn btn-service">
                       Quiero saber más
                     </a>
